@@ -1,0 +1,105 @@
+LexToken(VARIABLE_GLOBAL,'$global_var',3,2)
+LexToken(VARIABLE_GLOBAL,'$total_count',4,19)
+LexToken(VARIABLE_GLOBAL,'$user_name',5,38)
+LexToken(VARIABLE_CONSTANTE,'J',5,52)
+LexToken(VARIABLE_LOCAL,'ohn',5,53)
+LexToken(VARIABLE_GLOBAL,'$MAX_LIMIT',6,58)
+LexToken(VARIABLE_GLOBAL,'$is_active',7,75)
+LexToken(VARIABLE_LOCAL,'true',7,88)
+LexToken(VARIABLE_LOCAL,'global_var',9,96)
+LexToken(VARIABLE_LOCAL,'global_var',10,113)
+LexToken(VARIABLE_INSTANCIA,'@name',10,123)
+LexToken(VARIABLE_GLOBAL,'$global',11,130)
+LexToken(VARIABLE_LOCAL,'var',11,138)
+LexToken(VARIABLE_LOCAL,'name',12,145)
+LexToken(VARIABLE_CONSTANTE,'MAX_VALUE',13,153)
+LexToken(VARIABLE_CLASE,'@@class_var',15,170)
+LexToken(VARIABLE_CLASE,'@@total_count',16,188)
+LexToken(VARIABLE_CLASE,'@@is_enabled',17,208)
+LexToken(VARIABLE_LOCAL,'false',17,223)
+LexToken(VARIABLE_CLASE,'@@user_list',18,229)
+LexToken(VARIABLE_CONSTANTE,'A',18,245)
+LexToken(VARIABLE_LOCAL,'lice',18,246)
+LexToken(VARIABLE_CONSTANTE,'B',18,254)
+LexToken(VARIABLE_LOCAL,'ob',18,255)
+LexToken(VARIABLE_CLASE,'@@MAX_LIMIT',19,260)
+LexToken(VARIABLE_CLASE,'@@class_var',21,281)
+LexToken(VARIABLE_LOCAL,'class',22,303)
+LexToken(VARIABLE_LOCAL,'total_count',23,319)
+LexToken(VARIABLE_CLASE,'@@is',24,332)
+LexToken(VARIABLE_LOCAL,'active',24,337)
+LexToken(VARIABLE_LOCAL,'true',24,346)
+LexToken(VARIABLE_CLASE,'@@ClassVar',25,351)
+
+Errores:
+Illegal character '=' at line 3
+Illegal character '1' at line 3
+Illegal character '0' at line 3
+Illegal character '=' at line 4
+Illegal character '1' at line 4
+Illegal character '0' at line 4
+Illegal character '0' at line 4
+Illegal character '=' at line 5
+Illegal character ''' at line 5
+Illegal character ''' at line 5
+Illegal character '=' at line 6
+Illegal character '5' at line 6
+Illegal character '0' at line 6
+Illegal character '0' at line 6
+Illegal character '=' at line 7
+Illegal character '$' at line 9
+Illegal character '$' at line 9
+Illegal character '=' at line 9
+Illegal character '1' at line 9
+Illegal character '0' at line 9
+Illegal character '$' at line 10
+Illegal character '$' at line 12
+Illegal character '-' at line 12
+Illegal character '$' at line 13
+Illegal character '$' at line 13
+Illegal character '=' at line 13
+Illegal character '1' at line 13
+Illegal character '0' at line 13
+Illegal character '0' at line 13
+Illegal character '=' at line 15
+Illegal character '1' at line 15
+Illegal character '0' at line 15
+Illegal character '0' at line 15
+Illegal character '=' at line 16
+Illegal character '2' at line 16
+Illegal character '0' at line 16
+Illegal character '0' at line 16
+Illegal character '=' at line 17
+Illegal character '=' at line 18
+Illegal character '[' at line 18
+Illegal character ''' at line 18
+Illegal character ''' at line 18
+Illegal character ',' at line 18
+Illegal character ''' at line 18
+Illegal character ''' at line 18
+Illegal character ']' at line 18
+Illegal character '=' at line 19
+Illegal character '1' at line 19
+Illegal character '0' at line 19
+Illegal character '0' at line 19
+Illegal character '0' at line 19
+Illegal character '@' at line 21
+Illegal character '=' at line 21
+Illegal character '1' at line 21
+Illegal character '0' at line 21
+Illegal character '0' at line 21
+Illegal character '@' at line 22
+Illegal character '@' at line 22
+Illegal character '1' at line 22
+Illegal character '=' at line 22
+Illegal character '2' at line 22
+Illegal character '0' at line 22
+Illegal character '0' at line 22
+Illegal character '@' at line 23
+Illegal character '@' at line 23
+Illegal character '-' at line 24
+Illegal character '=' at line 24
+Illegal character '=' at line 25
+Illegal character '4' at line 25
+Illegal character '0' at line 25
+Illegal character '0' at line 25

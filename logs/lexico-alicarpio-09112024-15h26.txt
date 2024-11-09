@@ -1,0 +1,10 @@
+LexToken(VARIABLE_CONSTANTE,'VARIABLE_CONSTANTE',2,1)
+LexToken(VARIABLE_CONSTANTE,'OTRA_CONSTANTE',4,22)
+LexToken(VARIABLE_LOCAL,'initials',6,39)
+LexToken(VARIABLE_LOCAL,'_perrito12',8,51)
+LexToken(VARIABLE_CLASE,'@@class_variable',10,64)
+LexToken(VARIABLE_INSTANCIA,'@engineer',12,82)
+LexToken(VARIABLE_CLASE,'@@class_variable',14,93)
+LexToken(VARIABLE_CONSTANTE,'TYPES',16,111)
+
+Errores:

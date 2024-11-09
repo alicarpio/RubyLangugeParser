@@ -1,38 +1,50 @@
 import ply.lex as lex
 import Logs as loger
+import re
 
-reserved = {}
+# Palabras reservadas (si las necesitas en el futuro)
+reserved = {
+    'true': 'TRUE',
+    'false': 'FALSE',
+}
 
+# Definición de tokens
 tokens = (
-   'VARIABLE_GLOBAL',
+    'VARIABLE_GLOBAL',
     'VARIABLE_CONSTANTE',
     'VARIABLE_CLASE',
     'VARIABLE_LOCAL',
     'VARIABLE_INSTANCIA',
 ) + tuple(reserved.values())
 
-def t_VARIABLE_CONSTANTE(t):
-    r'^[A-Z][A-Z]*$'
-    t.type = reserved.get(t.value, 'VARIABLE_CONSTANTE')
-    return t
-
-def t_VARIABLE_CLASE(t):
-    r'^\@\@[a-zA-Z_]\w*$'
-    t.type = reserved.get(t.value, 'VARIABLE_CLASE')
-    return t
+# Reglas de expresiones regulares para tokens
 
 def t_VARIABLE_GLOBAL(t):
-    r'^\$[a-zA-Z_]\w*$'
+    r'\$[a-zA-Z_][a-zA-Z0-9_]*'
+    if not re.match(r'^\$[a-zA-Z_][a-zA-Z0-9_]*$', t.value):
+        t.lexer.skip(1)  # Ignorar este token
+        return None
     t.type = reserved.get(t.value, 'VARIABLE_GLOBAL')
     return t
 
+def t_VARIABLE_CLASE(t):
+    r'@@[a-zA-Z_][a-zA-Z0-9_]*'
+    t.type = reserved.get(t.value, 'VARIABLE_CLASE')
+    return t
+
+
 def t_VARIABLE_INSTANCIA(t):
-    r'^\@[a-zA-Z_]\w*$'
+    r'@[a-zA-Z_][a-zA-Z0-9_]*'
     t.type = reserved.get(t.value, 'VARIABLE_INSTANCIA')
     return t
 
+def t_VARIABLE_CONSTANTE(t):
+    r'[A-Z][A-Z0-9_]*'
+    t.type = reserved.get(t.value, 'VARIABLE_CONSTANTE')
+    return t
+
 def t_VARIABLE_LOCAL(t):
-    r'^([a-z]|_[a-zA-Z0-9_])([a-zA-Z0-9_]\w*)?$'
+    r'[a-z_][a-zA-Z0-9_]*'
     t.type = reserved.get(t.value, 'VARIABLE_LOCAL')
     return t
 
@@ -54,19 +66,31 @@ t_ignore = ' \t'
 lexer = lex.lex()
 
 data = '''
-VARIABLE_CONSTANTE
+    true
+    $global_var 
+    $total_count 
+    $user_name 
+    $MAX_LIMIT 
+    $is_active 
+    
+        $$global_var   
+        $global_var@name 
+        $global var 
+        $-name 
+        $$MAX_VALUE
 
-OTRA_CONSTANTE
+@@class_var 
+@@total_count
+@@is_enabled
+@@user_list 
+@@MAX_LIMIT 
 
-initials
+@@@class_var  
+@@1class  
+@@ total_count 
+@@is-active 
+@@ClassVar 
 
-@@class_variable
-
-@engineer
-
-@@class_variable
-
-TYPES
 '''
 
 loger.create_log(lexer,"alicarpio",data, error_list)
