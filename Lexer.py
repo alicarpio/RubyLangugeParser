@@ -20,6 +20,18 @@ tokens = (
     'RBRACKET',
     'HASHROCKET',
     'COLON',
+    'GT',
+    'LT',
+    'GE',
+    'LE',
+    'EQ',
+    'NE',
+    'PLUS',
+    'MINUS',
+    'MULTIPLY',
+    'DIVIDE',
+    'MODULE',
+    'POWER'
 ) + tuple(reserved.values())
 
 t_COMA = r'\,'
@@ -27,6 +39,18 @@ t_LBRACKET = r'{'
 t_RBRACKET = r'\}'
 t_HASHROCKET = r'=>'
 t_COLON = r'\:'
+t_GT = r'>'
+t_LT = r'<'
+t_GE = r'>='
+t_LE = r'<='
+t_EQ = r'=='
+t_NE = r'!='
+t_PLUS = r'\+'
+t_MINUS = r'\-'
+t_MULTIPLY = r'\*'
+t_DIVIDE = r'/'
+t_MODULE = r'%'
+t_POWER = r'\*\*'
 
 def t_STRING(t):
     r'\'[A-Za-z0-9_]*\'|\"[A-Za-z0-9_]*\"'
@@ -79,6 +103,28 @@ lexer = lex.lex()
 
 data = '''
     { name: "Alina", age: 25, city: "Guayaquil" }
+    
+    5 > 3       
+    10 < 20      
+    15 >= 15     
+    8 <= 10        
+    5 == 5         
+    7 != 2  
+    
+    3 + 4        
+10 - 2         
+6 * 7          
+20 / 5          
+10 % 3          
+2 ** 3        
+
+3 + 4 * 2 > 7                   
+(10 - 5) * 3 >= 15              
+20 / 4 == 5 and 10 % 3 != 1     
+2 ** 3 + 5 <= 13     
+       
+
+    
     'string'
     true
     $global_var 

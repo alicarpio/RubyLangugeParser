@@ -1,0 +1,135 @@
+LexToken(LBRACKET,'{',2,5)
+LexToken(VARIABLE_LOCAL,'name',2,7)
+LexToken(COLON,':',2,11)
+LexToken(STRING,'"Alina"',2,13)
+LexToken(COMA,',',2,20)
+LexToken(VARIABLE_LOCAL,'age',2,22)
+LexToken(COLON,':',2,25)
+LexToken(COMA,',',2,29)
+LexToken(VARIABLE_LOCAL,'city',2,31)
+LexToken(COLON,':',2,35)
+LexToken(STRING,'"Guayaquil"',2,37)
+LexToken(RBRACKET,'}',2,49)
+LexToken(GT,'>',4,62)
+LexToken(LT,'<',5,80)
+LexToken(GE,'>=',6,98)
+LexToken(LE,'<=',7,115)
+LexToken(EQ,'==',8,135)
+LexToken(NE,'!=',9,155)
+LexToken(PLUS,'+',11,173)
+LexToken(MINUS,'-',12,188)
+LexToken(MULTIPLY,'*',13,203)
+LexToken(DIVIDE,'/',14,220)
+LexToken(MODULE,'%',15,237)
+LexToken(POWER,'**',16,253)
+LexToken(PLUS,'+',18,269)
+LexToken(MULTIPLY,'*',18,273)
+LexToken(GT,'>',18,277)
+LexToken(MINUS,'-',19,304)
+LexToken(MULTIPLY,'*',19,309)
+LexToken(GE,'>=',19,313)
+LexToken(DIVIDE,'/',20,336)
+LexToken(EQ,'==',20,340)
+LexToken(VARIABLE_LOCAL,'and',20,345)
+LexToken(MODULE,'%',20,352)
+LexToken(NE,'!=',20,356)
+LexToken(POWER,'**',21,368)
+LexToken(PLUS,'+',21,373)
+LexToken(LE,'<=',21,377)
+LexToken(STRING,"'string'",25,406)
+LexToken(TRUE,'true',26,419)
+LexToken(VARIABLE_GLOBAL,'$global_var',27,428)
+LexToken(VARIABLE_GLOBAL,'$total_count',28,445)
+LexToken(VARIABLE_GLOBAL,'$user_name',29,463)
+LexToken(VARIABLE_GLOBAL,'$MAX_LIMIT',30,479)
+LexToken(VARIABLE_GLOBAL,'$is_active',31,495)
+LexToken(VARIABLE_GLOBAL,'$global_var',33,517)
+LexToken(VARIABLE_GLOBAL,'$global_var',34,536)
+LexToken(VARIABLE_INSTANCIA,'@name',34,547)
+LexToken(VARIABLE_GLOBAL,'$global',35,558)
+LexToken(VARIABLE_LOCAL,'var',35,566)
+LexToken(MINUS,'-',36,576)
+LexToken(VARIABLE_LOCAL,'name',36,577)
+LexToken(VARIABLE_GLOBAL,'$MAX_VALUE',37,588)
+LexToken(VARIABLE_CLASE,'@@class_var',39,600)
+LexToken(VARIABLE_CLASE,'@@total_count',40,613)
+LexToken(VARIABLE_CLASE,'@@is_enabled',41,627)
+LexToken(VARIABLE_CLASE,'@@user_list',42,640)
+LexToken(VARIABLE_CLASE,'@@MAX_LIMIT',43,653)
+LexToken(VARIABLE_CLASE,'@@class_var',45,668)
+LexToken(VARIABLE_LOCAL,'class',46,685)
+LexToken(VARIABLE_LOCAL,'total_count',47,696)
+LexToken(VARIABLE_CLASE,'@@is',48,709)
+LexToken(MINUS,'-',48,713)
+LexToken(VARIABLE_LOCAL,'active',48,714)
+LexToken(VARIABLE_CLASE,'@@ClassVar',49,722)
+
+Errores:
+Illegal character '2' at line 2
+Illegal character '5' at line 2
+Illegal character '5' at line 4
+Illegal character '3' at line 4
+Illegal character '1' at line 5
+Illegal character '0' at line 5
+Illegal character '2' at line 5
+Illegal character '0' at line 5
+Illegal character '1' at line 6
+Illegal character '5' at line 6
+Illegal character '1' at line 6
+Illegal character '5' at line 6
+Illegal character '8' at line 7
+Illegal character '1' at line 7
+Illegal character '0' at line 7
+Illegal character '5' at line 8
+Illegal character '5' at line 8
+Illegal character '7' at line 9
+Illegal character '2' at line 9
+Illegal character '3' at line 11
+Illegal character '4' at line 11
+Illegal character '1' at line 12
+Illegal character '0' at line 12
+Illegal character '2' at line 12
+Illegal character '6' at line 13
+Illegal character '7' at line 13
+Illegal character '2' at line 14
+Illegal character '0' at line 14
+Illegal character '5' at line 14
+Illegal character '1' at line 15
+Illegal character '0' at line 15
+Illegal character '3' at line 15
+Illegal character '2' at line 16
+Illegal character '3' at line 16
+Illegal character '3' at line 18
+Illegal character '4' at line 18
+Illegal character '2' at line 18
+Illegal character '7' at line 18
+Illegal character '(' at line 19
+Illegal character '1' at line 19
+Illegal character '0' at line 19
+Illegal character '5' at line 19
+Illegal character ')' at line 19
+Illegal character '3' at line 19
+Illegal character '1' at line 19
+Illegal character '5' at line 19
+Illegal character '2' at line 20
+Illegal character '0' at line 20
+Illegal character '4' at line 20
+Illegal character '5' at line 20
+Illegal character '1' at line 20
+Illegal character '0' at line 20
+Illegal character '3' at line 20
+Illegal character '1' at line 20
+Illegal character '2' at line 21
+Illegal character '3' at line 21
+Illegal character '5' at line 21
+Illegal character '1' at line 21
+Illegal character '3' at line 21
+Illegal character '$' at line 33
+Illegal character '$' at line 36
+Illegal character '$' at line 37
+Illegal character '@' at line 45
+Illegal character '@' at line 46
+Illegal character '@' at line 46
+Illegal character '1' at line 46
+Illegal character '@' at line 47
+Illegal character '@' at line 47
