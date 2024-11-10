@@ -2,28 +2,39 @@ import ply.lex as lex
 import Logs as loger
 import re
 
-# Palabras reservadas (si las necesitas en el futuro)
 reserved = {
     'true': 'TRUE',
     'false': 'FALSE',
+    'nil': 'NULL',
 }
 
-# Definición de tokens
 tokens = (
+    'STRING',
     'VARIABLE_GLOBAL',
     'VARIABLE_CONSTANTE',
     'VARIABLE_CLASE',
     'VARIABLE_LOCAL',
     'VARIABLE_INSTANCIA',
+    'COMA',
+    'LBRACKET',
+    'RBRACKET',
+    'HASHROCKET',
+    'COLON',
 ) + tuple(reserved.values())
 
-# Reglas de expresiones regulares para tokens
+t_COMA = r'\,'
+t_LBRACKET = r'{'
+t_RBRACKET = r'\}'
+t_HASHROCKET = r'=>'
+t_COLON = r'\:'
+
+def t_STRING(t):
+    r'\'[A-Za-z0-9_]*\'|\"[A-Za-z0-9_]*\"'
+    t.value = str(t.value)
+    return t
 
 def t_VARIABLE_GLOBAL(t):
     r'\$[a-zA-Z_][a-zA-Z0-9_]*'
-    if not re.match(r'^\$[a-zA-Z_][a-zA-Z0-9_]*$', t.value):
-        t.lexer.skip(1)  # Ignorar este token
-        return None
     t.type = reserved.get(t.value, 'VARIABLE_GLOBAL')
     return t
 
@@ -48,6 +59,7 @@ def t_VARIABLE_LOCAL(t):
     t.type = reserved.get(t.value, 'VARIABLE_LOCAL')
     return t
 
+
 error_list = []
 
 def t_error(t):
@@ -66,6 +78,8 @@ t_ignore = ' \t'
 lexer = lex.lex()
 
 data = '''
+    { name: "Alina", age: 25, city: "Guayaquil" }
+    'string'
     true
     $global_var 
     $total_count 
@@ -73,11 +87,11 @@ data = '''
     $MAX_LIMIT 
     $is_active 
     
-        $$global_var   
-        $global_var@name 
-        $global var 
-        $-name 
-        $$MAX_VALUE
+    $$global_var   
+    $global_var@name 
+    $global var 
+    $-name 
+    $$MAX_VALUE
 
 @@class_var 
 @@total_count

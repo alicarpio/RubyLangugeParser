@@ -1,0 +1,52 @@
+LexToken(LBRACKET,'{',2,5)
+LexToken(VARIABLE_LOCAL,'name',2,7)
+LexToken(COLON,':',2,11)
+LexToken(STRING,'"Alina"',2,13)
+LexToken(COMA,',',2,20)
+LexToken(VARIABLE_LOCAL,'age',2,22)
+LexToken(COLON,':',2,25)
+LexToken(COMA,',',2,29)
+LexToken(VARIABLE_LOCAL,'city',2,31)
+LexToken(COLON,':',2,35)
+LexToken(STRING,'"Guayaquil"',2,37)
+LexToken(RBRACKET,'}',2,49)
+LexToken(STRING,"'string'",3,55)
+LexToken(TRUE,'true',4,68)
+LexToken(VARIABLE_GLOBAL,'$global_var',5,77)
+LexToken(VARIABLE_GLOBAL,'$total_count',6,94)
+LexToken(VARIABLE_GLOBAL,'$user_name',7,112)
+LexToken(VARIABLE_GLOBAL,'$MAX_LIMIT',8,128)
+LexToken(VARIABLE_GLOBAL,'$is_active',9,144)
+LexToken(VARIABLE_GLOBAL,'$global_var',11,166)
+LexToken(VARIABLE_GLOBAL,'$global_var',12,185)
+LexToken(VARIABLE_INSTANCIA,'@name',12,196)
+LexToken(VARIABLE_GLOBAL,'$global',13,207)
+LexToken(VARIABLE_LOCAL,'var',13,215)
+LexToken(VARIABLE_LOCAL,'name',14,226)
+LexToken(VARIABLE_GLOBAL,'$MAX_VALUE',15,237)
+LexToken(VARIABLE_CLASE,'@@class_var',17,249)
+LexToken(VARIABLE_CLASE,'@@total_count',18,262)
+LexToken(VARIABLE_CLASE,'@@is_enabled',19,276)
+LexToken(VARIABLE_CLASE,'@@user_list',20,289)
+LexToken(VARIABLE_CLASE,'@@MAX_LIMIT',21,302)
+LexToken(VARIABLE_CLASE,'@@class_var',23,317)
+LexToken(VARIABLE_LOCAL,'class',24,334)
+LexToken(VARIABLE_LOCAL,'total_count',25,345)
+LexToken(VARIABLE_CLASE,'@@is',26,358)
+LexToken(VARIABLE_LOCAL,'active',26,363)
+LexToken(VARIABLE_CLASE,'@@ClassVar',27,371)
+
+Errores:
+Illegal character '2' at line 2
+Illegal character '5' at line 2
+Illegal character '$' at line 11
+Illegal character '$' at line 14
+Illegal character '-' at line 14
+Illegal character '$' at line 15
+Illegal character '@' at line 23
+Illegal character '@' at line 24
+Illegal character '@' at line 24
+Illegal character '1' at line 24
+Illegal character '@' at line 25
+Illegal character '@' at line 25
+Illegal character '-' at line 26
