@@ -10,6 +10,8 @@ reserved = {
 
 tokens = (
     'SYMBOL',
+    'LSQBRACKET',
+    'RSQBRACKET',
     'STRING',
     'VARIABLE_GLOBAL',
     'VARIABLE_CONSTANTE',
@@ -40,6 +42,8 @@ tokens = (
 t_COMA = r'\,'
 t_LBRACKET = r'{'
 t_RBRACKET = r'\}'
+t_LSQBRACKET = r'\['
+t_RSQBRACKET = r'\]'
 t_HASHROCKET = r'=>'
 t_COLON = r'\:'
 t_GT = r'>'
@@ -176,6 +180,10 @@ data = '''
 :99_algo
 :_algo
 
+
+[1, 2, 3, :symbol, "string", true, false, nil]
+[10 + 20, 30 * 4, 50 - 6]
+[[1, 2], [3, 4]]
 '''
 
 loger.create_log(lexer,"bryanestrada003",data, error_list)
