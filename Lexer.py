@@ -31,7 +31,9 @@ tokens = (
     'MULTIPLY',
     'DIVIDE',
     'MODULE',
-    'POWER'
+    'POWER',
+    'INTEGER',
+    'FLOAT'
 ) + tuple(reserved.values())
 
 t_COMA = r'\,'
@@ -51,6 +53,16 @@ t_MULTIPLY = r'\*'
 t_DIVIDE = r'/'
 t_MODULE = r'%'
 t_POWER = r'\*\*'
+
+def t_FLOAT(t):
+    r'-?(?:0\.?[0-9]+|[1-9][0-9]*\.?[0-9]*|\.?[0-9]+)'
+    t.value = float(t.value)
+    return t
+
+def t_INTEGER(t):
+    r'-?\b\d+\b'
+    t.value = int(t.value)
+    return t
 
 def t_STRING(t):
     r'\'[A-Za-z0-9_]*\'|\"[A-Za-z0-9_]*\"'
@@ -102,6 +114,10 @@ t_ignore = ' \t'
 lexer = lex.lex()
 
 data = '''
+3.14
+-0.5
+.678
+-123.456
     { name: "Alina", age: 25, city: "Guayaquil" }
     
     5 > 3       
