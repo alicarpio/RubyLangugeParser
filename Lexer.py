@@ -9,6 +9,7 @@ reserved = {
 }
 
 tokens = (
+    'SYMBOL',
     'STRING',
     'VARIABLE_GLOBAL',
     'VARIABLE_CONSTANTE',
@@ -54,6 +55,10 @@ t_DIVIDE = r'/'
 t_MODULE = r'%'
 t_POWER = r'\*\*'
 
+def t_SYMBOL(t):
+    r'\:[a-zA-Z_][a-zA-Z_0-9]*'
+    return t
+
 def t_FLOAT(t):
     r'-?(?:0\.?[0-9]+|[1-9][0-9]*\.?[0-9]*|\.?[0-9]+)'
     t.value = float(t.value)
@@ -78,7 +83,6 @@ def t_VARIABLE_CLASE(t):
     r'@@[a-zA-Z_][a-zA-Z0-9_]*'
     t.type = reserved.get(t.value, 'VARIABLE_CLASE')
     return t
-
 
 def t_VARIABLE_INSTANCIA(t):
     r'@[a-zA-Z_][a-zA-Z0-9_]*'
@@ -167,6 +171,11 @@ data = '''
 @@is-active 
 @@ClassVar 
 
+:algo
+:algo_09
+:99_algo
+:_algo
+
 '''
 
-loger.create_log(lexer,"alicarpio",data, error_list)
+loger.create_log(lexer,"bryanestrada003",data, error_list)
