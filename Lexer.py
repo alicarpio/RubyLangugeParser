@@ -16,15 +16,16 @@ reserved = {
     'until': 'UNTIL',
     'for': 'FOR',
     'do': 'DO',
-    'def': 'DEF',
     'class': 'CLASS',
-    'end': 'END'
+    'def': 'DEF',
+    'initialize': 'INITIALIZE',
+    'end': 'END',
+    'puts': 'PUTS',
+    'new': 'NEW'
 }
 
 tokens = (
     'SYMBOL',
-    'LSQBRACKET',
-    'RSQBRACKET',
     'STRING',
     'VARIABLE_GLOBAL',
     'VARIABLE_CONSTANTE',
@@ -58,7 +59,12 @@ tokens = (
     'POWER',
     'INTEGER',
     'FLOAT',
-    'COMMENT'
+    'COMMENT',
+    'CLASS_NAME',
+    'METHOD_NAME',
+    'VARIABLE_NAME',
+    'EQUALS',
+    'DOT'
 ) + tuple(reserved.values())
 
 t_COMA = r'\,'
@@ -86,6 +92,8 @@ t_POWER = r'\*\*'
 t_AND_OP = r'&&'
 t_OR_OP = r'\|\|'
 t_NOT_OP = r'!'
+t_EQUALS = r'='
+t_DOT = r'\.'
 
 def t_COMMENT(t):
     r'\#.*'
@@ -135,6 +143,17 @@ def t_VARIABLE_LOCAL(t):
     t.type = reserved.get(t.value, 'VARIABLE_LOCAL')
     return t
 
+# Constantes y nombres de clase en Ruby (empiezan con una letra mayúscula)
+def t_CLASS_NAME(t):
+    r'[A-Z][a-zA-Z0-9_]*'
+    return t
+
+# Nombres de métodos y variables locales
+def t_METHOD_NAME(t):
+    r'[a-z_][a-zA-Z0-9_]*'
+    t.type = reserved.get(t.value, 'METHOD_NAME')  # Si es una palabra reservada, cambia el tipo
+    return t
+
 
 error_list = []
 
@@ -154,69 +173,18 @@ t_ignore = ' \t'
 lexer = lex.lex()
 
 data = '''
-    'string'
-    true
-    $global_var 
-    $total_count 
-    $user_name 
-    $MAX_LIMIT 
-    $is_active 
-    
-    $$global_var   
-    $global_var@name 
-    $global var 
-    $-name 
-    $$MAX_VALUE
-
-@@class_var 
-@@total_count
-@@is_enabled
-@@user_list 
-@@MAX_LIMIT 
-
-@@@class_var  
-@@1class  
-@@ total_count 
-@@is-active 
-@@ClassVar 
-
-:algo
-:algo_09
-:99_algo
-:_algo
-
-
-[1, 2, 3, :symbol, "string", true, false, nil]
-[10 + 20, 30 * 4, 50 - 6]
-[[1, 2], [3, 4]]
-
-
-true && false
-10 > 5 || 5 < 3
-!true
-!false
-
-# Este es un comentario de prueba
-if true && false
-  # Otro comentario aquí
-  while x < 10
-    do_something
-  end
-else
-  for i in [1, 2, 3]
-    puts i  # Imprime el valor de i
-  end
-end
-
-def my_method(param1, param2)
-  if param1 > param2; puts "Param1 is greater"; end
-  list = [1, 2, 3]
-  hash = {key: "value"}
-  (1 + 2) * (3 - 4)
-end
-
 class MyClass
+  def initialize(name)
+    @name = name
+  end
+
+  def greet
+    puts "Hello, #{@name}"
+  end
 end
+
+obj = MyClass.new("Ruby")
+obj.greet
 '''
 
 loger.create_log(lexer,"bryanestrada003",data, error_list)
