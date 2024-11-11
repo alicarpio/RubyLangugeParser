@@ -6,6 +6,19 @@ reserved = {
     'true': 'TRUE',
     'false': 'FALSE',
     'nil': 'NULL',
+    'if': 'IF',
+    'else': 'ELSE',
+    'elsif': 'ELSIF',
+    'unless': 'UNLESS',
+    'case': 'CASE',
+    'when': 'WHEN',
+    'while': 'WHILE',
+    'until': 'UNTIL',
+    'for': 'FOR',
+    'do': 'DO',
+    'def': 'DEF',
+    'class': 'CLASS',
+    'end': 'END'
 }
 
 tokens = (
@@ -34,6 +47,9 @@ tokens = (
     'MULTIPLY',
     'DIVIDE',
     'MODULE',
+    'AND_OP',
+    'OR_OP',
+    'NOT_OP',
     'POWER',
     'INTEGER',
     'FLOAT'
@@ -58,6 +74,9 @@ t_MULTIPLY = r'\*'
 t_DIVIDE = r'/'
 t_MODULE = r'%'
 t_POWER = r'\*\*'
+t_AND_OP = r'&&'
+t_OR_OP = r'\|\|'
+t_NOT_OP = r'!'
 
 def t_SYMBOL(t):
     r'\:[a-zA-Z_][a-zA-Z_0-9]*'
@@ -74,7 +93,7 @@ def t_INTEGER(t):
     return t
 
 def t_STRING(t):
-    r'\'[A-Za-z0-9_]*\'|\"[A-Za-z0-9_]*\"'
+    r'\'([^\'\\]*(\\.[^\'\\]*)*)\'|\"([^\"\\]*(\\.[^\"\\]*)*)\"'
     t.value = str(t.value)
     return t
 
@@ -122,33 +141,6 @@ t_ignore = ' \t'
 lexer = lex.lex()
 
 data = '''
-3.14
--0.5
-.678
--123.456
-    { name: "Alina", age: 25, city: "Guayaquil" }
-    
-    5 > 3       
-    10 < 20      
-    15 >= 15     
-    8 <= 10        
-    5 == 5         
-    7 != 2  
-    
-    3 + 4        
-10 - 2         
-6 * 7          
-20 / 5          
-10 % 3          
-2 ** 3        
-
-3 + 4 * 2 > 7                   
-(10 - 5) * 3 >= 15              
-20 / 4 == 5 and 10 % 3 != 1     
-2 ** 3 + 5 <= 13     
-       
-
-    
     'string'
     true
     $global_var 
@@ -184,6 +176,29 @@ data = '''
 [1, 2, 3, :symbol, "string", true, false, nil]
 [10 + 20, 30 * 4, 50 - 6]
 [[1, 2], [3, 4]]
+
+
+true && false
+10 > 5 || 5 < 3
+!true
+!false
+
+if true && false
+  while x < 10
+    do_something
+  end
+else
+  for i in [1, 2, 3]
+    puts i
+  end
+end
+
+def my_method
+  puts "Hello, World!"
+end
+
+class MyClass
+end
 '''
 
 loger.create_log(lexer,"bryanestrada003",data, error_list)
