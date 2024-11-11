@@ -34,8 +34,13 @@ tokens = (
     'COMA',
     'LBRACKET',
     'RBRACKET',
+    'LPAREN',
+    'RPAREN',
+    'LSQBRACKET',
+    'RSQBRACKET',
     'HASHROCKET',
     'COLON',
+    'SEMICOLON',
     'GT',
     'LT',
     'GE',
@@ -52,14 +57,18 @@ tokens = (
     'NOT_OP',
     'POWER',
     'INTEGER',
-    'FLOAT'
+    'FLOAT',
+    'COMMENT'
 ) + tuple(reserved.values())
 
 t_COMA = r'\,'
 t_LBRACKET = r'{'
 t_RBRACKET = r'\}'
+t_LPAREN = r'\('
+t_RPAREN = r'\)'
 t_LSQBRACKET = r'\['
 t_RSQBRACKET = r'\]'
+t_SEMICOLON = r';'
 t_HASHROCKET = r'=>'
 t_COLON = r'\:'
 t_GT = r'>'
@@ -77,6 +86,10 @@ t_POWER = r'\*\*'
 t_AND_OP = r'&&'
 t_OR_OP = r'\|\|'
 t_NOT_OP = r'!'
+
+def t_COMMENT(t):
+    r'\#.*'
+    pass  # Ignorar comentarios o, si quieres, podrías registrarlos en el log
 
 def t_SYMBOL(t):
     r'\:[a-zA-Z_][a-zA-Z_0-9]*'
@@ -183,18 +196,23 @@ true && false
 !true
 !false
 
+# Este es un comentario de prueba
 if true && false
+  # Otro comentario aquí
   while x < 10
     do_something
   end
 else
   for i in [1, 2, 3]
-    puts i
+    puts i  # Imprime el valor de i
   end
 end
 
-def my_method
-  puts "Hello, World!"
+def my_method(param1, param2)
+  if param1 > param2; puts "Param1 is greater"; end
+  list = [1, 2, 3]
+  hash = {key: "value"}
+  (1 + 2) * (3 - 4)
 end
 
 class MyClass
