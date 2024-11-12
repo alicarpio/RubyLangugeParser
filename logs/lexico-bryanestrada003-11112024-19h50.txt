@@ -1,0 +1,106 @@
+LexToken(VARIABLE_GLOBAL,'$global_var',2,1)
+LexToken(VARIABLE_GLOBAL,'$total_count',3,18)
+LexToken(VARIABLE_GLOBAL,'$user_name',4,36)
+LexToken(VARIABLE_GLOBAL,'$MAX_LIMIT',5,52)
+LexToken(VARIABLE_GLOBAL,'$is_active',6,68)
+LexToken(VARIABLE_GLOBAL,'$global_var',8,86)
+LexToken(MINUS,'-',11,145)
+LexToken(VARIABLE_LOCAL,'name',11,146)
+LexToken(EQUALS,'=',12,523)
+LexToken(LBRACKET,'{',12,525)
+LexToken(STRING,'"nombre"',13,529)
+LexToken(HASHROCKET,'=>',13,538)
+LexToken(STRING,'"Juan"',13,541)
+LexToken(COMA,',',13,547)
+LexToken(STRING,'"edad"',14,551)
+LexToken(HASHROCKET,'=>',14,558)
+LexToken(FLOAT,25.0,14,561)
+LexToken(COMA,',',14,563)
+LexToken(SYMBOL,':pais',15,567)
+LexToken(HASHROCKET,'=>',15,573)
+LexToken(STRING,'"México"',15,576)
+LexToken(COMA,',',15,584)
+LexToken(SYMBOL,':activo',16,588)
+LexToken(HASHROCKET,'=>',16,596)
+LexToken(TRUE,'true',16,599)
+LexToken(RBRACKET,'}',17,604)
+LexToken(VARIABLE_LOCAL,'resultado',20,653)
+LexToken(EQUALS,'=',20,663)
+LexToken(VARIABLE_LOCAL,'evaluar_numero',20,665)
+LexToken(LPAREN,'(',20,679)
+LexToken(FLOAT,12.0,20,680)
+LexToken(RPAREN,')',20,682)
+LexToken(VARIABLE_LOCAL,'persona',23,711)
+LexToken(METHOD_NAME,'.each',23,718)
+LexToken(DO,'do',23,724)
+LexToken(PIPE,'|',23,727)
+LexToken(VARIABLE_LOCAL,'clave',23,728)
+LexToken(COMA,',',23,733)
+LexToken(VARIABLE_LOCAL,'valor',23,735)
+LexToken(PIPE,'|',23,740)
+LexToken(IF,'if',24,744)
+LexToken(VARIABLE_LOCAL,'clave',24,747)
+LexToken(METHOD_NAME,'.is_a',24,752)
+LexToken(LPAREN,'(',24,758)
+LexToken(VARIABLE_CONSTANTE,'S',24,759)
+LexToken(VARIABLE_LOCAL,'tring',24,760)
+LexToken(RPAREN,')',24,765)
+LexToken(PUTS,'puts',25,771)
+LexToken(STRING,'"Clave (String): #{clave} => Valor: #{valor}"',25,776)
+LexToken(ELSE,'else',26,824)
+LexToken(PUTS,'puts',27,833)
+LexToken(STRING,'"Clave (Symbol): #{clave} => Valor: #{valor}"',27,838)
+LexToken(END,'end',28,886)
+LexToken(END,'end',29,890)
+LexToken(VARIABLE_LOCAL,'edad_valida',32,920)
+LexToken(EQUALS,'=',32,932)
+LexToken(VARIABLE_LOCAL,'persona',32,934)
+LexToken(LSQBRACKET,'[',32,941)
+LexToken(STRING,'"edad"',32,942)
+LexToken(RSQBRACKET,']',32,948)
+LexToken(GE,'>=',32,950)
+LexToken(FLOAT,18.0,32,953)
+LexToken(AND_OP,'&&',32,956)
+LexToken(VARIABLE_LOCAL,'persona',32,959)
+LexToken(LSQBRACKET,'[',32,966)
+LexToken(STRING,'"activo"',32,967)
+LexToken(RSQBRACKET,']',32,975)
+LexToken(EQ,'==',32,977)
+LexToken(TRUE,'true',32,980)
+LexToken(PUTS,'puts',34,986)
+LexToken(STRING,'"Edad válida y activo: #{edad_valida}"',34,991)
+
+Errores:
+Illegal global variable usage with '$' at line 8
+Illegal global variable '$global_var@name' at line 9
+Illegal global variable '$global var' at line 10
+Illegal global variable usage with '$' at line 11
+Illegal global variable usage with '$' at line 12
+Illegal global variable '$MAX_VALUE
+
+@@class_var 
+@@total_count
+@@is_enabled
+@@user_list 
+@@MAX_LIMIT 
+
+@@@class_var  
+@@1class  
+@@ total_count 
+@@is-active 
+@@ClassVar
+
+# Definición de un método de evaluación
+def evaluar_numero(n)
+  if n > 10
+    return "Mayor que 10"
+  elsif n == 10
+    return "Es igual a 10"
+  else
+    return "Menor que 10"
+  end
+end
+
+# Declaración de un hash
+persona' at line 12
+Illegal character '?' at line 24

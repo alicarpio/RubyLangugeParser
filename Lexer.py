@@ -22,7 +22,7 @@ reserved = {
     'end': 'END',
     'puts': 'PUTS',
     'new': 'NEW',
-    'each': 'EACH'  # Añadir `each` como palabra reservada
+    'each': 'EACH'
 }
 
 tokens = (
@@ -66,10 +66,9 @@ tokens = (
     'VARIABLE_NAME',
     'EQUALS',
     'DOT',
-    'PIPE'  # Para reconocer |
+    'PIPE'
 ) + tuple(reserved.values())
 
-# Operadores y delimitadores
 t_COMA = r'\,'
 t_LBRACKET = r'{'
 t_RBRACKET = r'\}'
@@ -80,7 +79,7 @@ t_RSQBRACKET = r'\]'
 t_SEMICOLON = r';'
 t_HASHROCKET = r'=>'
 t_COLON = r'\:'
-t_PIPE = r'\|'  # Reconoce `|`
+t_PIPE = r'\|'
 t_GT = r'>'
 t_LT = r'<'
 t_GE = r'>='
@@ -99,12 +98,6 @@ t_NOT_OP = r'!'
 t_EQUALS = r'='
 t_DOT = r'\.'
 
-def t_METHOD_NAME(t):
-    r'\.?[a-z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'METHOD_NAME')
-    return t
-
-# Definiciones de tokens
 def t_COMMENT(t):
     r'\#.*'
     pass
@@ -129,18 +122,29 @@ def t_STRING(t):
     return t
 
 def t_VARIABLE_GLOBAL(t):
-    r'\$[a-zA-Z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'VARIABLE_GLOBAL')
+    r'\$[a-zA-Z]*[^\$][a-zA-Z0-9_]*'
+    t.type = 'VARIABLE_GLOBAL'
     return t
 
 def t_VARIABLE_CLASE(t):
-    r'@@[a-zA-Z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'VARIABLE_CLASE')
+    r'\@{2}[a-z]*[a-zA-Z0-9_]*'
+    if re.search(r'[@\s-]', t.value) or re.match(r'@@@', t.value) or re.match(r'@@[0-9]', t.value):
+        error_message = f"Illegal class variable '{t.value}' at line {t.lineno}"
+        error_list.append(error_message)
+        print(error_message)
+        return None
+    t.type = 'VARIABLE_CLASE'
     return t
 
 def t_VARIABLE_INSTANCIA(t):
-    r'@[a-zA-Z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'VARIABLE_INSTANCIA')
+    r'\@[a-zA-Z_][a-zA-Z0-9_]*'
+    # Detecta patrones ilegales para variables de instancia
+    if re.search(r'[@\s-]', t.value):
+        error_message = f"Illegal instance variable '{t.value}' at line {t.lineno}"
+        error_list.append(error_message)
+        print(error_message)
+        return None
+    t.type = 'VARIABLE_INSTANCIA'
     return t
 
 def t_VARIABLE_CONSTANTE(t):
@@ -157,12 +161,22 @@ def t_CLASS_NAME(t):
     r'[A-Z][a-zA-Z0-9_]*'
     return t
 
-
+def t_METHOD_NAME(t):
+    r'\.?[a-z_][a-zA-Z0-9_]*'
+    t.type = reserved.get(t.value, 'METHOD_NAME')
+    return t
 
 error_list = []
 
 def t_error(t):
-    error_message = f"Illegal character '{t.value[0]}' at line {t.lineno}"
+    char = t.value[0]
+    if char == '$':
+        error_message = f"Illegal global variable usage with '{char}' at line {t.lineno}"
+    elif char == '@':
+        error_message = f"Illegal instance or class variable usage with '{char}' at line {t.lineno}"
+    else:
+        error_message = f"Illegal character '{char}' at line {t.lineno}"
+
     error_list.append(error_message)
     print(error_message)
     t.lexer.skip(1)
@@ -181,7 +195,7 @@ $global_var
     $user_name 
     $MAX_LIMIT 
     $is_active 
-    
+
     $$global_var   
     $global_var@name 
     $global var 
@@ -199,8 +213,6 @@ $global_var
 @@ total_count 
 @@is-active 
 @@ClassVar
-
-
 
 # Definición de un método de evaluación
 def evaluar_numero(n)
@@ -222,7 +234,7 @@ persona = {
 }
 
 # Usamos el método y almacenamos el resultado
-resultado = evaluar_numero(12)  # Evaluando si el número es mayor que 10
+resultado = evaluar_numero(12)
 
 # Iteración sobre el hash
 persona.each do |clave, valor|
@@ -233,16 +245,9 @@ persona.each do |clave, valor|
   end
 end
 
-# Llamada a método de comparación
-puts resultado  # Imprime "Mayor que 10"
-
 # Uso de operador lógico
-edad_valida = persona["edad"] >= 18 && persona["activo"] == true  # Verificando que la persona sea mayor de edad y activa
+edad_valida = persona["edad"] >= 18 && persona["activo"] == true
 
 puts "Edad válida y activo: #{edad_valida}"
-
-# Intento de una operación lógica mal formada (error sintáctico)
-# puts "Resultado: " && "Error en el operador lógico" (Esto generaría un error porque el operador && no tiene sentido aquí)
 '''
-
-loger.create_log(lexer,"bryanestrada003",data, error_list)
+loger.create_log(lexer, "bryanestrada003", data, error_list)

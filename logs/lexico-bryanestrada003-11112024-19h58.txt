@@ -1,0 +1,16 @@
+LexToken(VARIABLE_GLOBAL,'$global_var \n    ',2,1)
+LexToken(VARIABLE_GLOBAL,'$total_count \n    ',2,18)
+LexToken(VARIABLE_GLOBAL,'$user_name \n    ',2,36)
+LexToken(VARIABLE_GLOBAL,'$MAX_LIMIT \n    ',2,52)
+LexToken(VARIABLE_GLOBAL,'$is_active \n\n    ',2,68)
+LexToken(VARIABLE_GLOBAL,'$global_var   \n    ',2,86)
+LexToken(VARIABLE_GLOBAL,'$global_var@name \n    ',2,105)
+LexToken(VARIABLE_GLOBAL,'$global var \n    ',2,127)
+LexToken(MINUS,'-',2,145)
+LexToken(VARIABLE_LOCAL,'name',2,146)
+LexToken(VARIABLE_GLOBAL,'$MAX_VALUE\n\n@@class_var \n@@total_count\n@@is_enabled\n@@user_list \n@@MAX_LIMIT \n\n@@@class_var  \n@@1class  \n@@ total_count \n@@is-active \n@@ClassVar\n\n# Definición de un método de evaluación\ndef evaluar_numero(n)\n  if n > 10\n    return "Mayor que 10"\n  elsif n == 10\n    return "Es igual a 10"\n  else\n    return "Menor que 10"\n  end\nend\n\n# Declaración de un hash\npersona = {\n  "nombre" => "Juan",\n  "edad" => 25,\n  :pais => "México",\n  :activo => true\n}\n\n# Usamos el método y almacenamos el resultado\nresultado = evaluar_numero(12)\n\n# Iteración sobre el hash\npersona.each do |clave, valor|\n  if clave.is_a?(String)\n    puts "Clave (String): #{clave} => Valor: #{valor}"\n  else\n    puts "Clave (Symbol): #{clave} => Valor: #{valor}"\n  end\nend\n\n# Uso de operador lógico\nedad_valida = persona["edad"] >= 18 && persona["activo"] == true\n\nputs "Edad válida y activo: #{edad_valida}"\n',3,157)
+
+Errores:
+Illegal global variable usage with '$' at line 2
+Illegal global variable usage with '$' at line 2
+Illegal global variable usage with '$' at line 3
