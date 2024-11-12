@@ -28,6 +28,7 @@ reserved = {
 tokens = (
     'SYMBOL',
     'STRING',
+    'CLASS_NAME',
     'VARIABLE_GLOBAL',
     'VARIABLE_CONSTANTE',
     'VARIABLE_CLASE',
@@ -61,7 +62,6 @@ tokens = (
     'INTEGER',
     'FLOAT',
     'COMMENT',
-    'CLASS_NAME',
     'METHOD_NAME',
     'VARIABLE_NAME',
     'EQUALS',
@@ -100,14 +100,14 @@ t_DOT = r'\.'
 
 def t_COMMENT(t):
     r'\#.*'
-    pass
+    pass  # No guardamos comentarios; se ignoran
 
 def t_SYMBOL(t):
     r'\:[a-zA-Z_][a-zA-Z_0-9]*'
     return t
 
 def t_FLOAT(t):
-    r'-?(?:0\.?[0-9]+|[1-9][0-9]*\.?[0-9]*|\.?[0-9]+)'
+    r'-?\d+\.\d+'
     t.value = float(t.value)
     return t
 
@@ -122,29 +122,20 @@ def t_STRING(t):
     return t
 
 def t_VARIABLE_GLOBAL(t):
-    r'\$[a-zA-Z]*[^\$][a-zA-Z0-9_]*'
-    t.type = 'VARIABLE_GLOBAL'
+    r'\$[a-zA-Z_][a-zA-Z0-9_]*'
     return t
 
+# Detecta variables de clase
 def t_VARIABLE_CLASE(t):
-    r'\@{2}[a-z]*[a-zA-Z0-9_]*'
-    if re.search(r'[@\s-]', t.value) or re.match(r'@@@', t.value) or re.match(r'@@[0-9]', t.value):
-        error_message = f"Illegal class variable '{t.value}' at line {t.lineno}"
-        error_list.append(error_message)
-        print(error_message)
-        return None
-    t.type = 'VARIABLE_CLASE'
+    r'\@{2}[a-zA-Z_][a-zA-Z0-9_]*'
     return t
 
 def t_VARIABLE_INSTANCIA(t):
     r'\@[a-zA-Z_][a-zA-Z0-9_]*'
-    # Detecta patrones ilegales para variables de instancia
-    if re.search(r'[@\s-]', t.value):
-        error_message = f"Illegal instance variable '{t.value}' at line {t.lineno}"
-        error_list.append(error_message)
-        print(error_message)
-        return None
-    t.type = 'VARIABLE_INSTANCIA'
+    return t
+
+def t_CLASS_NAME(t):
+    r'[A-Z][a-zA-Z0-9_]*'
     return t
 
 def t_VARIABLE_CONSTANTE(t):
@@ -152,18 +143,15 @@ def t_VARIABLE_CONSTANTE(t):
     t.type = reserved.get(t.value, 'VARIABLE_CONSTANTE')
     return t
 
+def t_METHOD_NAME(t):
+    r'\.?[a-z_][a-zA-Z0-9_]*\(?\.*'
+    t.type = reserved.get(t.value.lstrip('.'), 'METHOD_NAME')
+    return t
+
 def t_VARIABLE_LOCAL(t):
     r'[a-z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'VARIABLE_LOCAL')
-    return t
-
-def t_CLASS_NAME(t):
-    r'[A-Z][a-zA-Z0-9_]*'
-    return t
-
-def t_METHOD_NAME(t):
-    r'\.?[a-z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'METHOD_NAME')
+    if t.value not in reserved:
+        t.type = 'VARIABLE_LOCAL'
     return t
 
 error_list = []
@@ -190,64 +178,51 @@ t_ignore = ' \t'
 lexer = lex.lex()
 
 data = '''
-$global_var 
-    $total_count 
-    $user_name 
-    $MAX_LIMIT 
-    $is_active 
+class Estudiante
+  attr_accessor :nombre, :edad, :promedio, :materias
 
-    $$global_var   
-    $global_var@name 
-    $global var 
-    $-name 
-    $$MAX_VALUE
+  def initialize(nombre, edad, promedio, materias)
+    @nombre = nombre               # String
+    @edad = edad                   # Integer
+    @promedio = promedio           # Float
+    @materias = materias           # Array de strings
+  end
 
-@@class_var 
-@@total_count
-@@is_enabled
-@@user_list 
-@@MAX_LIMIT 
-
-@@@class_var  
-@@1class  
-@@ total_count 
-@@is-active 
-@@ClassVar
-
-# Definición de un método de evaluación
-def evaluar_numero(n)
-  if n > 10
-    return "Mayor que 10"
-  elsif n == 10
-    return "Es igual a 10"
-  else
-    return "Menor que 10"
+  # Método para obtener información del estudiante
+  def mostrar_informacion
+    puts "Nombre: #{@nombre}"
+    puts "Edad: #{@edad}"
+    puts "Promedio: #{@promedio}"
+    puts "Materias: #{@materias.join(', ')}"
   end
 end
 
-# Declaración de un hash
-persona = {
-  "nombre" => "Juan",
-  "edad" => 25,
-  :pais => "México",
-  :activo => true
-}
+# Hash para almacenar estudiantes por su ID (como clave)
+estudiantes = {}
 
-# Usamos el método y almacenamos el resultado
-resultado = evaluar_numero(12)
+# Creación de dos estudiantes y almacenamiento en el hash
+estudiantes[:est1] = Estudiante.new("Ana", 20, 8.5, ["Matemáticas", "Historia", "Ciencias"])
+estudiantes[:est2] = Estudiante.new("Juan", 22, 9.0, ["Inglés", "Arte", "Física"])
 
-# Iteración sobre el hash
-persona.each do |clave, valor|
-  if clave.is_a?(String)
-    puts "Clave (String): #{clave} => Valor: #{valor}"
-  else
-    puts "Clave (Symbol): #{clave} => Valor: #{valor}"
+# Método para calcular el promedio general de todos los estudiantes
+def calcular_promedio_general(estudiantes)
+  total = 0.0
+  estudiantes.each do |clave, estudiante|
+    total += estudiante.promedio
   end
+  promedio_general = total / estudiantes.size
+  puts "Promedio general de la clase: #{promedio_general}"
 end
 
-# Uso de operador lógico
-edad_valida = persona["edad"] >= 18 && persona["activo"] == true
+# Muestra la información de cada estudiante
+estudiantes.each do |id, estudiante|
+  puts "ID del Estudiante: #{id}"
+  estudiante.mostrar_informacion
+  puts "-------------------------"
+end
 
-puts "Edad válida y activo: #{edad_valida}"
+# Llamada al método para calcular el promedio general
+calcular_promedio_general(estudiantes)
+
 '''
-loger.create_log(lexer, "bryanestrada003", data, error_list)
+loger.create_log(lexer, "alicarpio", data, error_list)
