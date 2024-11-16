@@ -1,0 +1,213 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    AND_OP
+    CASE
+    CLASS
+    CLASS_NAME
+    COLON
+    COMA
+    COMMENT
+    DEF
+    DIVIDE
+    DO
+    DOT
+    EACH
+    ELSE
+    ELSIF
+    END
+    EQ
+    FALSE
+    FOR
+    GE
+    GT
+    HASHROCKET
+    IF
+    INITIALIZE
+    LBRACKET
+    LE
+    LPAREN
+    LSQBRACKET
+    LT
+    METHOD_NAME
+    MINUS
+    MODULE
+    MULTIPLY
+    NE
+    NEW
+    NOT_OP
+    NULL
+    OR_OP
+    PIPE
+    PLUS
+    POWER
+    PUTS
+    RBRACKET
+    RPAREN
+    RSQBRACKET
+    SEMICOLON
+    SYMBOL
+    TRUE
+    UNLESS
+    UNTIL
+    VARIABLE_CLASE
+    VARIABLE_CONSTANTE
+    VARIABLE_GLOBAL
+    VARIABLE_INSTANCIA
+    VARIABLE_NAME
+    WHEN
+    WHILE
+
+Grammar
+
+Rule 0     S' -> asignacion
+Rule 1     asignacion -> VARIABLE_LOCAL EQUALS valor
+Rule 2     valor -> STRING
+Rule 3     valor -> INTEGER
+Rule 4     valor -> FLOAT
+Rule 5     valor -> VARIABLE_LOCAL
+
+Terminals, with rules where they appear
+
+AND_OP               : 
+CASE                 : 
+CLASS                : 
+CLASS_NAME           : 
+COLON                : 
+COMA                 : 
+COMMENT              : 
+DEF                  : 
+DIVIDE               : 
+DO                   : 
+DOT                  : 
+EACH                 : 
+ELSE                 : 
+ELSIF                : 
+END                  : 
+EQ                   : 
+EQUALS               : 1
+FALSE                : 
+FLOAT                : 4
+FOR                  : 
+GE                   : 
+GT                   : 
+HASHROCKET           : 
+IF                   : 
+INITIALIZE           : 
+INTEGER              : 3
+LBRACKET             : 
+LE                   : 
+LPAREN               : 
+LSQBRACKET           : 
+LT                   : 
+METHOD_NAME          : 
+MINUS                : 
+MODULE               : 
+MULTIPLY             : 
+NE                   : 
+NEW                  : 
+NOT_OP               : 
+NULL                 : 
+OR_OP                : 
+PIPE                 : 
+PLUS                 : 
+POWER                : 
+PUTS                 : 
+RBRACKET             : 
+RPAREN               : 
+RSQBRACKET           : 
+SEMICOLON            : 
+STRING               : 2
+SYMBOL               : 
+TRUE                 : 
+UNLESS               : 
+UNTIL                : 
+VARIABLE_CLASE       : 
+VARIABLE_CONSTANTE   : 
+VARIABLE_GLOBAL      : 
+VARIABLE_INSTANCIA   : 
+VARIABLE_LOCAL       : 1 5
+VARIABLE_NAME        : 
+WHEN                 : 
+WHILE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+asignacion           : 0
+valor                : 1
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . asignacion
+    (1) asignacion -> . VARIABLE_LOCAL EQUALS valor
+
+    VARIABLE_LOCAL  shift and go to state 2
+
+    asignacion                     shift and go to state 1
+
+state 1
+
+    (0) S' -> asignacion .
+
+
+
+state 2
+
+    (1) asignacion -> VARIABLE_LOCAL . EQUALS valor
+
+    EQUALS          shift and go to state 3
+
+
+state 3
+
+    (1) asignacion -> VARIABLE_LOCAL EQUALS . valor
+    (2) valor -> . STRING
+    (3) valor -> . INTEGER
+    (4) valor -> . FLOAT
+    (5) valor -> . VARIABLE_LOCAL
+
+    STRING          shift and go to state 6
+    INTEGER         shift and go to state 7
+    FLOAT           shift and go to state 8
+    VARIABLE_LOCAL  shift and go to state 4
+
+    valor                          shift and go to state 5
+
+state 4
+
+    (5) valor -> VARIABLE_LOCAL .
+
+    $end            reduce using rule 5 (valor -> VARIABLE_LOCAL .)
+
+
+state 5
+
+    (1) asignacion -> VARIABLE_LOCAL EQUALS valor .
+
+    $end            reduce using rule 1 (asignacion -> VARIABLE_LOCAL EQUALS valor .)
+
+
+state 6
+
+    (2) valor -> STRING .
+
+    $end            reduce using rule 2 (valor -> STRING .)
+
+
+state 7
+
+    (3) valor -> INTEGER .
+
+    $end            reduce using rule 3 (valor -> INTEGER .)
+
+
+state 8
+
+    (4) valor -> FLOAT .
+
+    $end            reduce using rule 4 (valor -> FLOAT .)
+
