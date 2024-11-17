@@ -36,7 +36,50 @@ def p_valor(p):
              | NAME
              | boolean
              | lists
-             | operation'''
+             | operation
+             | condition'''
+
+def p_lists(p):
+    '''lists : LBRACKET argumentos RBRACKET
+             | LSQBRACKET argumentos RSQBRACKET'''
+
+def p_boolean(p):
+    '''boolean : TRUE
+                | FALSE'''
+
+def p_operation(p):
+    '''operation : operand operatorArithm operand
+                 | operand operatorArithm operation'''
+
+def p_operand(p):
+    '''operand : INTEGER
+               | FLOAT'''
+
+def p_operatorArithm(p):
+    '''operatorArithm : PLUS
+                | MINUS
+                | MULTIPLY'''
+
+def p_condition(p):
+    '''condition : cond
+                 | NOT_OP cond
+                 | cond operatorCond cond
+                 | cond operatorCond condition'''
+
+def p_operatorCond(p):
+    '''operatorCond : AND_OP
+                    | OR_OP'''
+
+def p_cond(p):
+    '''cond : valor comparator valor'''
+
+def p_comparator(p):
+    '''comparator : EQ
+                  | NE
+                  | LT
+                  | LE
+                  | GT
+                  | GE'''
 
 def p_empty(p):
     'empty :'

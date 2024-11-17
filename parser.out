@@ -2,7 +2,6 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    AND_OP
     CASE
     CLASS
     CLASS_NAME
@@ -16,36 +15,18 @@ Unused terminals:
     ELSE
     ELSIF
     END
-    EQ
-    FALSE
     FOR
-    GE
-    GT
     HASHROCKET
     IF
     INITIALIZE
-    LBRACKET
-    LE
     LPAREN
-    LSQBRACKET
-    LT
-    MINUS
     MODULE
-    MULTIPLY
-    NE
     NEW
-    NOT_OP
-    NULL
-    OR_OP
     PIPE
-    PLUS
     POWER
-    RBRACKET
     RPAREN
-    RSQBRACKET
     SEMICOLON
     SYMBOL
-    TRUE
     UNLESS
     UNTIL
     VARIABLE_CLASE
@@ -72,12 +53,41 @@ Rule 10    argumentos -> valor COMA argumentos
 Rule 11    valor -> STRING
 Rule 12    valor -> INTEGER
 Rule 13    valor -> FLOAT
-Rule 14    valor -> NAME
-Rule 15    empty -> <empty>
+Rule 14    valor -> NULL
+Rule 15    valor -> NAME
+Rule 16    valor -> boolean
+Rule 17    valor -> lists
+Rule 18    valor -> operation
+Rule 19    valor -> condition
+Rule 20    lists -> LBRACKET argumentos RBRACKET
+Rule 21    lists -> LSQBRACKET argumentos RSQBRACKET
+Rule 22    boolean -> TRUE
+Rule 23    boolean -> FALSE
+Rule 24    operation -> operand operatorArithm operand
+Rule 25    operation -> operand operatorArithm operation
+Rule 26    operand -> INTEGER
+Rule 27    operand -> FLOAT
+Rule 28    operatorArithm -> PLUS
+Rule 29    operatorArithm -> MINUS
+Rule 30    operatorArithm -> MULTIPLY
+Rule 31    condition -> cond
+Rule 32    condition -> NOT_OP cond
+Rule 33    condition -> cond operatorCond cond
+Rule 34    condition -> cond operatorCond condition
+Rule 35    operatorCond -> AND_OP
+Rule 36    operatorCond -> OR_OP
+Rule 37    cond -> valor comparator valor
+Rule 38    comparator -> EQ
+Rule 39    comparator -> NE
+Rule 40    comparator -> LT
+Rule 41    comparator -> LE
+Rule 42    comparator -> GT
+Rule 43    comparator -> GE
+Rule 44    empty -> <empty>
 
 Terminals, with rules where they appear
 
-AND_OP               : 
+AND_OP               : 35
 CASE                 : 
 CLASS                : 
 CLASS_NAME           : 
@@ -92,42 +102,42 @@ EACH                 :
 ELSE                 : 
 ELSIF                : 
 END                  : 
-EQ                   : 
+EQ                   : 38
 EQUALS               : 5
-FALSE                : 
-FLOAT                : 13
+FALSE                : 23
+FLOAT                : 13 27
 FOR                  : 
-GE                   : 
-GT                   : 
+GE                   : 43
+GT                   : 42
 HASHROCKET           : 
 IF                   : 
 INITIALIZE           : 
-INTEGER              : 12
-LBRACKET             : 
-LE                   : 
+INTEGER              : 12 26
+LBRACKET             : 20
+LE                   : 41
 LPAREN               : 
-LSQBRACKET           : 
-LT                   : 
-MINUS                : 
+LSQBRACKET           : 21
+LT                   : 40
+MINUS                : 29
 MODULE               : 
-MULTIPLY             : 
-NAME                 : 5 14
-NE                   : 
+MULTIPLY             : 30
+NAME                 : 5 15
+NE                   : 39
 NEW                  : 
-NOT_OP               : 
-NULL                 : 
-OR_OP                : 
+NOT_OP               : 32
+NULL                 : 14
+OR_OP                : 36
 PIPE                 : 
-PLUS                 : 
+PLUS                 : 28
 POWER                : 
 PUTS                 : 6
-RBRACKET             : 
+RBRACKET             : 20
 RPAREN               : 
-RSQBRACKET           : 
+RSQBRACKET           : 21
 SEMICOLON            : 
 STRING               : 11
 SYMBOL               : 
-TRUE                 : 
+TRUE                 : 22
 UNLESS               : 
 UNTIL                : 
 VARIABLE_CLASE       : 
@@ -141,14 +151,23 @@ error                :
 
 Nonterminals, with rules where they appear
 
-argumentos           : 7 10
+argumentos           : 7 10 20 21
 argumentos_opt       : 6
 asignacion           : 3
+boolean              : 16
 code                 : 1 2
+comparator           : 37
+cond                 : 31 32 33 33 34
+condition            : 19 34
 empty                : 8
 impresion            : 4
+lists                : 17
+operand              : 24 24 25
+operation            : 18 25
+operatorArithm       : 24 25
+operatorCond         : 33 34
 program              : 2 0
-valor                : 5 9 10
+valor                : 5 9 10 37 37
 
 Parsing method: LALR
 
@@ -228,26 +247,56 @@ state 6
     (8) argumentos_opt -> . empty
     (9) argumentos -> . valor
     (10) argumentos -> . valor COMA argumentos
-    (15) empty -> .
+    (44) empty -> .
     (11) valor -> . STRING
     (12) valor -> . INTEGER
     (13) valor -> . FLOAT
-    (14) valor -> . NAME
+    (14) valor -> . NULL
+    (15) valor -> . NAME
+    (16) valor -> . boolean
+    (17) valor -> . lists
+    (18) valor -> . operation
+    (19) valor -> . condition
+    (22) boolean -> . TRUE
+    (23) boolean -> . FALSE
+    (20) lists -> . LBRACKET argumentos RBRACKET
+    (21) lists -> . LSQBRACKET argumentos RSQBRACKET
+    (24) operation -> . operand operatorArithm operand
+    (25) operation -> . operand operatorArithm operation
+    (31) condition -> . cond
+    (32) condition -> . NOT_OP cond
+    (33) condition -> . cond operatorCond cond
+    (34) condition -> . cond operatorCond condition
+    (26) operand -> . INTEGER
+    (27) operand -> . FLOAT
+    (37) cond -> . valor comparator valor
 
   ! shift/reduce conflict for NAME resolved as shift
-    PUTS            reduce using rule 15 (empty -> .)
-    $end            reduce using rule 15 (empty -> .)
+    PUTS            reduce using rule 44 (empty -> .)
+    $end            reduce using rule 44 (empty -> .)
     STRING          shift and go to state 13
     INTEGER         shift and go to state 14
     FLOAT           shift and go to state 15
-    NAME            shift and go to state 16
+    NULL            shift and go to state 16
+    NAME            shift and go to state 17
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
+    LBRACKET        shift and go to state 24
+    LSQBRACKET      shift and go to state 25
+    NOT_OP          shift and go to state 28
 
-  ! NAME            [ reduce using rule 15 (empty -> .) ]
+  ! NAME            [ reduce using rule 44 (empty -> .) ]
 
     argumentos_opt                 shift and go to state 9
     argumentos                     shift and go to state 10
     empty                          shift and go to state 11
     valor                          shift and go to state 12
+    boolean                        shift and go to state 18
+    lists                          shift and go to state 19
+    operation                      shift and go to state 20
+    condition                      shift and go to state 21
+    operand                        shift and go to state 26
+    cond                           shift and go to state 27
 
 state 7
 
@@ -262,14 +311,44 @@ state 8
     (11) valor -> . STRING
     (12) valor -> . INTEGER
     (13) valor -> . FLOAT
-    (14) valor -> . NAME
+    (14) valor -> . NULL
+    (15) valor -> . NAME
+    (16) valor -> . boolean
+    (17) valor -> . lists
+    (18) valor -> . operation
+    (19) valor -> . condition
+    (22) boolean -> . TRUE
+    (23) boolean -> . FALSE
+    (20) lists -> . LBRACKET argumentos RBRACKET
+    (21) lists -> . LSQBRACKET argumentos RSQBRACKET
+    (24) operation -> . operand operatorArithm operand
+    (25) operation -> . operand operatorArithm operation
+    (31) condition -> . cond
+    (32) condition -> . NOT_OP cond
+    (33) condition -> . cond operatorCond cond
+    (34) condition -> . cond operatorCond condition
+    (26) operand -> . INTEGER
+    (27) operand -> . FLOAT
+    (37) cond -> . valor comparator valor
 
     STRING          shift and go to state 13
     INTEGER         shift and go to state 14
     FLOAT           shift and go to state 15
-    NAME            shift and go to state 16
+    NULL            shift and go to state 16
+    NAME            shift and go to state 17
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
+    LBRACKET        shift and go to state 24
+    LSQBRACKET      shift and go to state 25
+    NOT_OP          shift and go to state 28
 
-    valor                          shift and go to state 17
+    valor                          shift and go to state 29
+    boolean                        shift and go to state 18
+    lists                          shift and go to state 19
+    operation                      shift and go to state 20
+    condition                      shift and go to state 21
+    operand                        shift and go to state 26
+    cond                           shift and go to state 27
 
 state 9
 
@@ -302,63 +381,466 @@ state 12
 
     (9) argumentos -> valor .
     (10) argumentos -> valor . COMA argumentos
+    (37) cond -> valor . comparator valor
+    (38) comparator -> . EQ
+    (39) comparator -> . NE
+    (40) comparator -> . LT
+    (41) comparator -> . LE
+    (42) comparator -> . GT
+    (43) comparator -> . GE
 
     NAME            reduce using rule 9 (argumentos -> valor .)
     PUTS            reduce using rule 9 (argumentos -> valor .)
     $end            reduce using rule 9 (argumentos -> valor .)
-    COMA            shift and go to state 18
+    RBRACKET        reduce using rule 9 (argumentos -> valor .)
+    RSQBRACKET      reduce using rule 9 (argumentos -> valor .)
+    COMA            shift and go to state 30
+    EQ              shift and go to state 32
+    NE              shift and go to state 33
+    LT              shift and go to state 34
+    LE              shift and go to state 35
+    GT              shift and go to state 36
+    GE              shift and go to state 37
 
+    comparator                     shift and go to state 31
 
 state 13
 
     (11) valor -> STRING .
 
     COMA            reduce using rule 11 (valor -> STRING .)
+    EQ              reduce using rule 11 (valor -> STRING .)
+    NE              reduce using rule 11 (valor -> STRING .)
+    LT              reduce using rule 11 (valor -> STRING .)
+    LE              reduce using rule 11 (valor -> STRING .)
+    GT              reduce using rule 11 (valor -> STRING .)
+    GE              reduce using rule 11 (valor -> STRING .)
     NAME            reduce using rule 11 (valor -> STRING .)
     PUTS            reduce using rule 11 (valor -> STRING .)
     $end            reduce using rule 11 (valor -> STRING .)
+    RBRACKET        reduce using rule 11 (valor -> STRING .)
+    RSQBRACKET      reduce using rule 11 (valor -> STRING .)
+    AND_OP          reduce using rule 11 (valor -> STRING .)
+    OR_OP           reduce using rule 11 (valor -> STRING .)
 
 
 state 14
 
     (12) valor -> INTEGER .
+    (26) operand -> INTEGER .
 
     COMA            reduce using rule 12 (valor -> INTEGER .)
+    EQ              reduce using rule 12 (valor -> INTEGER .)
+    NE              reduce using rule 12 (valor -> INTEGER .)
+    LT              reduce using rule 12 (valor -> INTEGER .)
+    LE              reduce using rule 12 (valor -> INTEGER .)
+    GT              reduce using rule 12 (valor -> INTEGER .)
+    GE              reduce using rule 12 (valor -> INTEGER .)
     NAME            reduce using rule 12 (valor -> INTEGER .)
     PUTS            reduce using rule 12 (valor -> INTEGER .)
     $end            reduce using rule 12 (valor -> INTEGER .)
+    RBRACKET        reduce using rule 12 (valor -> INTEGER .)
+    RSQBRACKET      reduce using rule 12 (valor -> INTEGER .)
+    AND_OP          reduce using rule 12 (valor -> INTEGER .)
+    OR_OP           reduce using rule 12 (valor -> INTEGER .)
+    PLUS            reduce using rule 26 (operand -> INTEGER .)
+    MINUS           reduce using rule 26 (operand -> INTEGER .)
+    MULTIPLY        reduce using rule 26 (operand -> INTEGER .)
 
 
 state 15
 
     (13) valor -> FLOAT .
+    (27) operand -> FLOAT .
 
     COMA            reduce using rule 13 (valor -> FLOAT .)
+    EQ              reduce using rule 13 (valor -> FLOAT .)
+    NE              reduce using rule 13 (valor -> FLOAT .)
+    LT              reduce using rule 13 (valor -> FLOAT .)
+    LE              reduce using rule 13 (valor -> FLOAT .)
+    GT              reduce using rule 13 (valor -> FLOAT .)
+    GE              reduce using rule 13 (valor -> FLOAT .)
     NAME            reduce using rule 13 (valor -> FLOAT .)
     PUTS            reduce using rule 13 (valor -> FLOAT .)
     $end            reduce using rule 13 (valor -> FLOAT .)
+    RBRACKET        reduce using rule 13 (valor -> FLOAT .)
+    RSQBRACKET      reduce using rule 13 (valor -> FLOAT .)
+    AND_OP          reduce using rule 13 (valor -> FLOAT .)
+    OR_OP           reduce using rule 13 (valor -> FLOAT .)
+    PLUS            reduce using rule 27 (operand -> FLOAT .)
+    MINUS           reduce using rule 27 (operand -> FLOAT .)
+    MULTIPLY        reduce using rule 27 (operand -> FLOAT .)
 
 
 state 16
 
-    (14) valor -> NAME .
+    (14) valor -> NULL .
 
-    COMA            reduce using rule 14 (valor -> NAME .)
-    NAME            reduce using rule 14 (valor -> NAME .)
-    PUTS            reduce using rule 14 (valor -> NAME .)
-    $end            reduce using rule 14 (valor -> NAME .)
+    COMA            reduce using rule 14 (valor -> NULL .)
+    EQ              reduce using rule 14 (valor -> NULL .)
+    NE              reduce using rule 14 (valor -> NULL .)
+    LT              reduce using rule 14 (valor -> NULL .)
+    LE              reduce using rule 14 (valor -> NULL .)
+    GT              reduce using rule 14 (valor -> NULL .)
+    GE              reduce using rule 14 (valor -> NULL .)
+    NAME            reduce using rule 14 (valor -> NULL .)
+    PUTS            reduce using rule 14 (valor -> NULL .)
+    $end            reduce using rule 14 (valor -> NULL .)
+    RBRACKET        reduce using rule 14 (valor -> NULL .)
+    RSQBRACKET      reduce using rule 14 (valor -> NULL .)
+    AND_OP          reduce using rule 14 (valor -> NULL .)
+    OR_OP           reduce using rule 14 (valor -> NULL .)
 
 
 state 17
 
+    (15) valor -> NAME .
+
+    COMA            reduce using rule 15 (valor -> NAME .)
+    EQ              reduce using rule 15 (valor -> NAME .)
+    NE              reduce using rule 15 (valor -> NAME .)
+    LT              reduce using rule 15 (valor -> NAME .)
+    LE              reduce using rule 15 (valor -> NAME .)
+    GT              reduce using rule 15 (valor -> NAME .)
+    GE              reduce using rule 15 (valor -> NAME .)
+    NAME            reduce using rule 15 (valor -> NAME .)
+    PUTS            reduce using rule 15 (valor -> NAME .)
+    $end            reduce using rule 15 (valor -> NAME .)
+    RBRACKET        reduce using rule 15 (valor -> NAME .)
+    RSQBRACKET      reduce using rule 15 (valor -> NAME .)
+    AND_OP          reduce using rule 15 (valor -> NAME .)
+    OR_OP           reduce using rule 15 (valor -> NAME .)
+
+
+state 18
+
+    (16) valor -> boolean .
+
+    COMA            reduce using rule 16 (valor -> boolean .)
+    EQ              reduce using rule 16 (valor -> boolean .)
+    NE              reduce using rule 16 (valor -> boolean .)
+    LT              reduce using rule 16 (valor -> boolean .)
+    LE              reduce using rule 16 (valor -> boolean .)
+    GT              reduce using rule 16 (valor -> boolean .)
+    GE              reduce using rule 16 (valor -> boolean .)
+    NAME            reduce using rule 16 (valor -> boolean .)
+    PUTS            reduce using rule 16 (valor -> boolean .)
+    $end            reduce using rule 16 (valor -> boolean .)
+    RBRACKET        reduce using rule 16 (valor -> boolean .)
+    RSQBRACKET      reduce using rule 16 (valor -> boolean .)
+    AND_OP          reduce using rule 16 (valor -> boolean .)
+    OR_OP           reduce using rule 16 (valor -> boolean .)
+
+
+state 19
+
+    (17) valor -> lists .
+
+    COMA            reduce using rule 17 (valor -> lists .)
+    EQ              reduce using rule 17 (valor -> lists .)
+    NE              reduce using rule 17 (valor -> lists .)
+    LT              reduce using rule 17 (valor -> lists .)
+    LE              reduce using rule 17 (valor -> lists .)
+    GT              reduce using rule 17 (valor -> lists .)
+    GE              reduce using rule 17 (valor -> lists .)
+    NAME            reduce using rule 17 (valor -> lists .)
+    PUTS            reduce using rule 17 (valor -> lists .)
+    $end            reduce using rule 17 (valor -> lists .)
+    RBRACKET        reduce using rule 17 (valor -> lists .)
+    RSQBRACKET      reduce using rule 17 (valor -> lists .)
+    AND_OP          reduce using rule 17 (valor -> lists .)
+    OR_OP           reduce using rule 17 (valor -> lists .)
+
+
+state 20
+
+    (18) valor -> operation .
+
+    COMA            reduce using rule 18 (valor -> operation .)
+    EQ              reduce using rule 18 (valor -> operation .)
+    NE              reduce using rule 18 (valor -> operation .)
+    LT              reduce using rule 18 (valor -> operation .)
+    LE              reduce using rule 18 (valor -> operation .)
+    GT              reduce using rule 18 (valor -> operation .)
+    GE              reduce using rule 18 (valor -> operation .)
+    NAME            reduce using rule 18 (valor -> operation .)
+    PUTS            reduce using rule 18 (valor -> operation .)
+    $end            reduce using rule 18 (valor -> operation .)
+    RBRACKET        reduce using rule 18 (valor -> operation .)
+    RSQBRACKET      reduce using rule 18 (valor -> operation .)
+    AND_OP          reduce using rule 18 (valor -> operation .)
+    OR_OP           reduce using rule 18 (valor -> operation .)
+
+
+state 21
+
+    (19) valor -> condition .
+
+    COMA            reduce using rule 19 (valor -> condition .)
+    EQ              reduce using rule 19 (valor -> condition .)
+    NE              reduce using rule 19 (valor -> condition .)
+    LT              reduce using rule 19 (valor -> condition .)
+    LE              reduce using rule 19 (valor -> condition .)
+    GT              reduce using rule 19 (valor -> condition .)
+    GE              reduce using rule 19 (valor -> condition .)
+    NAME            reduce using rule 19 (valor -> condition .)
+    PUTS            reduce using rule 19 (valor -> condition .)
+    $end            reduce using rule 19 (valor -> condition .)
+    RBRACKET        reduce using rule 19 (valor -> condition .)
+    RSQBRACKET      reduce using rule 19 (valor -> condition .)
+    AND_OP          reduce using rule 19 (valor -> condition .)
+    OR_OP           reduce using rule 19 (valor -> condition .)
+
+
+state 22
+
+    (22) boolean -> TRUE .
+
+    COMA            reduce using rule 22 (boolean -> TRUE .)
+    EQ              reduce using rule 22 (boolean -> TRUE .)
+    NE              reduce using rule 22 (boolean -> TRUE .)
+    LT              reduce using rule 22 (boolean -> TRUE .)
+    LE              reduce using rule 22 (boolean -> TRUE .)
+    GT              reduce using rule 22 (boolean -> TRUE .)
+    GE              reduce using rule 22 (boolean -> TRUE .)
+    NAME            reduce using rule 22 (boolean -> TRUE .)
+    PUTS            reduce using rule 22 (boolean -> TRUE .)
+    $end            reduce using rule 22 (boolean -> TRUE .)
+    RBRACKET        reduce using rule 22 (boolean -> TRUE .)
+    RSQBRACKET      reduce using rule 22 (boolean -> TRUE .)
+    AND_OP          reduce using rule 22 (boolean -> TRUE .)
+    OR_OP           reduce using rule 22 (boolean -> TRUE .)
+
+
+state 23
+
+    (23) boolean -> FALSE .
+
+    COMA            reduce using rule 23 (boolean -> FALSE .)
+    EQ              reduce using rule 23 (boolean -> FALSE .)
+    NE              reduce using rule 23 (boolean -> FALSE .)
+    LT              reduce using rule 23 (boolean -> FALSE .)
+    LE              reduce using rule 23 (boolean -> FALSE .)
+    GT              reduce using rule 23 (boolean -> FALSE .)
+    GE              reduce using rule 23 (boolean -> FALSE .)
+    NAME            reduce using rule 23 (boolean -> FALSE .)
+    PUTS            reduce using rule 23 (boolean -> FALSE .)
+    $end            reduce using rule 23 (boolean -> FALSE .)
+    RBRACKET        reduce using rule 23 (boolean -> FALSE .)
+    RSQBRACKET      reduce using rule 23 (boolean -> FALSE .)
+    AND_OP          reduce using rule 23 (boolean -> FALSE .)
+    OR_OP           reduce using rule 23 (boolean -> FALSE .)
+
+
+state 24
+
+    (20) lists -> LBRACKET . argumentos RBRACKET
+    (9) argumentos -> . valor
+    (10) argumentos -> . valor COMA argumentos
+    (11) valor -> . STRING
+    (12) valor -> . INTEGER
+    (13) valor -> . FLOAT
+    (14) valor -> . NULL
+    (15) valor -> . NAME
+    (16) valor -> . boolean
+    (17) valor -> . lists
+    (18) valor -> . operation
+    (19) valor -> . condition
+    (22) boolean -> . TRUE
+    (23) boolean -> . FALSE
+    (20) lists -> . LBRACKET argumentos RBRACKET
+    (21) lists -> . LSQBRACKET argumentos RSQBRACKET
+    (24) operation -> . operand operatorArithm operand
+    (25) operation -> . operand operatorArithm operation
+    (31) condition -> . cond
+    (32) condition -> . NOT_OP cond
+    (33) condition -> . cond operatorCond cond
+    (34) condition -> . cond operatorCond condition
+    (26) operand -> . INTEGER
+    (27) operand -> . FLOAT
+    (37) cond -> . valor comparator valor
+
+    STRING          shift and go to state 13
+    INTEGER         shift and go to state 14
+    FLOAT           shift and go to state 15
+    NULL            shift and go to state 16
+    NAME            shift and go to state 17
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
+    LBRACKET        shift and go to state 24
+    LSQBRACKET      shift and go to state 25
+    NOT_OP          shift and go to state 28
+
+    argumentos                     shift and go to state 38
+    valor                          shift and go to state 12
+    boolean                        shift and go to state 18
+    lists                          shift and go to state 19
+    operation                      shift and go to state 20
+    condition                      shift and go to state 21
+    operand                        shift and go to state 26
+    cond                           shift and go to state 27
+
+state 25
+
+    (21) lists -> LSQBRACKET . argumentos RSQBRACKET
+    (9) argumentos -> . valor
+    (10) argumentos -> . valor COMA argumentos
+    (11) valor -> . STRING
+    (12) valor -> . INTEGER
+    (13) valor -> . FLOAT
+    (14) valor -> . NULL
+    (15) valor -> . NAME
+    (16) valor -> . boolean
+    (17) valor -> . lists
+    (18) valor -> . operation
+    (19) valor -> . condition
+    (22) boolean -> . TRUE
+    (23) boolean -> . FALSE
+    (20) lists -> . LBRACKET argumentos RBRACKET
+    (21) lists -> . LSQBRACKET argumentos RSQBRACKET
+    (24) operation -> . operand operatorArithm operand
+    (25) operation -> . operand operatorArithm operation
+    (31) condition -> . cond
+    (32) condition -> . NOT_OP cond
+    (33) condition -> . cond operatorCond cond
+    (34) condition -> . cond operatorCond condition
+    (26) operand -> . INTEGER
+    (27) operand -> . FLOAT
+    (37) cond -> . valor comparator valor
+
+    STRING          shift and go to state 13
+    INTEGER         shift and go to state 14
+    FLOAT           shift and go to state 15
+    NULL            shift and go to state 16
+    NAME            shift and go to state 17
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
+    LBRACKET        shift and go to state 24
+    LSQBRACKET      shift and go to state 25
+    NOT_OP          shift and go to state 28
+
+    argumentos                     shift and go to state 39
+    valor                          shift and go to state 12
+    boolean                        shift and go to state 18
+    lists                          shift and go to state 19
+    operation                      shift and go to state 20
+    condition                      shift and go to state 21
+    operand                        shift and go to state 26
+    cond                           shift and go to state 27
+
+state 26
+
+    (24) operation -> operand . operatorArithm operand
+    (25) operation -> operand . operatorArithm operation
+    (28) operatorArithm -> . PLUS
+    (29) operatorArithm -> . MINUS
+    (30) operatorArithm -> . MULTIPLY
+
+    PLUS            shift and go to state 41
+    MINUS           shift and go to state 42
+    MULTIPLY        shift and go to state 43
+
+    operatorArithm                 shift and go to state 40
+
+state 27
+
+    (31) condition -> cond .
+    (33) condition -> cond . operatorCond cond
+    (34) condition -> cond . operatorCond condition
+    (35) operatorCond -> . AND_OP
+    (36) operatorCond -> . OR_OP
+
+  ! shift/reduce conflict for AND_OP resolved as shift
+  ! shift/reduce conflict for OR_OP resolved as shift
+    COMA            reduce using rule 31 (condition -> cond .)
+    EQ              reduce using rule 31 (condition -> cond .)
+    NE              reduce using rule 31 (condition -> cond .)
+    LT              reduce using rule 31 (condition -> cond .)
+    LE              reduce using rule 31 (condition -> cond .)
+    GT              reduce using rule 31 (condition -> cond .)
+    GE              reduce using rule 31 (condition -> cond .)
+    NAME            reduce using rule 31 (condition -> cond .)
+    PUTS            reduce using rule 31 (condition -> cond .)
+    $end            reduce using rule 31 (condition -> cond .)
+    RBRACKET        reduce using rule 31 (condition -> cond .)
+    RSQBRACKET      reduce using rule 31 (condition -> cond .)
+    AND_OP          shift and go to state 45
+    OR_OP           shift and go to state 46
+
+  ! AND_OP          [ reduce using rule 31 (condition -> cond .) ]
+  ! OR_OP           [ reduce using rule 31 (condition -> cond .) ]
+
+    operatorCond                   shift and go to state 44
+
+state 28
+
+    (32) condition -> NOT_OP . cond
+    (37) cond -> . valor comparator valor
+    (11) valor -> . STRING
+    (12) valor -> . INTEGER
+    (13) valor -> . FLOAT
+    (14) valor -> . NULL
+    (15) valor -> . NAME
+    (16) valor -> . boolean
+    (17) valor -> . lists
+    (18) valor -> . operation
+    (19) valor -> . condition
+    (22) boolean -> . TRUE
+    (23) boolean -> . FALSE
+    (20) lists -> . LBRACKET argumentos RBRACKET
+    (21) lists -> . LSQBRACKET argumentos RSQBRACKET
+    (24) operation -> . operand operatorArithm operand
+    (25) operation -> . operand operatorArithm operation
+    (31) condition -> . cond
+    (32) condition -> . NOT_OP cond
+    (33) condition -> . cond operatorCond cond
+    (34) condition -> . cond operatorCond condition
+    (26) operand -> . INTEGER
+    (27) operand -> . FLOAT
+
+    STRING          shift and go to state 13
+    INTEGER         shift and go to state 14
+    FLOAT           shift and go to state 15
+    NULL            shift and go to state 16
+    NAME            shift and go to state 17
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
+    LBRACKET        shift and go to state 24
+    LSQBRACKET      shift and go to state 25
+    NOT_OP          shift and go to state 28
+
+    cond                           shift and go to state 47
+    valor                          shift and go to state 48
+    boolean                        shift and go to state 18
+    lists                          shift and go to state 19
+    operation                      shift and go to state 20
+    condition                      shift and go to state 21
+    operand                        shift and go to state 26
+
+state 29
+
     (5) asignacion -> NAME EQUALS valor .
+    (37) cond -> valor . comparator valor
+    (38) comparator -> . EQ
+    (39) comparator -> . NE
+    (40) comparator -> . LT
+    (41) comparator -> . LE
+    (42) comparator -> . GT
+    (43) comparator -> . GE
 
     NAME            reduce using rule 5 (asignacion -> NAME EQUALS valor .)
     PUTS            reduce using rule 5 (asignacion -> NAME EQUALS valor .)
     $end            reduce using rule 5 (asignacion -> NAME EQUALS valor .)
+    EQ              shift and go to state 32
+    NE              shift and go to state 33
+    LT              shift and go to state 34
+    LE              shift and go to state 35
+    GT              shift and go to state 36
+    GE              shift and go to state 37
 
+    comparator                     shift and go to state 31
 
-state 18
+state 30
 
     (10) argumentos -> valor COMA . argumentos
     (9) argumentos -> . valor
@@ -366,25 +848,679 @@ state 18
     (11) valor -> . STRING
     (12) valor -> . INTEGER
     (13) valor -> . FLOAT
-    (14) valor -> . NAME
+    (14) valor -> . NULL
+    (15) valor -> . NAME
+    (16) valor -> . boolean
+    (17) valor -> . lists
+    (18) valor -> . operation
+    (19) valor -> . condition
+    (22) boolean -> . TRUE
+    (23) boolean -> . FALSE
+    (20) lists -> . LBRACKET argumentos RBRACKET
+    (21) lists -> . LSQBRACKET argumentos RSQBRACKET
+    (24) operation -> . operand operatorArithm operand
+    (25) operation -> . operand operatorArithm operation
+    (31) condition -> . cond
+    (32) condition -> . NOT_OP cond
+    (33) condition -> . cond operatorCond cond
+    (34) condition -> . cond operatorCond condition
+    (26) operand -> . INTEGER
+    (27) operand -> . FLOAT
+    (37) cond -> . valor comparator valor
 
     STRING          shift and go to state 13
     INTEGER         shift and go to state 14
     FLOAT           shift and go to state 15
-    NAME            shift and go to state 16
+    NULL            shift and go to state 16
+    NAME            shift and go to state 17
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
+    LBRACKET        shift and go to state 24
+    LSQBRACKET      shift and go to state 25
+    NOT_OP          shift and go to state 28
 
     valor                          shift and go to state 12
-    argumentos                     shift and go to state 19
+    argumentos                     shift and go to state 49
+    boolean                        shift and go to state 18
+    lists                          shift and go to state 19
+    operation                      shift and go to state 20
+    condition                      shift and go to state 21
+    operand                        shift and go to state 26
+    cond                           shift and go to state 27
 
-state 19
+state 31
+
+    (37) cond -> valor comparator . valor
+    (11) valor -> . STRING
+    (12) valor -> . INTEGER
+    (13) valor -> . FLOAT
+    (14) valor -> . NULL
+    (15) valor -> . NAME
+    (16) valor -> . boolean
+    (17) valor -> . lists
+    (18) valor -> . operation
+    (19) valor -> . condition
+    (22) boolean -> . TRUE
+    (23) boolean -> . FALSE
+    (20) lists -> . LBRACKET argumentos RBRACKET
+    (21) lists -> . LSQBRACKET argumentos RSQBRACKET
+    (24) operation -> . operand operatorArithm operand
+    (25) operation -> . operand operatorArithm operation
+    (31) condition -> . cond
+    (32) condition -> . NOT_OP cond
+    (33) condition -> . cond operatorCond cond
+    (34) condition -> . cond operatorCond condition
+    (26) operand -> . INTEGER
+    (27) operand -> . FLOAT
+    (37) cond -> . valor comparator valor
+
+    STRING          shift and go to state 13
+    INTEGER         shift and go to state 14
+    FLOAT           shift and go to state 15
+    NULL            shift and go to state 16
+    NAME            shift and go to state 17
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
+    LBRACKET        shift and go to state 24
+    LSQBRACKET      shift and go to state 25
+    NOT_OP          shift and go to state 28
+
+    valor                          shift and go to state 50
+    boolean                        shift and go to state 18
+    lists                          shift and go to state 19
+    operation                      shift and go to state 20
+    condition                      shift and go to state 21
+    operand                        shift and go to state 26
+    cond                           shift and go to state 27
+
+state 32
+
+    (38) comparator -> EQ .
+
+    STRING          reduce using rule 38 (comparator -> EQ .)
+    INTEGER         reduce using rule 38 (comparator -> EQ .)
+    FLOAT           reduce using rule 38 (comparator -> EQ .)
+    NULL            reduce using rule 38 (comparator -> EQ .)
+    NAME            reduce using rule 38 (comparator -> EQ .)
+    TRUE            reduce using rule 38 (comparator -> EQ .)
+    FALSE           reduce using rule 38 (comparator -> EQ .)
+    LBRACKET        reduce using rule 38 (comparator -> EQ .)
+    LSQBRACKET      reduce using rule 38 (comparator -> EQ .)
+    NOT_OP          reduce using rule 38 (comparator -> EQ .)
+
+
+state 33
+
+    (39) comparator -> NE .
+
+    STRING          reduce using rule 39 (comparator -> NE .)
+    INTEGER         reduce using rule 39 (comparator -> NE .)
+    FLOAT           reduce using rule 39 (comparator -> NE .)
+    NULL            reduce using rule 39 (comparator -> NE .)
+    NAME            reduce using rule 39 (comparator -> NE .)
+    TRUE            reduce using rule 39 (comparator -> NE .)
+    FALSE           reduce using rule 39 (comparator -> NE .)
+    LBRACKET        reduce using rule 39 (comparator -> NE .)
+    LSQBRACKET      reduce using rule 39 (comparator -> NE .)
+    NOT_OP          reduce using rule 39 (comparator -> NE .)
+
+
+state 34
+
+    (40) comparator -> LT .
+
+    STRING          reduce using rule 40 (comparator -> LT .)
+    INTEGER         reduce using rule 40 (comparator -> LT .)
+    FLOAT           reduce using rule 40 (comparator -> LT .)
+    NULL            reduce using rule 40 (comparator -> LT .)
+    NAME            reduce using rule 40 (comparator -> LT .)
+    TRUE            reduce using rule 40 (comparator -> LT .)
+    FALSE           reduce using rule 40 (comparator -> LT .)
+    LBRACKET        reduce using rule 40 (comparator -> LT .)
+    LSQBRACKET      reduce using rule 40 (comparator -> LT .)
+    NOT_OP          reduce using rule 40 (comparator -> LT .)
+
+
+state 35
+
+    (41) comparator -> LE .
+
+    STRING          reduce using rule 41 (comparator -> LE .)
+    INTEGER         reduce using rule 41 (comparator -> LE .)
+    FLOAT           reduce using rule 41 (comparator -> LE .)
+    NULL            reduce using rule 41 (comparator -> LE .)
+    NAME            reduce using rule 41 (comparator -> LE .)
+    TRUE            reduce using rule 41 (comparator -> LE .)
+    FALSE           reduce using rule 41 (comparator -> LE .)
+    LBRACKET        reduce using rule 41 (comparator -> LE .)
+    LSQBRACKET      reduce using rule 41 (comparator -> LE .)
+    NOT_OP          reduce using rule 41 (comparator -> LE .)
+
+
+state 36
+
+    (42) comparator -> GT .
+
+    STRING          reduce using rule 42 (comparator -> GT .)
+    INTEGER         reduce using rule 42 (comparator -> GT .)
+    FLOAT           reduce using rule 42 (comparator -> GT .)
+    NULL            reduce using rule 42 (comparator -> GT .)
+    NAME            reduce using rule 42 (comparator -> GT .)
+    TRUE            reduce using rule 42 (comparator -> GT .)
+    FALSE           reduce using rule 42 (comparator -> GT .)
+    LBRACKET        reduce using rule 42 (comparator -> GT .)
+    LSQBRACKET      reduce using rule 42 (comparator -> GT .)
+    NOT_OP          reduce using rule 42 (comparator -> GT .)
+
+
+state 37
+
+    (43) comparator -> GE .
+
+    STRING          reduce using rule 43 (comparator -> GE .)
+    INTEGER         reduce using rule 43 (comparator -> GE .)
+    FLOAT           reduce using rule 43 (comparator -> GE .)
+    NULL            reduce using rule 43 (comparator -> GE .)
+    NAME            reduce using rule 43 (comparator -> GE .)
+    TRUE            reduce using rule 43 (comparator -> GE .)
+    FALSE           reduce using rule 43 (comparator -> GE .)
+    LBRACKET        reduce using rule 43 (comparator -> GE .)
+    LSQBRACKET      reduce using rule 43 (comparator -> GE .)
+    NOT_OP          reduce using rule 43 (comparator -> GE .)
+
+
+state 38
+
+    (20) lists -> LBRACKET argumentos . RBRACKET
+
+    RBRACKET        shift and go to state 51
+
+
+state 39
+
+    (21) lists -> LSQBRACKET argumentos . RSQBRACKET
+
+    RSQBRACKET      shift and go to state 52
+
+
+state 40
+
+    (24) operation -> operand operatorArithm . operand
+    (25) operation -> operand operatorArithm . operation
+    (26) operand -> . INTEGER
+    (27) operand -> . FLOAT
+    (24) operation -> . operand operatorArithm operand
+    (25) operation -> . operand operatorArithm operation
+
+    INTEGER         shift and go to state 55
+    FLOAT           shift and go to state 56
+
+    operand                        shift and go to state 53
+    operation                      shift and go to state 54
+
+state 41
+
+    (28) operatorArithm -> PLUS .
+
+    INTEGER         reduce using rule 28 (operatorArithm -> PLUS .)
+    FLOAT           reduce using rule 28 (operatorArithm -> PLUS .)
+
+
+state 42
+
+    (29) operatorArithm -> MINUS .
+
+    INTEGER         reduce using rule 29 (operatorArithm -> MINUS .)
+    FLOAT           reduce using rule 29 (operatorArithm -> MINUS .)
+
+
+state 43
+
+    (30) operatorArithm -> MULTIPLY .
+
+    INTEGER         reduce using rule 30 (operatorArithm -> MULTIPLY .)
+    FLOAT           reduce using rule 30 (operatorArithm -> MULTIPLY .)
+
+
+state 44
+
+    (33) condition -> cond operatorCond . cond
+    (34) condition -> cond operatorCond . condition
+    (37) cond -> . valor comparator valor
+    (31) condition -> . cond
+    (32) condition -> . NOT_OP cond
+    (33) condition -> . cond operatorCond cond
+    (34) condition -> . cond operatorCond condition
+    (11) valor -> . STRING
+    (12) valor -> . INTEGER
+    (13) valor -> . FLOAT
+    (14) valor -> . NULL
+    (15) valor -> . NAME
+    (16) valor -> . boolean
+    (17) valor -> . lists
+    (18) valor -> . operation
+    (19) valor -> . condition
+    (22) boolean -> . TRUE
+    (23) boolean -> . FALSE
+    (20) lists -> . LBRACKET argumentos RBRACKET
+    (21) lists -> . LSQBRACKET argumentos RSQBRACKET
+    (24) operation -> . operand operatorArithm operand
+    (25) operation -> . operand operatorArithm operation
+    (26) operand -> . INTEGER
+    (27) operand -> . FLOAT
+
+    NOT_OP          shift and go to state 28
+    STRING          shift and go to state 13
+    INTEGER         shift and go to state 14
+    FLOAT           shift and go to state 15
+    NULL            shift and go to state 16
+    NAME            shift and go to state 17
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
+    LBRACKET        shift and go to state 24
+    LSQBRACKET      shift and go to state 25
+
+    cond                           shift and go to state 57
+    condition                      shift and go to state 58
+    valor                          shift and go to state 48
+    boolean                        shift and go to state 18
+    lists                          shift and go to state 19
+    operation                      shift and go to state 20
+    operand                        shift and go to state 26
+
+state 45
+
+    (35) operatorCond -> AND_OP .
+
+    NOT_OP          reduce using rule 35 (operatorCond -> AND_OP .)
+    STRING          reduce using rule 35 (operatorCond -> AND_OP .)
+    INTEGER         reduce using rule 35 (operatorCond -> AND_OP .)
+    FLOAT           reduce using rule 35 (operatorCond -> AND_OP .)
+    NULL            reduce using rule 35 (operatorCond -> AND_OP .)
+    NAME            reduce using rule 35 (operatorCond -> AND_OP .)
+    TRUE            reduce using rule 35 (operatorCond -> AND_OP .)
+    FALSE           reduce using rule 35 (operatorCond -> AND_OP .)
+    LBRACKET        reduce using rule 35 (operatorCond -> AND_OP .)
+    LSQBRACKET      reduce using rule 35 (operatorCond -> AND_OP .)
+
+
+state 46
+
+    (36) operatorCond -> OR_OP .
+
+    NOT_OP          reduce using rule 36 (operatorCond -> OR_OP .)
+    STRING          reduce using rule 36 (operatorCond -> OR_OP .)
+    INTEGER         reduce using rule 36 (operatorCond -> OR_OP .)
+    FLOAT           reduce using rule 36 (operatorCond -> OR_OP .)
+    NULL            reduce using rule 36 (operatorCond -> OR_OP .)
+    NAME            reduce using rule 36 (operatorCond -> OR_OP .)
+    TRUE            reduce using rule 36 (operatorCond -> OR_OP .)
+    FALSE           reduce using rule 36 (operatorCond -> OR_OP .)
+    LBRACKET        reduce using rule 36 (operatorCond -> OR_OP .)
+    LSQBRACKET      reduce using rule 36 (operatorCond -> OR_OP .)
+
+
+state 47
+
+    (32) condition -> NOT_OP cond .
+    (31) condition -> cond .
+    (33) condition -> cond . operatorCond cond
+    (34) condition -> cond . operatorCond condition
+    (35) operatorCond -> . AND_OP
+    (36) operatorCond -> . OR_OP
+
+  ! reduce/reduce conflict for EQ resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for NE resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for LT resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for LE resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for GT resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for GE resolved using rule 31 (condition -> cond .)
+  ! shift/reduce conflict for AND_OP resolved as shift
+  ! shift/reduce conflict for OR_OP resolved as shift
+    COMA            reduce using rule 32 (condition -> NOT_OP cond .)
+    NAME            reduce using rule 32 (condition -> NOT_OP cond .)
+    PUTS            reduce using rule 32 (condition -> NOT_OP cond .)
+    $end            reduce using rule 32 (condition -> NOT_OP cond .)
+    RBRACKET        reduce using rule 32 (condition -> NOT_OP cond .)
+    RSQBRACKET      reduce using rule 32 (condition -> NOT_OP cond .)
+    EQ              reduce using rule 31 (condition -> cond .)
+    NE              reduce using rule 31 (condition -> cond .)
+    LT              reduce using rule 31 (condition -> cond .)
+    LE              reduce using rule 31 (condition -> cond .)
+    GT              reduce using rule 31 (condition -> cond .)
+    GE              reduce using rule 31 (condition -> cond .)
+    AND_OP          shift and go to state 45
+    OR_OP           shift and go to state 46
+
+  ! EQ              [ reduce using rule 32 (condition -> NOT_OP cond .) ]
+  ! NE              [ reduce using rule 32 (condition -> NOT_OP cond .) ]
+  ! LT              [ reduce using rule 32 (condition -> NOT_OP cond .) ]
+  ! LE              [ reduce using rule 32 (condition -> NOT_OP cond .) ]
+  ! GT              [ reduce using rule 32 (condition -> NOT_OP cond .) ]
+  ! GE              [ reduce using rule 32 (condition -> NOT_OP cond .) ]
+  ! AND_OP          [ reduce using rule 32 (condition -> NOT_OP cond .) ]
+  ! OR_OP           [ reduce using rule 32 (condition -> NOT_OP cond .) ]
+
+    operatorCond                   shift and go to state 44
+
+state 48
+
+    (37) cond -> valor . comparator valor
+    (38) comparator -> . EQ
+    (39) comparator -> . NE
+    (40) comparator -> . LT
+    (41) comparator -> . LE
+    (42) comparator -> . GT
+    (43) comparator -> . GE
+
+    EQ              shift and go to state 32
+    NE              shift and go to state 33
+    LT              shift and go to state 34
+    LE              shift and go to state 35
+    GT              shift and go to state 36
+    GE              shift and go to state 37
+
+    comparator                     shift and go to state 31
+
+state 49
 
     (10) argumentos -> valor COMA argumentos .
 
     NAME            reduce using rule 10 (argumentos -> valor COMA argumentos .)
     PUTS            reduce using rule 10 (argumentos -> valor COMA argumentos .)
     $end            reduce using rule 10 (argumentos -> valor COMA argumentos .)
+    RBRACKET        reduce using rule 10 (argumentos -> valor COMA argumentos .)
+    RSQBRACKET      reduce using rule 10 (argumentos -> valor COMA argumentos .)
+
+
+state 50
+
+    (37) cond -> valor comparator valor .
+    (37) cond -> valor . comparator valor
+    (38) comparator -> . EQ
+    (39) comparator -> . NE
+    (40) comparator -> . LT
+    (41) comparator -> . LE
+    (42) comparator -> . GT
+    (43) comparator -> . GE
+
+  ! shift/reduce conflict for EQ resolved as shift
+  ! shift/reduce conflict for NE resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+    AND_OP          reduce using rule 37 (cond -> valor comparator valor .)
+    OR_OP           reduce using rule 37 (cond -> valor comparator valor .)
+    COMA            reduce using rule 37 (cond -> valor comparator valor .)
+    NAME            reduce using rule 37 (cond -> valor comparator valor .)
+    PUTS            reduce using rule 37 (cond -> valor comparator valor .)
+    $end            reduce using rule 37 (cond -> valor comparator valor .)
+    RBRACKET        reduce using rule 37 (cond -> valor comparator valor .)
+    RSQBRACKET      reduce using rule 37 (cond -> valor comparator valor .)
+    EQ              shift and go to state 32
+    NE              shift and go to state 33
+    LT              shift and go to state 34
+    LE              shift and go to state 35
+    GT              shift and go to state 36
+    GE              shift and go to state 37
+
+  ! EQ              [ reduce using rule 37 (cond -> valor comparator valor .) ]
+  ! NE              [ reduce using rule 37 (cond -> valor comparator valor .) ]
+  ! LT              [ reduce using rule 37 (cond -> valor comparator valor .) ]
+  ! LE              [ reduce using rule 37 (cond -> valor comparator valor .) ]
+  ! GT              [ reduce using rule 37 (cond -> valor comparator valor .) ]
+  ! GE              [ reduce using rule 37 (cond -> valor comparator valor .) ]
+
+    comparator                     shift and go to state 31
+
+state 51
+
+    (20) lists -> LBRACKET argumentos RBRACKET .
+
+    COMA            reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    EQ              reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    NE              reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    LT              reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    LE              reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    GT              reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    GE              reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    NAME            reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    PUTS            reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    $end            reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    RBRACKET        reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    RSQBRACKET      reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    AND_OP          reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+    OR_OP           reduce using rule 20 (lists -> LBRACKET argumentos RBRACKET .)
+
+
+state 52
+
+    (21) lists -> LSQBRACKET argumentos RSQBRACKET .
+
+    COMA            reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    EQ              reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    NE              reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    LT              reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    LE              reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    GT              reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    GE              reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    NAME            reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    PUTS            reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    $end            reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    RBRACKET        reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    RSQBRACKET      reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    AND_OP          reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+    OR_OP           reduce using rule 21 (lists -> LSQBRACKET argumentos RSQBRACKET .)
+
+
+state 53
+
+    (24) operation -> operand operatorArithm operand .
+    (24) operation -> operand . operatorArithm operand
+    (25) operation -> operand . operatorArithm operation
+    (28) operatorArithm -> . PLUS
+    (29) operatorArithm -> . MINUS
+    (30) operatorArithm -> . MULTIPLY
+
+    COMA            reduce using rule 24 (operation -> operand operatorArithm operand .)
+    EQ              reduce using rule 24 (operation -> operand operatorArithm operand .)
+    NE              reduce using rule 24 (operation -> operand operatorArithm operand .)
+    LT              reduce using rule 24 (operation -> operand operatorArithm operand .)
+    LE              reduce using rule 24 (operation -> operand operatorArithm operand .)
+    GT              reduce using rule 24 (operation -> operand operatorArithm operand .)
+    GE              reduce using rule 24 (operation -> operand operatorArithm operand .)
+    NAME            reduce using rule 24 (operation -> operand operatorArithm operand .)
+    PUTS            reduce using rule 24 (operation -> operand operatorArithm operand .)
+    $end            reduce using rule 24 (operation -> operand operatorArithm operand .)
+    RBRACKET        reduce using rule 24 (operation -> operand operatorArithm operand .)
+    RSQBRACKET      reduce using rule 24 (operation -> operand operatorArithm operand .)
+    AND_OP          reduce using rule 24 (operation -> operand operatorArithm operand .)
+    OR_OP           reduce using rule 24 (operation -> operand operatorArithm operand .)
+    PLUS            shift and go to state 41
+    MINUS           shift and go to state 42
+    MULTIPLY        shift and go to state 43
+
+    operatorArithm                 shift and go to state 40
+
+state 54
+
+    (25) operation -> operand operatorArithm operation .
+
+    COMA            reduce using rule 25 (operation -> operand operatorArithm operation .)
+    EQ              reduce using rule 25 (operation -> operand operatorArithm operation .)
+    NE              reduce using rule 25 (operation -> operand operatorArithm operation .)
+    LT              reduce using rule 25 (operation -> operand operatorArithm operation .)
+    LE              reduce using rule 25 (operation -> operand operatorArithm operation .)
+    GT              reduce using rule 25 (operation -> operand operatorArithm operation .)
+    GE              reduce using rule 25 (operation -> operand operatorArithm operation .)
+    NAME            reduce using rule 25 (operation -> operand operatorArithm operation .)
+    PUTS            reduce using rule 25 (operation -> operand operatorArithm operation .)
+    $end            reduce using rule 25 (operation -> operand operatorArithm operation .)
+    RBRACKET        reduce using rule 25 (operation -> operand operatorArithm operation .)
+    RSQBRACKET      reduce using rule 25 (operation -> operand operatorArithm operation .)
+    AND_OP          reduce using rule 25 (operation -> operand operatorArithm operation .)
+    OR_OP           reduce using rule 25 (operation -> operand operatorArithm operation .)
+
+
+state 55
+
+    (26) operand -> INTEGER .
+
+    PLUS            reduce using rule 26 (operand -> INTEGER .)
+    MINUS           reduce using rule 26 (operand -> INTEGER .)
+    MULTIPLY        reduce using rule 26 (operand -> INTEGER .)
+    COMA            reduce using rule 26 (operand -> INTEGER .)
+    EQ              reduce using rule 26 (operand -> INTEGER .)
+    NE              reduce using rule 26 (operand -> INTEGER .)
+    LT              reduce using rule 26 (operand -> INTEGER .)
+    LE              reduce using rule 26 (operand -> INTEGER .)
+    GT              reduce using rule 26 (operand -> INTEGER .)
+    GE              reduce using rule 26 (operand -> INTEGER .)
+    NAME            reduce using rule 26 (operand -> INTEGER .)
+    PUTS            reduce using rule 26 (operand -> INTEGER .)
+    $end            reduce using rule 26 (operand -> INTEGER .)
+    RBRACKET        reduce using rule 26 (operand -> INTEGER .)
+    RSQBRACKET      reduce using rule 26 (operand -> INTEGER .)
+    AND_OP          reduce using rule 26 (operand -> INTEGER .)
+    OR_OP           reduce using rule 26 (operand -> INTEGER .)
+
+
+state 56
+
+    (27) operand -> FLOAT .
+
+    PLUS            reduce using rule 27 (operand -> FLOAT .)
+    MINUS           reduce using rule 27 (operand -> FLOAT .)
+    MULTIPLY        reduce using rule 27 (operand -> FLOAT .)
+    COMA            reduce using rule 27 (operand -> FLOAT .)
+    EQ              reduce using rule 27 (operand -> FLOAT .)
+    NE              reduce using rule 27 (operand -> FLOAT .)
+    LT              reduce using rule 27 (operand -> FLOAT .)
+    LE              reduce using rule 27 (operand -> FLOAT .)
+    GT              reduce using rule 27 (operand -> FLOAT .)
+    GE              reduce using rule 27 (operand -> FLOAT .)
+    NAME            reduce using rule 27 (operand -> FLOAT .)
+    PUTS            reduce using rule 27 (operand -> FLOAT .)
+    $end            reduce using rule 27 (operand -> FLOAT .)
+    RBRACKET        reduce using rule 27 (operand -> FLOAT .)
+    RSQBRACKET      reduce using rule 27 (operand -> FLOAT .)
+    AND_OP          reduce using rule 27 (operand -> FLOAT .)
+    OR_OP           reduce using rule 27 (operand -> FLOAT .)
+
+
+state 57
+
+    (33) condition -> cond operatorCond cond .
+    (31) condition -> cond .
+    (33) condition -> cond . operatorCond cond
+    (34) condition -> cond . operatorCond condition
+    (35) operatorCond -> . AND_OP
+    (36) operatorCond -> . OR_OP
+
+  ! reduce/reduce conflict for AND_OP resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for OR_OP resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for COMA resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for EQ resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for NE resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for LT resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for LE resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for GT resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for GE resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for NAME resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for PUTS resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for $end resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for RBRACKET resolved using rule 31 (condition -> cond .)
+  ! reduce/reduce conflict for RSQBRACKET resolved using rule 31 (condition -> cond .)
+  ! shift/reduce conflict for AND_OP resolved as shift
+  ! shift/reduce conflict for OR_OP resolved as shift
+    COMA            reduce using rule 31 (condition -> cond .)
+    EQ              reduce using rule 31 (condition -> cond .)
+    NE              reduce using rule 31 (condition -> cond .)
+    LT              reduce using rule 31 (condition -> cond .)
+    LE              reduce using rule 31 (condition -> cond .)
+    GT              reduce using rule 31 (condition -> cond .)
+    GE              reduce using rule 31 (condition -> cond .)
+    NAME            reduce using rule 31 (condition -> cond .)
+    PUTS            reduce using rule 31 (condition -> cond .)
+    $end            reduce using rule 31 (condition -> cond .)
+    RBRACKET        reduce using rule 31 (condition -> cond .)
+    RSQBRACKET      reduce using rule 31 (condition -> cond .)
+    AND_OP          shift and go to state 45
+    OR_OP           shift and go to state 46
+
+  ! COMA            [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! EQ              [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! NE              [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! LT              [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! LE              [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! GT              [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! GE              [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! NAME            [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! PUTS            [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! $end            [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! RBRACKET        [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! RSQBRACKET      [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! AND_OP          [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! OR_OP           [ reduce using rule 33 (condition -> cond operatorCond cond .) ]
+  ! AND_OP          [ reduce using rule 31 (condition -> cond .) ]
+  ! OR_OP           [ reduce using rule 31 (condition -> cond .) ]
+
+    operatorCond                   shift and go to state 44
+
+state 58
+
+    (34) condition -> cond operatorCond condition .
+    (19) valor -> condition .
+
+  ! reduce/reduce conflict for EQ resolved using rule 19 (valor -> condition .)
+  ! reduce/reduce conflict for NE resolved using rule 19 (valor -> condition .)
+  ! reduce/reduce conflict for LT resolved using rule 19 (valor -> condition .)
+  ! reduce/reduce conflict for LE resolved using rule 19 (valor -> condition .)
+  ! reduce/reduce conflict for GT resolved using rule 19 (valor -> condition .)
+  ! reduce/reduce conflict for GE resolved using rule 19 (valor -> condition .)
+    COMA            reduce using rule 34 (condition -> cond operatorCond condition .)
+    NAME            reduce using rule 34 (condition -> cond operatorCond condition .)
+    PUTS            reduce using rule 34 (condition -> cond operatorCond condition .)
+    $end            reduce using rule 34 (condition -> cond operatorCond condition .)
+    RBRACKET        reduce using rule 34 (condition -> cond operatorCond condition .)
+    RSQBRACKET      reduce using rule 34 (condition -> cond operatorCond condition .)
+    AND_OP          reduce using rule 34 (condition -> cond operatorCond condition .)
+    OR_OP           reduce using rule 34 (condition -> cond operatorCond condition .)
+    EQ              reduce using rule 19 (valor -> condition .)
+    NE              reduce using rule 19 (valor -> condition .)
+    LT              reduce using rule 19 (valor -> condition .)
+    LE              reduce using rule 19 (valor -> condition .)
+    GT              reduce using rule 19 (valor -> condition .)
+    GE              reduce using rule 19 (valor -> condition .)
+
+  ! EQ              [ reduce using rule 34 (condition -> cond operatorCond condition .) ]
+  ! NE              [ reduce using rule 34 (condition -> cond operatorCond condition .) ]
+  ! LT              [ reduce using rule 34 (condition -> cond operatorCond condition .) ]
+  ! LE              [ reduce using rule 34 (condition -> cond operatorCond condition .) ]
+  ! GT              [ reduce using rule 34 (condition -> cond operatorCond condition .) ]
+  ! GE              [ reduce using rule 34 (condition -> cond operatorCond condition .) ]
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
 WARNING: shift/reduce conflict for NAME in state 6 resolved as shift
+WARNING: shift/reduce conflict for AND_OP in state 27 resolved as shift
+WARNING: shift/reduce conflict for OR_OP in state 27 resolved as shift
+WARNING: shift/reduce conflict for AND_OP in state 47 resolved as shift
+WARNING: shift/reduce conflict for OR_OP in state 47 resolved as shift
+WARNING: shift/reduce conflict for EQ in state 50 resolved as shift
+WARNING: shift/reduce conflict for NE in state 50 resolved as shift
+WARNING: shift/reduce conflict for LT in state 50 resolved as shift
+WARNING: shift/reduce conflict for LE in state 50 resolved as shift
+WARNING: shift/reduce conflict for GT in state 50 resolved as shift
+WARNING: shift/reduce conflict for GE in state 50 resolved as shift
+WARNING: shift/reduce conflict for AND_OP in state 57 resolved as shift
+WARNING: shift/reduce conflict for OR_OP in state 57 resolved as shift
+WARNING: reduce/reduce conflict in state 47 resolved using rule (condition -> cond)
+WARNING: rejected rule (condition -> NOT_OP cond) in state 47
+WARNING: reduce/reduce conflict in state 57 resolved using rule (condition -> cond)
+WARNING: rejected rule (condition -> cond operatorCond cond) in state 57
+WARNING: reduce/reduce conflict in state 58 resolved using rule (valor -> condition)
+WARNING: rejected rule (condition -> cond operatorCond condition) in state 58
+WARNING: Rule (condition -> cond operatorCond cond) is never reduced
