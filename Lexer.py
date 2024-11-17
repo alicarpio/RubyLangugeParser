@@ -62,8 +62,7 @@ tokens = (
     'INTEGER',
     'FLOAT',
     'COMMENT',
-    'METHOD_NAME',
-    'VARIABLE_NAME',
+    'NAME',
     'EQUALS',
     'DOT',
     'PIPE'
@@ -143,15 +142,10 @@ def t_VARIABLE_CONSTANTE(t):
     t.type = reserved.get(t.value, 'VARIABLE_CONSTANTE')
     return t
 
-def t_METHOD_NAME(t):
-    r'\.?[a-z_][a-zA-Z0-9_]*\(?\.*'
-    t.type = reserved.get(t.value.lstrip('.'), 'METHOD_NAME')
-    return t
-
-def t_VARIABLE_LOCAL(t):
+def t_NAME(t):
     r'[a-z_][a-zA-Z0-9_]*'
     if t.value not in reserved:
-        t.type = 'VARIABLE_LOCAL'
+        t.type = 'NAME'
     return t
 
 error_list = []
@@ -225,4 +219,4 @@ end
 calcular_promedio_general(estudiantes)
 
 '''
-loger.create_log(lexer, "alicarpio", data, error_list)
+loger.create_log(lexer, "bryanestrada003", data, error_list)
