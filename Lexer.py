@@ -219,4 +219,4 @@ end
 calcular_promedio_general(estudiantes)
 
 '''
-loger.create_log(lexer, "bryanestrada003", data, error_list)
+loger.create_log(lexer, "bryanestrada003", data, error_list, "lexico")

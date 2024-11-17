@@ -1,11 +1,11 @@
 from datetime import datetime
 import os
 
-def create_log(lexer, usuario, data, errors):
+def create_log(lexer, usuario, data, errors, types):
     os.makedirs("logs", exist_ok=True)
 
     fecha_hora = datetime.now().strftime("%d%m%Y-%Hh%M")
-    log_filename = f"logs/lexico-{usuario}-{fecha_hora}.txt"
+    log_filename = f"logs/{types}-{usuario}-{fecha_hora}.txt"
 
     with open(log_filename, "w") as log_file:
         lexer.input(data)

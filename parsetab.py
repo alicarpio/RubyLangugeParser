@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'AND_OP CASE CLASS CLASS_NAME COLON COMA COMMENT DEF DIVIDE DO DOT EACH ELSE ELSIF END EQ EQUALS FALSE FLOAT FOR GE GT HASHROCKET IF INITIALIZE INTEGER LBRACKET LE LPAREN LSQBRACKET LT METHOD_NAME MINUS MODULE MULTIPLY NE NEW NOT_OP NULL OR_OP PIPE PLUS POWER PUTS RBRACKET RPAREN RSQBRACKET SEMICOLON STRING SYMBOL TRUE UNLESS UNTIL VARIABLE_CLASE VARIABLE_CONSTANTE VARIABLE_GLOBAL VARIABLE_INSTANCIA VARIABLE_LOCAL VARIABLE_NAME WHEN WHILEasignacion : VARIABLE_LOCAL EQUALS valorvalor : STRING\n             | INTEGER\n             | FLOAT\n             | VARIABLE_LOCAL'
+_lr_signature = 'AND_OP CASE CLASS CLASS_NAME COLON COMA COMMENT DEF DIVIDE DO DOT EACH ELSE ELSIF END EQ EQUALS FALSE FLOAT FOR GE GT HASHROCKET IF INITIALIZE INTEGER LBRACKET LE LPAREN LSQBRACKET LT MINUS MODULE MULTIPLY NAME NE NEW NOT_OP NULL OR_OP PIPE PLUS POWER PUTS RBRACKET RPAREN RSQBRACKET SEMICOLON STRING SYMBOL TRUE UNLESS UNTIL VARIABLE_CLASE VARIABLE_CONSTANTE VARIABLE_GLOBAL VARIABLE_INSTANCIA VARIABLE_LOCAL WHEN WHILEasignacion : NAME EQUALS valorvalor : STRING\n             | INTEGER\n             | FLOAT\n             | NAMEimpresion : PUTS argumentos_optargumentos_opt : argumentos\n                      | emptyargumentos : argumento\n                  | argumento COMA argumentosargumento : STRING\n                 | INTEGER\n                 | FLOAT\n                 | NAMEempty :'
     
-_lr_action_items = {'VARIABLE_LOCAL':([0,3,],[2,4,]),'$end':([1,4,5,6,7,8,],[0,-5,-1,-2,-3,-4,]),'EQUALS':([2,],[3,]),'STRING':([3,],[6,]),'INTEGER':([3,],[7,]),'FLOAT':([3,],[8,]),}
+_lr_action_items = {'NAME':([0,3,],[2,4,]),'$end':([1,4,5,6,7,8,],[0,-5,-1,-2,-3,-4,]),'EQUALS':([2,],[3,]),'STRING':([3,],[6,]),'INTEGER':([3,],[7,]),'FLOAT':([3,],[8,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -27,9 +27,19 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> asignacion","S'",1,None,None,None),
-  ('asignacion -> VARIABLE_LOCAL EQUALS valor','asignacion',3,'p_asignacion','Syntactic.py',5),
-  ('valor -> STRING','valor',1,'p_valor','Syntactic.py',9),
-  ('valor -> INTEGER','valor',1,'p_valor','Syntactic.py',10),
-  ('valor -> FLOAT','valor',1,'p_valor','Syntactic.py',11),
-  ('valor -> VARIABLE_LOCAL','valor',1,'p_valor','Syntactic.py',12),
+  ('asignacion -> NAME EQUALS valor','asignacion',3,'p_asignacion','Syntactic.py',8),
+  ('valor -> STRING','valor',1,'p_valor','Syntactic.py',12),
+  ('valor -> INTEGER','valor',1,'p_valor','Syntactic.py',13),
+  ('valor -> FLOAT','valor',1,'p_valor','Syntactic.py',14),
+  ('valor -> NAME','valor',1,'p_valor','Syntactic.py',15),
+  ('impresion -> PUTS argumentos_opt','impresion',2,'p_impresion','Syntactic.py',19),
+  ('argumentos_opt -> argumentos','argumentos_opt',1,'p_argumentos_opt','Syntactic.py',25),
+  ('argumentos_opt -> empty','argumentos_opt',1,'p_argumentos_opt','Syntactic.py',26),
+  ('argumentos -> argumento','argumentos',1,'p_argumentos','Syntactic.py',30),
+  ('argumentos -> argumento COMA argumentos','argumentos',3,'p_argumentos','Syntactic.py',31),
+  ('argumento -> STRING','argumento',1,'p_argumento','Syntactic.py',38),
+  ('argumento -> INTEGER','argumento',1,'p_argumento','Syntactic.py',39),
+  ('argumento -> FLOAT','argumento',1,'p_argumento','Syntactic.py',40),
+  ('argumento -> NAME','argumento',1,'p_argumento','Syntactic.py',41),
+  ('empty -> <empty>','empty',0,'p_empty','Syntactic.py',45),
 ]

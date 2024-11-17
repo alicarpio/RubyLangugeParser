@@ -7,7 +7,6 @@ Unused terminals:
     CLASS
     CLASS_NAME
     COLON
-    COMA
     COMMENT
     DEF
     DIVIDE
@@ -30,7 +29,6 @@ Unused terminals:
     LPAREN
     LSQBRACKET
     LT
-    METHOD_NAME
     MINUS
     MODULE
     MULTIPLY
@@ -42,7 +40,6 @@ Unused terminals:
     PIPE
     PLUS
     POWER
-    PUTS
     RBRACKET
     RPAREN
     RSQBRACKET
@@ -55,18 +52,28 @@ Unused terminals:
     VARIABLE_CONSTANTE
     VARIABLE_GLOBAL
     VARIABLE_INSTANCIA
-    VARIABLE_NAME
+    VARIABLE_LOCAL
     WHEN
     WHILE
 
 Grammar
 
 Rule 0     S' -> asignacion
-Rule 1     asignacion -> VARIABLE_LOCAL EQUALS valor
+Rule 1     asignacion -> NAME EQUALS valor
 Rule 2     valor -> STRING
 Rule 3     valor -> INTEGER
 Rule 4     valor -> FLOAT
-Rule 5     valor -> VARIABLE_LOCAL
+Rule 5     valor -> NAME
+Rule 6     impresion -> PUTS argumentos_opt
+Rule 7     argumentos_opt -> argumentos
+Rule 8     argumentos_opt -> empty
+Rule 9     argumentos -> argumento
+Rule 10    argumentos -> argumento COMA argumentos
+Rule 11    argumento -> STRING
+Rule 12    argumento -> INTEGER
+Rule 13    argumento -> FLOAT
+Rule 14    argumento -> NAME
+Rule 15    empty -> <empty>
 
 Terminals, with rules where they appear
 
@@ -75,7 +82,7 @@ CASE                 :
 CLASS                : 
 CLASS_NAME           : 
 COLON                : 
-COMA                 : 
+COMA                 : 10
 COMMENT              : 
 DEF                  : 
 DIVIDE               : 
@@ -88,23 +95,23 @@ END                  :
 EQ                   : 
 EQUALS               : 1
 FALSE                : 
-FLOAT                : 4
+FLOAT                : 4 13
 FOR                  : 
 GE                   : 
 GT                   : 
 HASHROCKET           : 
 IF                   : 
 INITIALIZE           : 
-INTEGER              : 3
+INTEGER              : 3 12
 LBRACKET             : 
 LE                   : 
 LPAREN               : 
 LSQBRACKET           : 
 LT                   : 
-METHOD_NAME          : 
 MINUS                : 
 MODULE               : 
 MULTIPLY             : 
+NAME                 : 1 5 14
 NE                   : 
 NEW                  : 
 NOT_OP               : 
@@ -113,12 +120,12 @@ OR_OP                :
 PIPE                 : 
 PLUS                 : 
 POWER                : 
-PUTS                 : 
+PUTS                 : 6
 RBRACKET             : 
 RPAREN               : 
 RSQBRACKET           : 
 SEMICOLON            : 
-STRING               : 2
+STRING               : 2 11
 SYMBOL               : 
 TRUE                 : 
 UNLESS               : 
@@ -127,15 +134,19 @@ VARIABLE_CLASE       :
 VARIABLE_CONSTANTE   : 
 VARIABLE_GLOBAL      : 
 VARIABLE_INSTANCIA   : 
-VARIABLE_LOCAL       : 1 5
-VARIABLE_NAME        : 
+VARIABLE_LOCAL       : 
 WHEN                 : 
 WHILE                : 
 error                : 
 
 Nonterminals, with rules where they appear
 
+argumento            : 9 10
+argumentos           : 7 10
+argumentos_opt       : 6
 asignacion           : 0
+empty                : 8
+impresion            : 
 valor                : 1
 
 Parsing method: LALR
@@ -143,9 +154,9 @@ Parsing method: LALR
 state 0
 
     (0) S' -> . asignacion
-    (1) asignacion -> . VARIABLE_LOCAL EQUALS valor
+    (1) asignacion -> . NAME EQUALS valor
 
-    VARIABLE_LOCAL  shift and go to state 2
+    NAME            shift and go to state 2
 
     asignacion                     shift and go to state 1
 
@@ -157,38 +168,38 @@ state 1
 
 state 2
 
-    (1) asignacion -> VARIABLE_LOCAL . EQUALS valor
+    (1) asignacion -> NAME . EQUALS valor
 
     EQUALS          shift and go to state 3
 
 
 state 3
 
-    (1) asignacion -> VARIABLE_LOCAL EQUALS . valor
+    (1) asignacion -> NAME EQUALS . valor
     (2) valor -> . STRING
     (3) valor -> . INTEGER
     (4) valor -> . FLOAT
-    (5) valor -> . VARIABLE_LOCAL
+    (5) valor -> . NAME
 
     STRING          shift and go to state 6
     INTEGER         shift and go to state 7
     FLOAT           shift and go to state 8
-    VARIABLE_LOCAL  shift and go to state 4
+    NAME            shift and go to state 4
 
     valor                          shift and go to state 5
 
 state 4
 
-    (5) valor -> VARIABLE_LOCAL .
+    (5) valor -> NAME .
 
-    $end            reduce using rule 5 (valor -> VARIABLE_LOCAL .)
+    $end            reduce using rule 5 (valor -> NAME .)
 
 
 state 5
 
-    (1) asignacion -> VARIABLE_LOCAL EQUALS valor .
+    (1) asignacion -> NAME EQUALS valor .
 
-    $end            reduce using rule 1 (asignacion -> VARIABLE_LOCAL EQUALS valor .)
+    $end            reduce using rule 1 (asignacion -> NAME EQUALS valor .)
 
 
 state 6
