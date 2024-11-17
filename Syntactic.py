@@ -32,7 +32,11 @@ def p_valor(p):
     '''valor : STRING
              | INTEGER
              | FLOAT
-             | NAME'''
+             | NULL
+             | NAME
+             | boolean
+             | lists
+             | operation'''
 
 def p_empty(p):
     'empty :'
