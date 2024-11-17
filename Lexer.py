@@ -144,8 +144,7 @@ def t_VARIABLE_CONSTANTE(t):
 
 def t_NAME(t):
     r'[a-z_][a-zA-Z0-9_]*'
-    if t.value not in reserved:
-        t.type = 'NAME'
+    t.type = reserved.get(t.value, 'NAME')  # Verifica si es una palabra reservada
     return t
 
 error_list = []

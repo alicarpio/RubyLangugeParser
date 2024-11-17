@@ -2,17 +2,20 @@ import ply.yacc as yacc
 from Lexer import tokens
 from Lexer import data
 import Logs as loger
+from Lexer import lexer
 
+# Reglas de la gramática
+def p_program(p):
+    '''program : code
+               | code program'''
+
+def p_code(p):
+    '''code : asignacion
+            | impresion'''
 
 # Reglas de la gramática
 def p_asignacion(p):
     'asignacion : NAME EQUALS valor'
-
-def p_valor(p):
-    '''valor : STRING
-             | INTEGER
-             | FLOAT
-             | NAME'''
 
 def p_impresion(p):
     'impresion : PUTS argumentos_opt'
@@ -22,38 +25,29 @@ def p_argumentos_opt(p):
                       | empty'''
 
 def p_argumentos(p):
-    '''argumentos : argumento
-                  | argumento COMA argumentos'''
+    '''argumentos : valor
+                  | valor COMA argumentos'''
 
-def p_argumento(p):
-    '''argumento : STRING
-                 | INTEGER
-                 | FLOAT
-                 | NAME'''
+def p_valor(p):
+    '''valor : STRING
+             | INTEGER
+             | FLOAT
+             | NAME'''
 
 def p_empty(p):
     'empty :'
-
+    p[0] = None
 
 error_list = []
-
-# Regla de manejo de errores en el sintáctico
 def p_error(p):
     if p:
-        char = p.value[0] if isinstance(p.value, str) and len(p.value) > 0 else p.value
-        if char == '$':
-            error_message = f"Illegal global variable usage with '{char}' at line {p.lineno}"
-        elif char == '@':
-            error_message = f"Illegal instance or class variable usage with '{char}' at line {p.lineno}"
-        else:
-            error_message = f"Syntax error: unexpected token '{char}' at line {p.lineno}"
+        error_message = f"Syntax error: unexpected token '{p.value}' at line {p.lineno}"
     else:
         error_message = "Syntax error: unexpected end of input."
-
     error_list.append(error_message)
     print(error_message)
 
-# Construir el parser
+# Construcción del parser
 parser = yacc.yacc()
 ex1 = '''
 # Definición de un método de evaluación
