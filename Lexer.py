@@ -21,6 +21,8 @@ reserved = {
     'initialize': 'INITIALIZE',
     'end': 'END',
     'puts': 'PUTS',
+    'gets': 'GETS',
+    'chomp': 'CHOMP',
     'new': 'NEW',
     'each': 'EACH'
 }
@@ -144,7 +146,7 @@ def t_VARIABLE_CONSTANTE(t):
 
 def t_NAME(t):
     r'[a-z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'NAME')  # Verifica si es una palabra reservada
+    t.type = reserved.get(t.value, 'NAME')
     return t
 
 error_list = []
@@ -171,6 +173,10 @@ t_ignore = ' \t'
 lexer = lex.lex()
 
 data = '''
+
+puts 'Ingrese un dato'
+nombre = gets.chomp
+
 class Estudiante
   attr_accessor :nombre, :edad, :promedio, :materias
 
@@ -218,4 +224,4 @@ end
 calcular_promedio_general(estudiantes)
 
 '''
-loger.create_log(lexer, "bryanestrada003", data, error_list, "lexico")
+# loger.create_log(lexer, "alicarpio", data, error_list, "lexico")

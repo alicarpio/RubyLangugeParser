@@ -1,0 +1,42 @@
+
+
+==============================
+Log Entry
+==============================
+
+Input Code:
+puts "Ingrese su edad:"
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry at 
+==============================
+
+Input Code:
+edad = gets.chomp
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry at 
+==============================
+
+Input Code:
+var = 6
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

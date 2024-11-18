@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'AND_OP CASE CLASS CLASS_NAME COLON COMA COMMENT DEF DIVIDE DO DOT EACH ELSE ELSIF END EQ EQUALS FALSE FLOAT FOR GE GT HASHROCKET IF INITIALIZE INTEGER LBRACKET LE LPAREN LSQBRACKET LT MINUS MODULE MULTIPLY NAME NE NEW NOT_OP NULL OR_OP PIPE PLUS POWER PUTS RBRACKET RPAREN RSQBRACKET SEMICOLON STRING SYMBOL TRUE UNLESS UNTIL VARIABLE_CLASE VARIABLE_CONSTANTE VARIABLE_GLOBAL VARIABLE_INSTANCIA VARIABLE_LOCAL WHEN WHILEprogram : code\n               | code programcode : asignacion\n            | impresionasignacion : NAME EQUALS valorimpresion : PUTS argumentos_optargumentos_opt : argumentos\n                      | emptyargumentos : valor\n                  | valor COMA argumentosvalor : STRING\n             | INTEGER\n             | FLOAT\n             | NULL\n             | NAME\n             | boolean\n             | lists\n             | operation\n             | conditionlists : LBRACKET argumentos RBRACKET\n             | LSQBRACKET argumentos RSQBRACKETboolean : TRUE\n                | FALSEoperation : operand operatorArithm operand\n                 | operand operatorArithm operationoperand : INTEGER\n               | FLOAToperatorArithm : PLUS\n                | MINUS\n                | MULTIPLYcondition : cond\n                 | NOT_OP cond\n                 | cond operatorCond cond\n                 | cond operatorCond conditionoperatorCond : AND_OP\n                    | OR_OPcond : valor comparator valorcomparator : EQ\n                  | NE\n                  | LT\n                  | LE\n                  | GT\n                  | GEempty :'
+_lr_signature = 'AND_OP CASE CHOMP CLASS CLASS_NAME COLON COMA COMMENT DEF DIVIDE DO DOT EACH ELSE ELSIF END EQ EQUALS FALSE FLOAT FOR GE GETS GT HASHROCKET IF INITIALIZE INTEGER LBRACKET LE LPAREN LSQBRACKET LT MINUS MODULE MULTIPLY NAME NE NEW NOT_OP NULL OR_OP PIPE PLUS POWER PUTS RBRACKET RPAREN RSQBRACKET SEMICOLON STRING SYMBOL TRUE UNLESS UNTIL VARIABLE_CLASE VARIABLE_CONSTANTE VARIABLE_GLOBAL VARIABLE_INSTANCIA VARIABLE_LOCAL WHEN WHILEprogram : code\n               | code programcode : asignacion\n            | impresion\n            | solicitud_entrada\n            asignacion : NAME EQUALS valorimpresion : PUTS argumentos_optsolicitud_entrada : PUTS STRING\n                         | NAME EQUALS GETS DOT CHOMP\n    argumentos_opt : argumentos\n                      | emptyargumentos : valor\n                  | valor COMA argumentosvalor : STRING\n             | INTEGER\n             | FLOAT\n             | NULL\n             | NAME\n             | boolean\n             | lists\n             | operation\n             | condition\n    lists : LBRACKET argumentos RBRACKET\n             | LSQBRACKET argumentos RSQBRACKETboolean : TRUE\n                | FALSEoperation : operand operatorArithm operand\n                 | operand operatorArithm operationoperand : INTEGER\n               | FLOAToperatorArithm : PLUS\n                | MINUS\n                | MULTIPLYcondition : cond\n                 | NOT_OP cond\n                 | cond operatorCond cond\n                 | cond operatorCond conditionoperatorCond : AND_OP\n                    | OR_OPcond : valor comparator valorcomparator : EQ\n                  | NE\n                  | LT\n                  | LE\n                  | GT\n                  | GEempty :'
     
-_lr_action_items = {'NAME':([0,2,3,4,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,29,30,31,32,33,34,35,36,37,44,45,46,47,49,50,51,52,53,54,55,56,57,58,],[5,5,-3,-4,17,17,-6,-7,-8,-9,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,17,17,-31,17,-5,17,17,-38,-39,-40,-41,-42,-43,17,-35,-36,-32,-10,-37,-20,-21,-24,-25,-26,-27,-31,-34,]),'PUTS':([0,2,3,4,6,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,27,29,47,49,50,51,52,53,54,55,56,57,58,],[6,6,-3,-4,-44,-6,-7,-8,-9,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,-5,-32,-10,-37,-20,-21,-24,-25,-26,-27,-31,-34,]),'$end':([1,2,3,4,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,27,29,47,49,50,51,52,53,54,55,56,57,58,],[0,-1,-3,-4,-44,-2,-6,-7,-8,-9,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,-5,-32,-10,-37,-20,-21,-24,-25,-26,-27,-31,-34,]),'EQUALS':([5,],[8,]),'STRING':([6,8,24,25,28,30,31,32,33,34,35,36,37,44,45,46,],[13,13,13,13,13,13,13,-38,-39,-40,-41,-42,-43,13,-35,-36,]),'INTEGER':([6,8,24,25,28,30,31,32,33,34,35,36,37,40,41,42,43,44,45,46,],[14,14,14,14,14,14,14,-38,-39,-40,-41,-42,-43,55,-28,-29,-30,14,-35,-36,]),'FLOAT':([6,8,24,25,28,30,31,32,33,34,35,36,37,40,41,42,43,44,45,46,],[15,15,15,15,15,15,15,-38,-39,-40,-41,-42,-43,56,-28,-29,-30,15,-35,-36,]),'NULL':([6,8,24,25,28,30,31,32,33,34,35,36,37,44,45,46,],[16,16,16,16,16,16,16,-38,-39,-40,-41,-42,-43,16,-35,-36,]),'TRUE':([6,8,24,25,28,30,31,32,33,34,35,36,37,44,45,46,],[22,22,22,22,22,22,22,-38,-39,-40,-41,-42,-43,22,-35,-36,]),'FALSE':([6,8,24,25,28,30,31,32,33,34,35,36,37,44,45,46,],[23,23,23,23,23,23,23,-38,-39,-40,-41,-42,-43,23,-35,-36,]),'LBRACKET':([6,8,24,25,28,30,31,32,33,34,35,36,37,44,45,46,],[24,24,24,24,24,24,24,-38,-39,-40,-41,-42,-43,24,-35,-36,]),'LSQBRACKET':([6,8,24,25,28,30,31,32,33,34,35,36,37,44,45,46,],[25,25,25,25,25,25,25,-38,-39,-40,-41,-42,-43,25,-35,-36,]),'NOT_OP':([6,8,24,25,28,30,31,32,33,34,35,36,37,44,45,46,],[28,28,28,28,28,28,28,-38,-39,-40,-41,-42,-43,28,-35,-36,]),'RBRACKET':([12,13,14,15,16,17,18,19,20,21,22,23,27,38,47,49,50,51,52,53,54,55,56,57,58,],[-9,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,51,-32,-10,-37,-20,-21,-24,-25,-26,-27,-31,-34,]),'RSQBRACKET':([12,13,14,15,16,17,18,19,20,21,22,23,27,39,47,49,50,51,52,53,54,55,56,57,58,],[-9,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,52,-32,-10,-37,-20,-21,-24,-25,-26,-27,-31,-34,]),'COMA':([12,13,14,15,16,17,18,19,20,21,22,23,27,47,50,51,52,53,54,55,56,57,58,],[30,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,-32,-37,-20,-21,-24,-25,-26,-27,-31,-34,]),'EQ':([12,13,14,15,16,17,18,19,20,21,22,23,27,29,47,48,50,51,52,53,54,55,56,57,58,],[32,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,32,-31,32,32,-20,-21,-24,-25,-26,-27,-31,-19,]),'NE':([12,13,14,15,16,17,18,19,20,21,22,23,27,29,47,48,50,51,52,53,54,55,56,57,58,],[33,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,33,-31,33,33,-20,-21,-24,-25,-26,-27,-31,-19,]),'LT':([12,13,14,15,16,17,18,19,20,21,22,23,27,29,47,48,50,51,52,53,54,55,56,57,58,],[34,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,34,-31,34,34,-20,-21,-24,-25,-26,-27,-31,-19,]),'LE':([12,13,14,15,16,17,18,19,20,21,22,23,27,29,47,48,50,51,52,53,54,55,56,57,58,],[35,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,35,-31,35,35,-20,-21,-24,-25,-26,-27,-31,-19,]),'GT':([12,13,14,15,16,17,18,19,20,21,22,23,27,29,47,48,50,51,52,53,54,55,56,57,58,],[36,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,36,-31,36,36,-20,-21,-24,-25,-26,-27,-31,-19,]),'GE':([12,13,14,15,16,17,18,19,20,21,22,23,27,29,47,48,50,51,52,53,54,55,56,57,58,],[37,-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,-31,37,-31,37,37,-20,-21,-24,-25,-26,-27,-31,-19,]),'AND_OP':([13,14,15,16,17,18,19,20,21,22,23,27,47,50,51,52,53,54,55,56,57,58,],[-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,45,45,-37,-20,-21,-24,-25,-26,-27,45,-34,]),'OR_OP':([13,14,15,16,17,18,19,20,21,22,23,27,47,50,51,52,53,54,55,56,57,58,],[-11,-12,-13,-14,-15,-16,-17,-18,-19,-22,-23,46,46,-37,-20,-21,-24,-25,-26,-27,46,-34,]),'PLUS':([14,15,26,53,55,56,],[-26,-27,41,41,-26,-27,]),'MINUS':([14,15,26,53,55,56,],[-26,-27,42,42,-26,-27,]),'MULTIPLY':([14,15,26,53,55,56,],[-26,-27,43,43,-26,-27,]),}
+_lr_action_items = {'NAME':([0,2,3,4,5,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,32,33,34,35,36,37,38,39,40,47,48,49,50,53,54,55,56,57,58,59,60,61,62,63,],[6,6,-3,-4,-5,18,18,-7,-8,-10,-11,-12,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,18,18,-34,18,-6,-14,18,18,-41,-42,-43,-44,-45,-46,18,-38,-39,-35,-13,-40,-23,-24,-27,-28,-29,-30,-34,-37,-9,]),'PUTS':([0,2,3,4,5,7,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,28,30,32,50,53,54,55,56,57,58,59,60,61,62,63,],[7,7,-3,-4,-5,-47,-7,-8,-10,-11,-12,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,-6,-14,-35,-13,-40,-23,-24,-27,-28,-29,-30,-34,-37,-9,]),'$end':([1,2,3,4,5,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,28,30,32,50,53,54,55,56,57,58,59,60,61,62,63,],[0,-1,-3,-4,-5,-47,-2,-7,-8,-10,-11,-12,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,-6,-14,-35,-13,-40,-23,-24,-27,-28,-29,-30,-34,-37,-9,]),'EQUALS':([6,],[9,]),'STRING':([7,9,25,26,29,33,34,35,36,37,38,39,40,47,48,49,],[11,32,32,32,32,32,32,-41,-42,-43,-44,-45,-46,32,-38,-39,]),'INTEGER':([7,9,25,26,29,33,34,35,36,37,38,39,40,43,44,45,46,47,48,49,],[15,15,15,15,15,15,15,-41,-42,-43,-44,-45,-46,59,-31,-32,-33,15,-38,-39,]),'FLOAT':([7,9,25,26,29,33,34,35,36,37,38,39,40,43,44,45,46,47,48,49,],[16,16,16,16,16,16,16,-41,-42,-43,-44,-45,-46,60,-31,-32,-33,16,-38,-39,]),'NULL':([7,9,25,26,29,33,34,35,36,37,38,39,40,47,48,49,],[17,17,17,17,17,17,17,-41,-42,-43,-44,-45,-46,17,-38,-39,]),'TRUE':([7,9,25,26,29,33,34,35,36,37,38,39,40,47,48,49,],[23,23,23,23,23,23,23,-41,-42,-43,-44,-45,-46,23,-38,-39,]),'FALSE':([7,9,25,26,29,33,34,35,36,37,38,39,40,47,48,49,],[24,24,24,24,24,24,24,-41,-42,-43,-44,-45,-46,24,-38,-39,]),'LBRACKET':([7,9,25,26,29,33,34,35,36,37,38,39,40,47,48,49,],[25,25,25,25,25,25,25,-41,-42,-43,-44,-45,-46,25,-38,-39,]),'LSQBRACKET':([7,9,25,26,29,33,34,35,36,37,38,39,40,47,48,49,],[26,26,26,26,26,26,26,-41,-42,-43,-44,-45,-46,26,-38,-39,]),'NOT_OP':([7,9,25,26,29,33,34,35,36,37,38,39,40,47,48,49,],[29,29,29,29,29,29,29,-41,-42,-43,-44,-45,-46,29,-38,-39,]),'GETS':([9,],[31,]),'COMA':([11,14,15,16,17,18,19,20,21,22,23,24,28,32,50,54,55,56,57,58,59,60,61,62,],[-14,33,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,-14,-35,-40,-23,-24,-27,-28,-29,-30,-34,-37,]),'EQ':([11,14,15,16,17,18,19,20,21,22,23,24,28,30,32,50,51,54,55,56,57,58,59,60,61,62,],[-14,35,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,35,-14,-34,35,35,-23,-24,-27,-28,-29,-30,-34,-22,]),'NE':([11,14,15,16,17,18,19,20,21,22,23,24,28,30,32,50,51,54,55,56,57,58,59,60,61,62,],[-14,36,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,36,-14,-34,36,36,-23,-24,-27,-28,-29,-30,-34,-22,]),'LT':([11,14,15,16,17,18,19,20,21,22,23,24,28,30,32,50,51,54,55,56,57,58,59,60,61,62,],[-14,37,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,37,-14,-34,37,37,-23,-24,-27,-28,-29,-30,-34,-22,]),'LE':([11,14,15,16,17,18,19,20,21,22,23,24,28,30,32,50,51,54,55,56,57,58,59,60,61,62,],[-14,38,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,38,-14,-34,38,38,-23,-24,-27,-28,-29,-30,-34,-22,]),'GT':([11,14,15,16,17,18,19,20,21,22,23,24,28,30,32,50,51,54,55,56,57,58,59,60,61,62,],[-14,39,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,39,-14,-34,39,39,-23,-24,-27,-28,-29,-30,-34,-22,]),'GE':([11,14,15,16,17,18,19,20,21,22,23,24,28,30,32,50,51,54,55,56,57,58,59,60,61,62,],[-14,40,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,40,-14,-34,40,40,-23,-24,-27,-28,-29,-30,-34,-22,]),'RBRACKET':([14,15,16,17,18,19,20,21,22,23,24,28,32,41,50,53,54,55,56,57,58,59,60,61,62,],[-12,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,-14,55,-35,-13,-40,-23,-24,-27,-28,-29,-30,-34,-37,]),'RSQBRACKET':([14,15,16,17,18,19,20,21,22,23,24,28,32,42,50,53,54,55,56,57,58,59,60,61,62,],[-12,-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,-34,-14,56,-35,-13,-40,-23,-24,-27,-28,-29,-30,-34,-37,]),'AND_OP':([15,16,17,18,19,20,21,22,23,24,28,32,50,54,55,56,57,58,59,60,61,62,],[-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,48,-14,48,-40,-23,-24,-27,-28,-29,-30,48,-37,]),'OR_OP':([15,16,17,18,19,20,21,22,23,24,28,32,50,54,55,56,57,58,59,60,61,62,],[-15,-16,-17,-18,-19,-20,-21,-22,-25,-26,49,-14,49,-40,-23,-24,-27,-28,-29,-30,49,-37,]),'PLUS':([15,16,27,57,59,60,],[-29,-30,44,44,-29,-30,]),'MINUS':([15,16,27,57,59,60,],[-29,-30,45,45,-29,-30,]),'MULTIPLY':([15,16,27,57,59,60,],[-29,-30,46,46,-29,-30,]),'DOT':([31,],[52,]),'CHOMP':([52,],[63,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'program':([0,2,],[1,7,]),'code':([0,2,],[2,2,]),'asignacion':([0,2,],[3,3,]),'impresion':([0,2,],[4,4,]),'argumentos_opt':([6,],[9,]),'argumentos':([6,24,25,30,],[10,38,39,49,]),'empty':([6,],[11,]),'valor':([6,8,24,25,28,30,31,44,],[12,29,12,12,48,12,50,48,]),'boolean':([6,8,24,25,28,30,31,44,],[18,18,18,18,18,18,18,18,]),'lists':([6,8,24,25,28,30,31,44,],[19,19,19,19,19,19,19,19,]),'operation':([6,8,24,25,28,30,31,40,44,],[20,20,20,20,20,20,20,54,20,]),'condition':([6,8,24,25,28,30,31,44,],[21,21,21,21,21,21,21,58,]),'operand':([6,8,24,25,28,30,31,40,44,],[26,26,26,26,26,26,26,53,26,]),'cond':([6,8,24,25,28,30,31,44,],[27,27,27,27,47,27,27,57,]),'comparator':([12,29,48,50,],[31,31,31,31,]),'operatorArithm':([26,53,],[40,40,]),'operatorCond':([27,47,57,],[44,44,44,]),}
+_lr_goto_items = {'program':([0,2,],[1,8,]),'code':([0,2,],[2,2,]),'asignacion':([0,2,],[3,3,]),'impresion':([0,2,],[4,4,]),'solicitud_entrada':([0,2,],[5,5,]),'argumentos_opt':([7,],[10,]),'argumentos':([7,25,26,33,],[12,41,42,53,]),'empty':([7,],[13,]),'valor':([7,9,25,26,29,33,34,47,],[14,30,14,14,51,14,54,51,]),'boolean':([7,9,25,26,29,33,34,47,],[19,19,19,19,19,19,19,19,]),'lists':([7,9,25,26,29,33,34,47,],[20,20,20,20,20,20,20,20,]),'operation':([7,9,25,26,29,33,34,43,47,],[21,21,21,21,21,21,21,58,21,]),'condition':([7,9,25,26,29,33,34,47,],[22,22,22,22,22,22,22,62,]),'operand':([7,9,25,26,29,33,34,43,47,],[27,27,27,27,27,27,27,57,27,]),'cond':([7,9,25,26,29,33,34,47,],[28,28,28,28,50,28,28,61,]),'comparator':([14,30,51,54,],[34,34,34,34,]),'operatorArithm':([27,57,],[43,43,]),'operatorCond':([28,50,61,],[47,47,47,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -31,44 +31,47 @@ _lr_productions = [
   ('program -> code program','program',2,'p_program','Syntactic.py',10),
   ('code -> asignacion','code',1,'p_code','Syntactic.py',13),
   ('code -> impresion','code',1,'p_code','Syntactic.py',14),
-  ('asignacion -> NAME EQUALS valor','asignacion',3,'p_asignacion','Syntactic.py',18),
-  ('impresion -> PUTS argumentos_opt','impresion',2,'p_impresion','Syntactic.py',21),
-  ('argumentos_opt -> argumentos','argumentos_opt',1,'p_argumentos_opt','Syntactic.py',24),
-  ('argumentos_opt -> empty','argumentos_opt',1,'p_argumentos_opt','Syntactic.py',25),
-  ('argumentos -> valor','argumentos',1,'p_argumentos','Syntactic.py',28),
-  ('argumentos -> valor COMA argumentos','argumentos',3,'p_argumentos','Syntactic.py',29),
-  ('valor -> STRING','valor',1,'p_valor','Syntactic.py',32),
-  ('valor -> INTEGER','valor',1,'p_valor','Syntactic.py',33),
-  ('valor -> FLOAT','valor',1,'p_valor','Syntactic.py',34),
-  ('valor -> NULL','valor',1,'p_valor','Syntactic.py',35),
-  ('valor -> NAME','valor',1,'p_valor','Syntactic.py',36),
-  ('valor -> boolean','valor',1,'p_valor','Syntactic.py',37),
-  ('valor -> lists','valor',1,'p_valor','Syntactic.py',38),
-  ('valor -> operation','valor',1,'p_valor','Syntactic.py',39),
-  ('valor -> condition','valor',1,'p_valor','Syntactic.py',40),
-  ('lists -> LBRACKET argumentos RBRACKET','lists',3,'p_lists','Syntactic.py',43),
-  ('lists -> LSQBRACKET argumentos RSQBRACKET','lists',3,'p_lists','Syntactic.py',44),
-  ('boolean -> TRUE','boolean',1,'p_boolean','Syntactic.py',47),
-  ('boolean -> FALSE','boolean',1,'p_boolean','Syntactic.py',48),
-  ('operation -> operand operatorArithm operand','operation',3,'p_operation','Syntactic.py',51),
-  ('operation -> operand operatorArithm operation','operation',3,'p_operation','Syntactic.py',52),
-  ('operand -> INTEGER','operand',1,'p_operand','Syntactic.py',55),
-  ('operand -> FLOAT','operand',1,'p_operand','Syntactic.py',56),
-  ('operatorArithm -> PLUS','operatorArithm',1,'p_operatorArithm','Syntactic.py',59),
-  ('operatorArithm -> MINUS','operatorArithm',1,'p_operatorArithm','Syntactic.py',60),
-  ('operatorArithm -> MULTIPLY','operatorArithm',1,'p_operatorArithm','Syntactic.py',61),
-  ('condition -> cond','condition',1,'p_condition','Syntactic.py',64),
-  ('condition -> NOT_OP cond','condition',2,'p_condition','Syntactic.py',65),
-  ('condition -> cond operatorCond cond','condition',3,'p_condition','Syntactic.py',66),
-  ('condition -> cond operatorCond condition','condition',3,'p_condition','Syntactic.py',67),
-  ('operatorCond -> AND_OP','operatorCond',1,'p_operatorCond','Syntactic.py',70),
-  ('operatorCond -> OR_OP','operatorCond',1,'p_operatorCond','Syntactic.py',71),
-  ('cond -> valor comparator valor','cond',3,'p_cond','Syntactic.py',74),
-  ('comparator -> EQ','comparator',1,'p_comparator','Syntactic.py',77),
-  ('comparator -> NE','comparator',1,'p_comparator','Syntactic.py',78),
-  ('comparator -> LT','comparator',1,'p_comparator','Syntactic.py',79),
-  ('comparator -> LE','comparator',1,'p_comparator','Syntactic.py',80),
-  ('comparator -> GT','comparator',1,'p_comparator','Syntactic.py',81),
-  ('comparator -> GE','comparator',1,'p_comparator','Syntactic.py',82),
-  ('empty -> <empty>','empty',0,'p_empty','Syntactic.py',85),
+  ('code -> solicitud_entrada','code',1,'p_code','Syntactic.py',15),
+  ('asignacion -> NAME EQUALS valor','asignacion',3,'p_asignacion','Syntactic.py',20),
+  ('impresion -> PUTS argumentos_opt','impresion',2,'p_impresion','Syntactic.py',24),
+  ('solicitud_entrada -> PUTS STRING','solicitud_entrada',2,'p_solicitud_entrada','Syntactic.py',27),
+  ('solicitud_entrada -> NAME EQUALS GETS DOT CHOMP','solicitud_entrada',5,'p_solicitud_entrada','Syntactic.py',28),
+  ('argumentos_opt -> argumentos','argumentos_opt',1,'p_argumentos_opt','Syntactic.py',38),
+  ('argumentos_opt -> empty','argumentos_opt',1,'p_argumentos_opt','Syntactic.py',39),
+  ('argumentos -> valor','argumentos',1,'p_argumentos','Syntactic.py',42),
+  ('argumentos -> valor COMA argumentos','argumentos',3,'p_argumentos','Syntactic.py',43),
+  ('valor -> STRING','valor',1,'p_valor','Syntactic.py',46),
+  ('valor -> INTEGER','valor',1,'p_valor','Syntactic.py',47),
+  ('valor -> FLOAT','valor',1,'p_valor','Syntactic.py',48),
+  ('valor -> NULL','valor',1,'p_valor','Syntactic.py',49),
+  ('valor -> NAME','valor',1,'p_valor','Syntactic.py',50),
+  ('valor -> boolean','valor',1,'p_valor','Syntactic.py',51),
+  ('valor -> lists','valor',1,'p_valor','Syntactic.py',52),
+  ('valor -> operation','valor',1,'p_valor','Syntactic.py',53),
+  ('valor -> condition','valor',1,'p_valor','Syntactic.py',54),
+  ('lists -> LBRACKET argumentos RBRACKET','lists',3,'p_lists','Syntactic.py',58),
+  ('lists -> LSQBRACKET argumentos RSQBRACKET','lists',3,'p_lists','Syntactic.py',59),
+  ('boolean -> TRUE','boolean',1,'p_boolean','Syntactic.py',62),
+  ('boolean -> FALSE','boolean',1,'p_boolean','Syntactic.py',63),
+  ('operation -> operand operatorArithm operand','operation',3,'p_operation','Syntactic.py',66),
+  ('operation -> operand operatorArithm operation','operation',3,'p_operation','Syntactic.py',67),
+  ('operand -> INTEGER','operand',1,'p_operand','Syntactic.py',70),
+  ('operand -> FLOAT','operand',1,'p_operand','Syntactic.py',71),
+  ('operatorArithm -> PLUS','operatorArithm',1,'p_operatorArithm','Syntactic.py',74),
+  ('operatorArithm -> MINUS','operatorArithm',1,'p_operatorArithm','Syntactic.py',75),
+  ('operatorArithm -> MULTIPLY','operatorArithm',1,'p_operatorArithm','Syntactic.py',76),
+  ('condition -> cond','condition',1,'p_condition','Syntactic.py',79),
+  ('condition -> NOT_OP cond','condition',2,'p_condition','Syntactic.py',80),
+  ('condition -> cond operatorCond cond','condition',3,'p_condition','Syntactic.py',81),
+  ('condition -> cond operatorCond condition','condition',3,'p_condition','Syntactic.py',82),
+  ('operatorCond -> AND_OP','operatorCond',1,'p_operatorCond','Syntactic.py',85),
+  ('operatorCond -> OR_OP','operatorCond',1,'p_operatorCond','Syntactic.py',86),
+  ('cond -> valor comparator valor','cond',3,'p_cond','Syntactic.py',89),
+  ('comparator -> EQ','comparator',1,'p_comparator','Syntactic.py',92),
+  ('comparator -> NE','comparator',1,'p_comparator','Syntactic.py',93),
+  ('comparator -> LT','comparator',1,'p_comparator','Syntactic.py',94),
+  ('comparator -> LE','comparator',1,'p_comparator','Syntactic.py',95),
+  ('comparator -> GT','comparator',1,'p_comparator','Syntactic.py',96),
+  ('comparator -> GE','comparator',1,'p_comparator','Syntactic.py',97),
+  ('empty -> <empty>','empty',0,'p_empty','Syntactic.py',100),
 ]
