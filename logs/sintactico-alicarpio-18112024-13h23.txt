@@ -1,0 +1,30 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+num >= 10 && num <= 20
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '>=' at line 1
+Syntax error: unexpected token '>=' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+num > 10 && num < 20
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '>' at line 1
+Syntax error: unexpected token '>' at line 1

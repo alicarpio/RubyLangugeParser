@@ -1,0 +1,75 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+profile = {
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+  "name" => "Magnus",
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '"name"' at line 1
+Syntax error: unexpected token '"name"' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+  "profession" => "chess player",
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '"profession"' at line 1
+Syntax error: unexpected token '"profession"' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+  "ranking" => 1,
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '"ranking"' at line 1
+Syntax error: unexpected token '"ranking"' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+  "grandmaster?" => true
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '"grandmaster?"' at line 1
+Syntax error: unexpected token '"grandmaster?"' at line 1

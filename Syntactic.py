@@ -50,11 +50,31 @@ def p_valor(p):
              | operation
              | condition
              | expression
+             | hash
     '''
 
 def p_lists(p):
     '''lists : LBRACKET argumentos RBRACKET
              | LSQBRACKET argumentos RSQBRACKET'''
+
+def p_hash(p):
+    '''hash : LBRACKET pares_hash RBRACKET
+            | LBRACKET empty RBRACKET'''
+
+def p_pares_hash(p):
+    '''pares_hash : par_hash
+                  | par_hash COMA pares_hash'''
+
+def p_par_hash(p):
+    '''par_hash : clave HASHROCKET valor
+                | clave COLON valor'''
+
+
+# Las claves pueden ser símbolos o strings
+def p_clave(p):
+    '''clave : SYMBOL
+             | STRING'''
+
 
 def p_boolean(p):
     '''boolean : TRUE
@@ -90,6 +110,15 @@ def p_operatorArithm(p):
                 | POWER
                 '''
     p[0] = p[1]
+
+def p_condicional(p):
+    '''condicional : IF cond bloque
+                   | IF cond bloque ELSE bloque
+                   | IF cond bloque ELSIF cond bloque'''
+
+def p_bloque(p):
+    '''bloque : code
+              | code bloque'''
 
 def p_condition(p):
     '''condition : cond

@@ -1,0 +1,14 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+var = :simbolo
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

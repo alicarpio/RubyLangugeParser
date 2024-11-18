@@ -1,0 +1,1947 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+res = pr > 0  and r < 6
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'r' at line 1
+Syntax error: unexpected token 'r' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+import ply.yacc as yacc
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'ply' at line 1
+Syntax error: unexpected token 'ply' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+from Lexer import tokens
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'Lexer' at line 1
+Syntax error: unexpected token 'Lexer' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+from Lexer import data
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'Lexer' at line 1
+Syntax error: unexpected token 'Lexer' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+import Logs as loger
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'Logs' at line 1
+Syntax error: unexpected token 'Logs' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+from Lexer import lexer
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'Lexer' at line 1
+Syntax error: unexpected token 'Lexer' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Reglas de la gramática
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_program(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''program : code
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+               | code program'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_code(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''code : asignacion
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+            | impresion
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+            | solicitud_entrada
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+            '''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Reglas de la gramática
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_asignacion(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''asignacion : NAME EQUALS valor
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                  | VARIABLE_GLOBAL EQUALS valor
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_impresion(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    'impresion : PUTS argumentos_opt'
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token ''impresion : PUTS argumentos_opt'' at line 1
+Syntax error: unexpected token ''impresion : PUTS argumentos_opt'' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_solicitud_entrada(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''solicitud_entrada : PUTS STRING
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                         | NAME EQUALS GETS DOT CHOMP
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_argumentos_opt(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''argumentos_opt : argumentos
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                      | empty'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_argumentos(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''argumentos : valor
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                  | valor COMA argumentos'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_valor(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''valor : STRING
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | INTEGER
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | FLOAT
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | NULL
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | NAME
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | SYMBOL
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | boolean
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | lists
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | operation
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | condition
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | expression
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_lists(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''lists : LBRACKET argumentos RBRACKET
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+             | LSQBRACKET argumentos RSQBRACKET'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_boolean(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''boolean : TRUE
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                | FALSE'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_operation(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''operation : operand operatorArithm operand
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                 | operand operatorArithm operation'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_expression(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''expression : expression operatorArithm expression
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                  | operand'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    if len(p) == 4:
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'if' at line 1
+Syntax error: unexpected token 'if' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+        # Operación con dos operandos (expression op expression)
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+        p[0] = f"({p[1]} {p[2]} {p[3]})"
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '[' at line 1
+Syntax error: unexpected token '[' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    elif len(p) == 2:
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'len' at line 1
+Syntax error: unexpected token 'len' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+        # Solo un operando (número, variable)
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+        p[0] = p[1]
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '[' at line 1
+Syntax error: unexpected token '[' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_operand(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''operand : INTEGER
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+               | FLOAT
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+               | NAME'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    p[0] = p[1]
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '[' at line 1
+Syntax error: unexpected token '[' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_operatorArithm(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''operatorArithm : PLUS
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                | MINUS
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                | MULTIPLY
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                | DIVIDE
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                | MODULE
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                | POWER
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                '''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    p[0] = p[1]
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '[' at line 1
+Syntax error: unexpected token '[' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_condicional(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''condicional : IF cond bloque
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                   | IF cond bloque ELSE bloque
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                   | IF cond bloque ELSIF cond bloque'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_bloque(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''bloque : code
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+              | code bloque'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_condition(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''condition : cond
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                 | NOT_OP cond
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                 | cond operatorCond cond
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                 | cond operatorCond condition'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_operatorCond(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''operatorCond : AND_OP
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                    | OR_OP'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_cond(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''cond : valor comparator valor'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_comparator(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''comparator : EQ
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                  | NE
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                  | LT
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                  | LE
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                  | GT
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                  | GE'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_empty(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    'empty :'
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token ''empty :'' at line 1
+Syntax error: unexpected token ''empty :'' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    p[0] = None
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '[' at line 1
+Syntax error: unexpected token '[' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+error_list = []
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token ']' at line 1
+Syntax error: unexpected token ']' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_error(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    if p:
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'if' at line 1
+Syntax error: unexpected token 'if' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+        error_message = f"Syntax error: unexpected token '{p.value}' at line {p.lineno}"
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '"Syntax error: unexpected token '{p.value}' at line {p.lineno}"' at line 1
+Syntax error: unexpected token '"Syntax error: unexpected token '{p.value}' at line {p.lineno}"' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    else:
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'else' at line 1
+Syntax error: unexpected token 'else' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+        error_message = "Syntax error: unexpected end of input."
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    error_list.append(error_message)
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '.' at line 1
+Syntax error: unexpected token '.' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    print(error_message)
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '(' at line 1
+Syntax error: unexpected token '(' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Construcción del parser
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+parser = yacc.yacc()
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '.' at line 1
+Syntax error: unexpected token '.' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+ex1 = '''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+var = 5
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Ciclo interactivo para probar entradas
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+while True:
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'while' at line 1
+Syntax error: unexpected token 'while' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    try:
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token ':' at line 1
+Syntax error: unexpected token ':' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+        s = input('ruby > ')
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '(' at line 1
+Syntax error: unexpected token '(' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    except EOFError:
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'EOFError' at line 1
+Syntax error: unexpected token 'EOFError' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+        break
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    if not s:
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'if' at line 1
+Syntax error: unexpected token 'if' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+        continue
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    error_list.clear()
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '.' at line 1
+Syntax error: unexpected token '.' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    result = parser.parse(s)
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '.' at line 1
+Syntax error: unexpected token '.' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    print(result)
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '(' at line 1
+Syntax error: unexpected token '(' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    loger.create_syntactic_log(parser,"alicarpio",s,error_list)
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '.' at line 1
+Syntax error: unexpected token '.' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+var = jp > 0 and gf > 8
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'gf' at line 1
+Syntax error: unexpected token 'gf' at line 1

@@ -1,0 +1,15 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+if num >= 10 && num <= 20
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'if' at line 1
+Syntax error: unexpected token 'if' at line 1

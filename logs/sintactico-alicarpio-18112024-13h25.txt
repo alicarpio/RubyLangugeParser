@@ -1,0 +1,45 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+t_GE = r'>='
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token ''>='' at line 1
+Syntax error: unexpected token ''>='' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+t_LE = r'<='
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token ''<='' at line 1
+Syntax error: unexpected token ''<='' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+t_EQ = r'=='
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token ''=='' at line 1
+Syntax error: unexpected token ''=='' at line 1
