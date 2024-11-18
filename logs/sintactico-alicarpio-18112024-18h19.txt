@@ -1,0 +1,45 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def saludo
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def saludo puts "hola" end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'puts' at line 1
+Syntax error: unexpected token 'puts' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def saludo puts "hola" end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'puts' at line 1
+Syntax error: unexpected token 'puts' at line 1

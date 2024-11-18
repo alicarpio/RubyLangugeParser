@@ -1,0 +1,28 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def saludo(arg1,arg2,arg3) puts "hola" end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def funcion() var = 4 end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

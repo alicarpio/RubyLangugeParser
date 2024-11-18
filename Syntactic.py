@@ -17,7 +17,9 @@ def p_code(p):
     '''code : asignacion
             | impresion
             | solicitud_entrada
-            | if_statement'''
+            | if_statement
+            | function_definition'''
+
 
 # Reglas de la gramática
 def p_asignacion(p):
@@ -47,6 +49,7 @@ def p_argumentos(p):
 
 def p_valor(p):
     '''valor : operand
+             | STRING
              | NULL
              | SYMBOL
              | boolean
@@ -128,8 +131,8 @@ def p_block(p):
               | statement block'''
 
 def p_statement(p):
-    ''' statement : asignacion
-                  | impresion'''
+    ''' statement : impresion
+                  | asignacion'''
 
 def p_condition(p):
     '''condition : comparison
@@ -158,6 +161,24 @@ def p_comparator(p):
 def p_empty(p):
     'empty :'
     p[0] = None
+
+def p_function_definition(p):
+    '''
+    function_definition : DEF NAME LPAREN parameters RPAREN body END
+    '''
+
+def p_parameters(p):
+    '''
+    parameters : NAME
+               | NAME COMA parameters
+               | empty
+    '''
+
+def p_body(p):
+    '''
+    body : statement
+         | statement body
+    '''
 
 error_list = []
 def p_error(p):

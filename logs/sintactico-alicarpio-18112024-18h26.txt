@@ -1,0 +1,14 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def funcion(r1,r2,r3) var = 7 end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
