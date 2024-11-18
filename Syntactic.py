@@ -17,7 +17,9 @@ def p_code(p):
 
 # Reglas de la gramática
 def p_asignacion(p):
-    'asignacion : NAME EQUALS valor'
+    '''asignacion : NAME EQUALS valor
+                  | VARIABLE_GLOBAL EQUALS valor
+    '''
 
 
 def p_impresion(p):
@@ -42,10 +44,12 @@ def p_valor(p):
              | FLOAT
              | NULL
              | NAME
+             | SYMBOL
              | boolean
              | lists
              | operation
              | condition
+             | expression
     '''
 
 def p_lists(p):
@@ -56,18 +60,36 @@ def p_boolean(p):
     '''boolean : TRUE
                 | FALSE'''
 
+
 def p_operation(p):
     '''operation : operand operatorArithm operand
                  | operand operatorArithm operation'''
 
+def p_expression(p):
+    '''expression : expression operatorArithm expression
+                  | operand'''
+    if len(p) == 4:
+        # Operación con dos operandos (expression op expression)
+        p[0] = f"({p[1]} {p[2]} {p[3]})"
+    elif len(p) == 2:
+        # Solo un operando (número, variable)
+        p[0] = p[1]
+
 def p_operand(p):
     '''operand : INTEGER
-               | FLOAT'''
+               | FLOAT
+               | NAME'''
+    p[0] = p[1]
 
 def p_operatorArithm(p):
     '''operatorArithm : PLUS
                 | MINUS
-                | MULTIPLY'''
+                | MULTIPLY
+                | DIVIDE
+                | MODULE
+                | POWER
+                '''
+    p[0] = p[1]
 
 def p_condition(p):
     '''condition : cond
