@@ -1,0 +1,58 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+if true puts "Hola mundo" end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+if true
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+if true
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+  puts "Hola mundo"
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

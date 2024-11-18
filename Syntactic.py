@@ -6,19 +6,26 @@ from Lexer import lexer
 
 # Reglas de la gramática
 def p_program(p):
-    '''program : code
-               | code program'''
+    'program : code_list'
+
+def p_code_list(p):
+    '''code_list : code
+                 | code code_list'''
+
 
 def p_code(p):
     '''code : asignacion
             | impresion
             | solicitud_entrada
-            '''
+            | if_statement'''
 
 # Reglas de la gramática
 def p_asignacion(p):
     '''asignacion : NAME EQUALS valor
                   | VARIABLE_GLOBAL EQUALS valor
+                  | VARIABLE_CLASE EQUALS valor
+                  | VARIABLE_INSTANCIA EQUALS valor
+                  | VARIABLE_LOCAL EQUALS valor
     '''
 
 
@@ -39,11 +46,8 @@ def p_argumentos(p):
                   | valor COMA argumentos'''
 
 def p_valor(p):
-    '''valor : STRING
-             | INTEGER
-             | FLOAT
+    '''valor : operand
              | NULL
-             | NAME
              | SYMBOL
              | boolean
              | lists
@@ -52,6 +56,28 @@ def p_valor(p):
              | expression
              | hash
     '''
+
+def p_expression(p):
+    '''expression : expression operatorArithm operand
+                  | operand'''
+
+def p_operand(p):
+    '''operand : INTEGER
+               | FLOAT
+               | NAME'''
+    p[0] = p[1]
+
+def p_operatorArithm(p):
+    '''operatorArithm : PLUS
+                | MINUS
+                | MULTIPLY
+                | DIVIDE
+                | MODULE
+                '''
+    p[0] = p[1]
+
+def p_power_op(p):
+    '''power_op : INTEGER POWER INTEGER'''
 
 def p_lists(p):
     '''lists : LBRACKET argumentos RBRACKET
@@ -85,53 +111,41 @@ def p_operation(p):
     '''operation : operand operatorArithm operand
                  | operand operatorArithm operation'''
 
-def p_expression(p):
-    '''expression : expression operatorArithm expression
-                  | operand'''
-    if len(p) == 4:
-        # Operación con dos operandos (expression op expression)
-        p[0] = f"({p[1]} {p[2]} {p[3]})"
-    elif len(p) == 2:
-        # Solo un operando (número, variable)
-        p[0] = p[1]
 
-def p_operand(p):
-    '''operand : INTEGER
-               | FLOAT
-               | NAME'''
+def p_if_statement(p):
+    '''
+    if_statement : IF condition block END
+                 | IF condition block ELSE block END
+                 | IF condition block ELSIF condition block END
+                 | IF condition block ELSIF condition block ELSE block END'''
     p[0] = p[1]
 
-def p_operatorArithm(p):
-    '''operatorArithm : PLUS
-                | MINUS
-                | MULTIPLY
-                | DIVIDE
-                | MODULE
-                | POWER
-                '''
-    p[0] = p[1]
+def p_comparison(p):
+    '''comparison : valor comparator valor'''
 
-def p_condicional(p):
-    '''condicional : IF cond bloque
-                   | IF cond bloque ELSE bloque
-                   | IF cond bloque ELSIF cond bloque'''
+def p_block(p):
+    ''' block : statement
+              | statement block'''
 
-def p_bloque(p):
-    '''bloque : code
-              | code bloque'''
+def p_statement(p):
+    ''' statement : asignacion
+                  | impresion'''
 
 def p_condition(p):
-    '''condition : cond
-                 | NOT_OP cond
-                 | cond operatorCond cond
-                 | cond operatorCond condition'''
+    '''condition : comparison
+                 | boolean
+                 | NOT_OP comparison
+                 | comparison operatorCond comparison
+                 | LPAREN condition RPAREN'''
 
 def p_operatorCond(p):
     '''operatorCond : AND_OP
                     | OR_OP'''
 
 def p_cond(p):
-    '''cond : valor comparator valor'''
+    '''cond : valor comparator valor
+            | LPAREN comparison RPAREN'''
+
 
 def p_comparator(p):
     '''comparator : EQ

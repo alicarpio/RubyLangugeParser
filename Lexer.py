@@ -67,7 +67,8 @@ tokens = (
     'NAME',
     'EQUALS',
     'DOT',
-    'PIPE'
+    'PIPE',
+    'NEWLINE'
 ) + tuple(reserved.values())
 
 t_COMA = r'\,'
@@ -164,9 +165,10 @@ def t_error(t):
     print(error_message)
     t.lexer.skip(1)
 
-def t_newline(t):
+def t_NEWLINE(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
+    return t
 
 t_ignore = ' \t'
 

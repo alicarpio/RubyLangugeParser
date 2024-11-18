@@ -1,0 +1,14 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+if true var = 5 end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

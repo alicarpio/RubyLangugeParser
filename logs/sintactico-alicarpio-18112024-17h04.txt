@@ -1,0 +1,30 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+if true var = 5 end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'var' at line 1
+Syntax error: unexpected token 'var' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+if true car = "carro" end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'car' at line 1
+Syntax error: unexpected token 'car' at line 1

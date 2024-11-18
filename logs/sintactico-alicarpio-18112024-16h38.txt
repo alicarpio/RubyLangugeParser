@@ -1,0 +1,104 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_program(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    'program : code_list'
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token ''program : code_list'' at line 1
+Syntax error: unexpected token ''program : code_list'' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def p_code_list(p):
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 1
+Syntax error: unexpected token 'def' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+    '''code_list : code
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '''' at line 1
+Syntax error: unexpected token '''' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+                 | code code_list'''
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token '|' at line 1
+Syntax error: unexpected token '|' at line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+if true
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+  puts "Hola mundo"
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
