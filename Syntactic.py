@@ -18,7 +18,8 @@ def p_code(p):
             | impresion
             | solicitud_entrada
             | if_statement
-            | function_definition'''
+            | function_definition
+            | while_statement'''
 
 
 # Reglas de la gramática
@@ -123,6 +124,9 @@ def p_if_statement(p):
                  | IF condition block ELSIF condition block ELSE block END'''
     p[0] = p[1]
 
+def p_while_statement(p):
+    '''while_statement : WHILE condition block END'''
+
 def p_comparison(p):
     '''comparison : valor comparator valor'''
 
@@ -206,4 +210,4 @@ while True:
     result = parser.parse(s)
     print(result)
 
-    loger.create_syntactic_log(parser,"alicarpio",s,error_list)
+    loger.create_syntactic_log(parser,"bryanestrada003",s,error_list)
