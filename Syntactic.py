@@ -4,6 +4,8 @@ from Lexer import data
 import Logs as loger
 from Lexer import lexer
 
+error = ""
+
 # Reglas de la gramática
 def p_program(p):
     'program : code_list'
@@ -184,14 +186,20 @@ def p_body(p):
          | statement body
     '''
 
-error_list = []
+
 def p_error(p):
-    if p:
-        error_message = f"Syntax error: unexpected token '{p.value}' at line {p.lineno}"
-    else:
-        error_message = "Syntax error: unexpected end of input."
-    error_list.append(error_message)
-    print(error_message)
+    global errores
+    error_message = "Error de sintaxis en la entrada en el token '{}'\n".format(p.value)
+    error_message += "Tipo del token: {}\n".format(p.type)
+    error_message += "Ubicacion del error - Linea {}, Posicion {}\n".format(p.lineno, p.lexpos)
+    errores += error_message
+
+
+def analizar(input_string):
+    global errores
+    errores = ""  # Reinicia la cadena de errores antes de cada análisis
+    parser.parse(input_string)
+    return errores
 
 # Construcción del parser
 parser = yacc.yacc()
@@ -206,8 +214,8 @@ while True:
         break
     if not s:
         continue
-    error_list.clear()
+    error = ""
     result = parser.parse(s)
     print(result)
 
-    loger.create_syntactic_log(parser,"bryanestrada003",s,error_list)
+    loger.create_syntactic_log(parser,"bryanestrada003",s,error)
