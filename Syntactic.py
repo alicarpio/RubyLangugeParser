@@ -4,7 +4,7 @@ from Lexer import data
 import Logs as loger
 from Lexer import lexer
 
-error = ""
+errores = ""
 
 # Reglas de la gramática
 def p_program(p):
@@ -195,27 +195,107 @@ def p_error(p):
     errores += error_message
 
 
-def analizar(input_string):
+def analysing(input_string):
     global errores
     errores = ""  # Reinicia la cadena de errores antes de cada análisis
     parser.parse(input_string)
     return errores
 
-# Construcción del parser
-parser = yacc.yacc()
-ex1 = '''
-var = 5
-'''
-# Ciclo interactivo para probar entradas
-while True:
-    try:
-        s = input('ruby > ')
-    except EOFError:
-        break
-    if not s:
-        continue
-    error = ""
-    result = parser.parse(s)
-    print(result)
 
-    loger.create_syntactic_log(parser,"bryanestrada003",s,error)
+# Build the parser
+parser = yacc.yacc()
+
+# Algoritmo Michael Estrada
+ruby_code_1 = '''# Definición de un método de evaluación\n
+def evaluar_numero(n)\n
+  if n > 10\n
+    return "Mayor que 10"\n
+  elsif n == 10\n
+    return "Es igual a 10"\n
+  else\n
+    return "Menor que 10"\n
+  end\n
+end\n\n
+
+# Declaración de un hash\n
+persona = {\n
+  "nombre" => "Juan",\n
+  "edad" => 25,\n
+  :pais => "México",\n
+  :activo => true\n
+}\n\n
+
+# Usamos el método y almacenamos el resultado\n
+resultado = evaluar_numero(12)  # Evaluando si el número es mayor que 10\n\n
+
+# Iteración sobre el hash\n
+persona.each do |clave, valor|\n
+  if clave.class == String\n
+      puts "Clave (String): #{clave} => Valor: #{valor}"\n
+    else\n
+    puts "Clave (Symbol): #{clave} => Valor: #{valor}"\n
+  end\n
+end\n\n
+
+# Llamada a método de comparación\n
+puts resultado  # Imprime "Mayor que 10"\n\n
+
+# Uso de operador lógico\n
+edad_valida = persona["edad"] >= 18 && persona["activo"] == true  # Verificando que la persona sea mayor de edad y activa\n\n
+
+puts "Edad válida y activo: #{edad_valida}"\n
+'''
+
+
+# Algoritmo Alina Carpio
+ruby_code_2 = '''# Clase Estudiante que contiene información básica de cada estudiante\n
+class Estudiante\n
+  attr_accessor :nombre, :edad, :promedio, :materias\n\n
+
+  def initialize(nombre, edad, promedio, materias)\n
+    @nombre = nombre               # String\n
+    @edad = edad                   # Integer\n
+    @promedio = promedio           # Float\n
+    @materias = materias           # Array de strings\n
+  end\n\n
+
+  # Método para obtener información del estudiante\n
+  def mostrar_informacion\n
+    puts "Nombre: #{@nombre}"\n
+    puts "Edad: #{@edad}"\n
+    puts "Promedio: #{@promedio}"\n
+    puts "Materias: #{@materias.join(', ')}"\n
+  end\n
+end\n\n
+
+# Hash para almacenar estudiantes por su ID (como clave)\n
+estudiantes = {}\n\n
+
+# Creación de dos estudiantes y almacenamiento en el hash\n
+estudiantes[:est1] = Estudiante.new("Ana", 20, 8.5, ["Matemáticas", "Historia", "Ciencias"])\n
+estudiantes[:est2] = Estudiante.new("Juan", 22, 9.0, ["Inglés", "Arte", "Física"])\n\n
+
+# Método para calcular el promedio general de todos los estudiantes\n
+def calcular_promedio_general(estudiantes)\n
+  total = 0.0\n
+  estudiantes.each do |key, estudiante|\n
+    total += estudiante.promedio\n
+  end\n
+  promedio_general = total / estudiantes.size\n
+  puts "Promedio general de la clase: #{promedio_general}"\n
+end\n\n
+
+# Muestra la información de cada estudiante\n
+estudiantes.each do |id, estudiante|\n
+  puts "ID del Estudiante: #{id}"\n
+  estudiante.mostrar_informacion\n
+  puts "-------------------------"\n
+end\n\n
+
+# Llamada al método para calcular el promedio general\n
+calcular_promedio_general(estudiantes)\n
+'''
+
+result = parser.parse(ruby_code_2)
+if result == None :
+     print('PASS')
