@@ -5,6 +5,18 @@ import Logs as loger
 from Lexer import lexer
 
 
+# Prueba el analizador léxico
+lexer.input(data)
+
+# Muestra los tokens generados
+print("Tokens generados:")
+while True:
+    tok = lexer.token()
+    if not tok:
+        break
+    print(tok)
+
+
 
 # Reglas de la gramática
 def p_program(p):
@@ -34,8 +46,8 @@ def p_asignacion(p):
                   | VARIABLE_INSTANCIA EQUALS valor
                   | VARIABLE_LOCAL EQUALS valor'''
 
-def p_call_method(p):
-    '''call_method : NAME LPAREN argumentos_opt RPAREN'''
+def p_func_call(p):
+    '''func_call : NAME LPAREN argumentos_opt RPAREN'''
 
 def p_impresion(p):
     '''impresion : PUTS argumentos_opt'''
@@ -64,8 +76,8 @@ def p_valor(p):
              | condition
              | expression
              | hash
-             | call_method
-    '''
+             | func_call
+             | method_call'''
 
 def p_expression(p):
     '''expression : expression operatorArithm operand
@@ -142,11 +154,11 @@ def p_block(p):
 
 def p_statement(p):
     ''' statement : asignacion
-            | impresion
-            | if_statement
-            | while_statement
-            | instantiation
-            | return'''
+                  | impresion
+                  | if_statement
+                  | while_statement
+                  | instantiation
+                  | return'''
 
 def p_return(p):
     '''return : RETURN argumentos'''
@@ -165,17 +177,46 @@ def p_cond(p):
     '''cond : valor comparator valor
             | LPAREN comparison RPAREN'''
 
-# Rule for class definition
+# Regla para definir una clase
 def p_class_definition(p):
-    '''
-    class_definition : CLASS CLASS_NAME body END
-    '''
+    '''class_definition : CLASS CLASS_NAME class_body END'''
+
+# Regla para el cuerpo de la clase
+def p_class_body(p):
+    '''class_body : empty
+                  | constructor_definition
+                  | class_body_element_list'''
+
+def p_constructor_definition(p):
+    '''constructor_definition : DEF INITIALIZE LPAREN parameters RPAREN body END'''
+
+
+# Lista de elementos dentro de la clase
+def p_class_body_element_list(p):
+    '''class_body_element_list : class_body_element
+                               | class_body_element class_body_element_list'''
+
+# Elementos permitidos dentro de una clase
+def p_class_body_element(p):
+    '''class_body_element : asignacion
+                          | function_definition
+                          | function_def_no_params'''
+
+# Regla para métodos con y sin parámetros
+def p_function_definition(p):
+    '''function_definition : DEF NAME LPAREN parameters RPAREN body END'''
+
+def p_function_def_no_params(p):
+    '''function_def_no_params : DEF NAME body END'''
+
+def p_method_call(p):
+    '''method_call : NAME DOT NAME LPAREN argumentos_opt RPAREN
+                   | NAME DOT NAME'''
 
 def p_instantiation(p):
     '''
     instantiation : CLASS_NAME NEW LPAREN argumentos RPAREN
     '''
-
 
 def p_comparator(p):
     '''comparator : EQ
@@ -188,12 +229,6 @@ def p_comparator(p):
 def p_empty(p):
     'empty :'
     p[0] = None
-
-def p_function_definition(p):
-    '''
-    function_definition : DEF NAME LPAREN parameters RPAREN body END
-                        | DEF NAME body END
-    '''
 
 def p_parameters(p):
     '''
@@ -270,11 +305,6 @@ class Estudiante
     @promedio = promedio           # Float
     @materias = materias           # Array de strings
   end
-
-  # Métodos "getter" para obtener los valores de los atributos
-
-  # Métodos "setter" para establecer los valores de los atributos
-
 
   # Método para obtener información del estudiante
   def mostrar_informacion
