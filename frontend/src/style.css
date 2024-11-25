@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import "flowbite";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
