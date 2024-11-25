@@ -4,7 +4,7 @@ from Lexer import data
 import Logs as loger
 from Lexer import lexer
 
-errores = ""
+
 
 # Reglas de la gramática
 def p_program(p):
@@ -18,10 +18,12 @@ def p_code_list(p):
 def p_code(p):
     '''code : asignacion
             | impresion
-            | solicitud_entrada
             | if_statement
+            | while_statement
+            | instantiation
+            | solicitud_entrada
             | function_definition
-            | while_statement'''
+            | class_definition'''
 
 
 # Reglas de la gramática
@@ -30,12 +32,13 @@ def p_asignacion(p):
                   | VARIABLE_GLOBAL EQUALS valor
                   | VARIABLE_CLASE EQUALS valor
                   | VARIABLE_INSTANCIA EQUALS valor
-                  | VARIABLE_LOCAL EQUALS valor
-    '''
+                  | VARIABLE_LOCAL EQUALS valor'''
 
+def p_call_method(p):
+    '''call_method : NAME LPAREN argumentos_opt RPAREN'''
 
 def p_impresion(p):
-    'impresion : PUTS argumentos_opt'
+    '''impresion : PUTS argumentos_opt'''
 
 def p_solicitud_entrada(p):
     '''solicitud_entrada : PUTS STRING
@@ -61,6 +64,7 @@ def p_valor(p):
              | condition
              | expression
              | hash
+             | call_method
     '''
 
 def p_expression(p):
@@ -137,15 +141,21 @@ def p_block(p):
               | statement block'''
 
 def p_statement(p):
-    ''' statement : impresion
-                  | asignacion'''
+    ''' statement : asignacion
+            | impresion
+            | if_statement
+            | while_statement
+            | instantiation
+            | return'''
+
+def p_return(p):
+    '''return : RETURN argumentos'''
 
 def p_condition(p):
     '''condition : comparison
                  | boolean
                  | NOT_OP comparison
-                 | comparison operatorCond comparison
-                 | LPAREN condition RPAREN'''
+                 | comparison operatorCond comparison'''
 
 def p_operatorCond(p):
     '''operatorCond : AND_OP
@@ -154,6 +164,17 @@ def p_operatorCond(p):
 def p_cond(p):
     '''cond : valor comparator valor
             | LPAREN comparison RPAREN'''
+
+# Rule for class definition
+def p_class_definition(p):
+    '''
+    class_definition : CLASS CLASS_NAME body END
+    '''
+
+def p_instantiation(p):
+    '''
+    instantiation : CLASS_NAME NEW LPAREN argumentos RPAREN
+    '''
 
 
 def p_comparator(p):
@@ -171,6 +192,7 @@ def p_empty(p):
 def p_function_definition(p):
     '''
     function_definition : DEF NAME LPAREN parameters RPAREN body END
+                        | DEF NAME body END
     '''
 
 def p_parameters(p):
@@ -186,23 +208,22 @@ def p_body(p):
          | statement body
     '''
 
-
+# Manejo de errores
+error_list = []
 def p_error(p):
-    global errores
-    error_message = "Error de sintaxis en la entrada en el token '{}'\n".format(p.value)
-    error_message += "Tipo del token: {}\n".format(p.type)
-    error_message += "Ubicacion del error - Linea {}, Posicion {}\n".format(p.lineno, p.lexpos)
-    errores += error_message
-
+    if p:
+        error_message = f"Syntax error: unexpected token '{p.value}' at line {p.lineno}"
+    else:
+        error_message = "Syntax error: unexpected end of input."
+    error_list.append(error_message)
+    print(error_message)
 
 def analysing(input_string):
-    global errores
-    errores = ""  # Reinicia la cadena de errores antes de cada análisis
-    parser.parse(input_string)
-    return errores
+    error_list.clear()
+    result = parser.parse(input_string)
+    return error_list if error_list else result
 
-
-# Build the parser
+# Construcción del parser
 parser = yacc.yacc()
 
 # Algoritmo Michael Estrada
@@ -228,74 +249,65 @@ persona = {\n
 # Usamos el método y almacenamos el resultado\n
 resultado = evaluar_numero(12)  # Evaluando si el número es mayor que 10\n\n
 
-# Iteración sobre el hash\n
-persona.each do |clave, valor|\n
-  if clave.class == String\n
-      puts "Clave (String): #{clave} => Valor: #{valor}"\n
-    else\n
-    puts "Clave (Symbol): #{clave} => Valor: #{valor}"\n
-  end\n
-end\n\n
 
 # Llamada a método de comparación\n
 puts resultado  # Imprime "Mayor que 10"\n\n
 
 # Uso de operador lógico\n
-edad_valida = persona["edad"] >= 18 && persona["activo"] == true  # Verificando que la persona sea mayor de edad y activa\n\n
+edad_valida = true # Verificando que la persona sea mayor de edad y activa\n\n
 
 puts "Edad válida y activo: #{edad_valida}"\n
 '''
 
 
 # Algoritmo Alina Carpio
-ruby_code_2 = '''# Clase Estudiante que contiene información básica de cada estudiante\n
-class Estudiante\n
-  attr_accessor :nombre, :edad, :promedio, :materias\n\n
+ruby_code_2 = '''# Clase Estudiante que contiene información básica de cada estudiante
+class Estudiante
+  # Constructor para inicializar los atributos de la clase
+  def initialize(nombre, edad, promedio, materias)
+    @nombre = nombre               # String
+    @edad = edad                   # Integer
+    @promedio = promedio           # Float
+    @materias = materias           # Array de strings
+  end
 
-  def initialize(nombre, edad, promedio, materias)\n
-    @nombre = nombre               # String\n
-    @edad = edad                   # Integer\n
-    @promedio = promedio           # Float\n
-    @materias = materias           # Array de strings\n
-  end\n\n
+  # Métodos "getter" para obtener los valores de los atributos
 
-  # Método para obtener información del estudiante\n
-  def mostrar_informacion\n
-    puts "Nombre: #{@nombre}"\n
-    puts "Edad: #{@edad}"\n
-    puts "Promedio: #{@promedio}"\n
-    puts "Materias: #{@materias.join(', ')}"\n
-  end\n
-end\n\n
+  # Métodos "setter" para establecer los valores de los atributos
 
-# Hash para almacenar estudiantes por su ID (como clave)\n
-estudiantes = {}\n\n
 
-# Creación de dos estudiantes y almacenamiento en el hash\n
-estudiantes[:est1] = Estudiante.new("Ana", 20, 8.5, ["Matemáticas", "Historia", "Ciencias"])\n
-estudiantes[:est2] = Estudiante.new("Juan", 22, 9.0, ["Inglés", "Arte", "Física"])\n\n
+  # Método para obtener información del estudiante
+  def mostrar_informacion
+    puts "Nombre: #{@nombre}"
+    puts "Edad: #{@edad}"
+    puts "Promedio: #{@promedio}"
+  end
+end
 
-# Método para calcular el promedio general de todos los estudiantes\n
-def calcular_promedio_general(estudiantes)\n
-  total = 0.0\n
-  estudiantes.each do |key, estudiante|\n
-    total += estudiante.promedio\n
-  end\n
-  promedio_general = total / estudiantes.size\n
-  puts "Promedio general de la clase: #{promedio_general}"\n
-end\n\n
+# Hash para almacenar estudiantes por su ID (como clave)
+estudiantes = {}
 
-# Muestra la información de cada estudiante\n
-estudiantes.each do |id, estudiante|\n
-  puts "ID del Estudiante: #{id}"\n
-  estudiante.mostrar_informacion\n
-  puts "-------------------------"\n
-end\n\n
+# Creación de dos estudiantes y almacenamiento en el hash
 
-# Llamada al método para calcular el promedio general\n
-calcular_promedio_general(estudiantes)\n
+
+# Método para calcular el promedio general de todos los estudiantes
+def calcular_promedio_general(estudiantes)
+  total = 0.0
+
+  promedio_general = total / estudiantes.size
+  puts "Promedio general de la clase: #{promedio_general}"
+end
+
+# Muestra la información de cada estudiante
+
+
+# Llamada al método para calcular el promedio general
+calcular_promedio_general(estudiantes)
 '''
 
-result = parser.parse(ruby_code_2)
-if result == None :
-     print('PASS')
+code_3 = '''
+if(x>5):
+'''
+
+result = analysing(ruby_code_2)
+print(result)

@@ -24,7 +24,8 @@ reserved = {
     'gets': 'GETS',
     'chomp': 'CHOMP',
     'new': 'NEW',
-    'each': 'EACH'
+    'each': 'EACH',
+    'return': 'RETURN'
 }
 
 tokens = (
@@ -168,9 +169,9 @@ def t_error(t):
 def t_NEWLINE(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
-    return t
+    pass
 
-t_ignore = ' \t'
+t_ignore = ' \t\r'
 
 lexer = lex.lex()
 
