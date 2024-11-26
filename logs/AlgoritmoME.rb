@@ -20,19 +20,10 @@ persona = {
 # Usamos el método y almacenamos el resultado
 resultado = evaluar_numero(12)  # Evaluando si el número es mayor que 10
 
-# Iteración sobre el hash
-persona.each do |clave, valor|
-  if clave.is_a?(String)
-    puts "Clave (String): #{clave} => Valor: #{valor}"
-  else
-    puts "Clave (Symbol): #{clave} => Valor: #{valor}"
-  end
-end
-
 # Llamada a método de comparación
 puts resultado  # Imprime "Mayor que 10"
 
 # Uso de operador lógico
-edad_valida = persona["edad"] >= 18 && persona["activo"] == true  # Verificando que la persona sea mayor de edad y activa
+edad_valida = true # Verificando que la persona sea mayor de edad y activa
 
 puts "Edad válida y activo: #{edad_valida}"

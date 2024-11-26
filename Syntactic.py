@@ -331,5 +331,6 @@ code_3 = '''
 if(x>5):
 '''
 
-result = analysing(ruby_code_2)
+result = analysing(ruby_code_1)
 print(result)
+loger.create_syntactic_log(parser, "bryanestrada003", ruby_code_1, error_list)

@@ -1,0 +1,224 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Clase Estudiante que contiene información básica de cada estudiante
+
+class Estudiante
+
+  # Constructor para inicializar los atributos de la clase
+
+  def initialize(nombre, edad, promedio, materias)
+
+    @nombre = nombre               # String
+
+    @edad = edad                   # Integer
+
+    @promedio = promedio           # Float
+
+    @materias = materias           # Array de strings
+
+  end
+
+
+  # Método para obtener información del estudiante
+
+  def mostrar_informacion
+
+    puts "Nombre: #{@nombre}"
+
+    puts "Edad: #{@edad}"
+
+    puts "Promedio: #{@promedio}"
+
+  end
+
+end
+
+
+# Hash para almacenar estudiantes por su ID (como clave)
+
+estudiantes = {}
+
+
+# Método para calcular el promedio general de todos los estudiantes
+
+def calcular_promedio_general(estudiantes)
+
+  total = 0
+
+
+  promedio_general = total / estudiantes.size
+
+  puts "Promedio general de la clase: #{promedio_general}"
+
+end
+
+
+# Llamada al método para calcular el promedio general
+
+calcular_promedio_general(estudiantes)
+
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 73
+Syntax error: unexpected token 'end' at line 81
+Syntax error: unexpected token '.' at line 98
+Syntax error: unexpected token 'def' at line 130
+Syntax error: unexpected token 'end' at line 138
+Syntax error: unexpected token '.' at line 155
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de un método de evaluación
+
+def evaluar_numero(n)
+
+  if n > 10
+
+    return "Mayor que 10"
+
+  elsif n == 10
+
+    return "Es igual a 10"
+
+  else
+
+    return "Menor que 10"
+
+  end
+
+end
+
+
+
+# Declaración de un hash
+
+persona = {
+
+  "nombre" => "Juan",
+
+  "edad" => 25,
+
+  :pais => "México",
+
+  :activo => true
+
+}
+
+
+
+# Usamos el método y almacenamos el resultado
+
+resultado = evaluar_numero(12)  # Evaluando si el número es mayor que 10
+
+
+
+
+# Llamada a método de comparación
+
+puts resultado  # Imprime "Mayor que 10"
+
+
+
+# Uso de operador lógico
+
+edad_valida = true # Verificando que la persona sea mayor de edad y activa
+
+
+
+puts "Edad válida y activo: #{edad_valida}"
+
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'def' at line 73
+Syntax error: unexpected token 'end' at line 81
+Syntax error: unexpected token '.' at line 98
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de un método de evaluación
+
+def evaluar_numero(n)
+
+  if n > 10
+
+    return "Mayor que 10"
+
+  elsif n == 10
+
+    return "Es igual a 10"
+
+  else
+
+    return "Menor que 10"
+
+  end
+
+end
+
+
+
+# Declaración de un hash
+
+persona = {
+
+  "nombre" => "Juan",
+
+  "edad" => 25,
+
+  :pais => "México",
+
+  :activo => true
+
+}
+
+
+
+# Usamos el método y almacenamos el resultado
+
+resultado = evaluar_numero(12)  # Evaluando si el número es mayor que 10
+
+
+
+
+# Llamada a método de comparación
+
+puts resultado  # Imprime "Mayor que 10"
+
+
+
+# Uso de operador lógico
+
+edad_valida = true # Verificando que la persona sea mayor de edad y activa
+
+
+
+puts "Edad válida y activo: #{edad_valida}"
+
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
