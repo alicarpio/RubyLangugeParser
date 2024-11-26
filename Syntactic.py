@@ -177,9 +177,11 @@ def p_cond(p):
     '''cond : valor comparator valor
             | LPAREN comparison RPAREN'''
 
-# Regla para definir una clase
 def p_class_definition(p):
     '''class_definition : CLASS CLASS_NAME class_body END'''
+
+def p_function_definition(p):
+    '''function_definition : DEF NAME LPAREN argumentos_opt RPAREN body END'''
 
 # Regla para el cuerpo de la clase
 def p_class_body(p):
@@ -201,10 +203,6 @@ def p_class_body_element(p):
     '''class_body_element : asignacion
                           | function_definition
                           | function_def_no_params'''
-
-# Regla para métodos con y sin parámetros
-def p_function_definition(p):
-    '''function_definition : DEF NAME LPAREN parameters RPAREN body END'''
 
 def p_function_def_no_params(p):
     '''function_def_no_params : DEF NAME body END'''
@@ -296,43 +294,37 @@ puts "Edad válida y activo: #{edad_valida}"\n
 
 
 # Algoritmo Alina Carpio
-ruby_code_2 = '''# Clase Estudiante que contiene información básica de cada estudiante
-class Estudiante
-  # Constructor para inicializar los atributos de la clase
-  def initialize(nombre, edad, promedio, materias)
-    @nombre = nombre               # String
-    @edad = edad                   # Integer
-    @promedio = promedio           # Float
-    @materias = materias           # Array de strings
-  end
+ruby_code_2 = '''# Clase Estudiante que contiene información básica de cada estudiante\n
+class Estudiante\n
+  # Constructor para inicializar los atributos de la clase\n
+  def initialize(nombre, edad, promedio, materias)\n
+    @nombre = nombre               # String\n
+    @edad = edad                   # Integer\n
+    @promedio = promedio           # Float\n
+    @materias = materias           # Array de strings\n
+  end\n
 
-  # Método para obtener información del estudiante
-  def mostrar_informacion
-    puts "Nombre: #{@nombre}"
-    puts "Edad: #{@edad}"
-    puts "Promedio: #{@promedio}"
-  end
-end
+  # Método para obtener información del estudiante\n
+  def mostrar_informacion\n
+    puts "Nombre: #{@nombre}"\n
+    puts "Edad: #{@edad}"\n
+    puts "Promedio: #{@promedio}"\n
+  end\n
+end\n
 
-# Hash para almacenar estudiantes por su ID (como clave)
-estudiantes = {}
+# Hash para almacenar estudiantes por su ID (como clave)\n
+estudiantes = {}\n
 
-# Creación de dos estudiantes y almacenamiento en el hash
+# Método para calcular el promedio general de todos los estudiantes\n
+def calcular_promedio_general(estudiantes)\n
+  total = 0\n
 
+  promedio_general = total / estudiantes.size\n
+  puts "Promedio general de la clase: #{promedio_general}"\n
+end\n
 
-# Método para calcular el promedio general de todos los estudiantes
-def calcular_promedio_general(estudiantes)
-  total = 0.0
-
-  promedio_general = total / estudiantes.size
-  puts "Promedio general de la clase: #{promedio_general}"
-end
-
-# Muestra la información de cada estudiante
-
-
-# Llamada al método para calcular el promedio general
-calcular_promedio_general(estudiantes)
+# Llamada al método para calcular el promedio general\n
+calcular_promedio_general(estudiantes)\n
 '''
 
 code_3 = '''
