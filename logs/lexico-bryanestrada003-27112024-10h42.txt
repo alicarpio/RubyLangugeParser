@@ -1,0 +1,4 @@
+LexToken(VARIABLE_CLASE,'@@cualquiercosa',1,2)
+
+Errores:
+Illegal character: @

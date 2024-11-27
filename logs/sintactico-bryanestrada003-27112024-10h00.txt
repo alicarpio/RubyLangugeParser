@@ -1,0 +1,55 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+if 2>5
+    puts "Nombre:"
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected end of input.
+Syntax error: unexpected end of input.
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+if 2>5
+    puts "Nombre:"
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+if x>5
+    puts "Nombre:"
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: unexpected token 'x' at line 53
+Syntax error: unexpected token 'x' at line 57

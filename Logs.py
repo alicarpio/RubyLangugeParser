@@ -13,7 +13,6 @@ def create_log(lexer, usuario, data, errors):
             if not tok:
                 break
             log_file.write(str(tok) + "\n")
-            print(tok)
 
         log_file.write("\nErrores:\n")
         for error in errors:
@@ -60,5 +59,4 @@ def create_syntactic_log(parser, usuario, code, error_list):
         else:
             log_file.write("No syntax errors detected\n")
 
-    print(f"Syntactic analysis log updated: {log_filename}")
     return log_filename

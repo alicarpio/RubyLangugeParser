@@ -34,7 +34,6 @@ tokens = (
     'CLASS_NAME',
     'VARIABLE_GLOBAL',
     'VARIABLE_CONSTANTE',
-    'VARIABLE_CLASE',
     'VARIABLE_LOCAL',
     'VARIABLE_INSTANCIA',
     'COMA',
@@ -128,13 +127,8 @@ def t_VARIABLE_GLOBAL(t):
     r'\$[a-zA-Z_][a-zA-Z0-9_]*'
     return t
 
-# Detecta variables de clase
-def t_VARIABLE_CLASE(t):
-    r'\@{2}[a-zA-Z_][a-zA-Z0-9_]*'
-    return t
-
 def t_VARIABLE_INSTANCIA(t):
-    r'\@[a-zA-Z_][a-zA-Z0-9_]*'
+    r'\@{1}[a-zA-Z_][a-zA-Z0-9_]*'
     return t
 
 def t_CLASS_NAME(t):
@@ -152,31 +146,17 @@ def t_NAME(t):
     return t
 
 error_list = []
-
+t_ignore = ' \t\n'
 def t_error(t):
-    char = t.value[0]
-    if char == '$':
-        error_message = f"Illegal global variable usage with '{char}' at line {t.lineno}"
-    elif char == '@':
-        error_message = f"Illegal instance or class variable usage with '{char}' at line {t.lineno}"
-    else:
-        error_message = f"Illegal character '{char}' at line {t.lineno}"
-
-    error_list.append(error_message)
-    print(error_message)
+    error_list.clear()
+    print(f"Illegal character: {t.value[0]}")
+    error_list.append(f"Illegal character: {t.value[0]}")
     t.lexer.skip(1)
 
-def t_NEWLINE(t):
-    r'\n+'
-    t.lexer.lineno += len(t.value)
-    pass
-
-t_ignore = ' \t\r'
 
 lexer = lex.lex()
 
 data = '''
-
 puts 'Ingrese un dato'
 nombre = gets.chomp
 
@@ -225,6 +205,6 @@ end
 
 # Llamada al método para calcular el promedio general
 calcular_promedio_general(estudiantes)
-
 '''
-# loger.create_log(lexer, "alicarpio", data, error_list, "lexico")
+
+loger.create_log(lexer, "bryanestrada003", data, error_list)

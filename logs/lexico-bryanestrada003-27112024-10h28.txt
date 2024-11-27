@@ -1,0 +1,7 @@
+LexToken(VARIABLE_INSTANCIA,'@cualquiercosa',6,6)
+
+Errores:
+Lexical error: Illegal instance or class variable usage with '@' at line 3
+Lexical error: Illegal instance or class variable usage with '@' at line 3
+Lexical error: Illegal instance or class variable usage with '@' at line 6
+Lexical error: Illegal instance or class variable usage with '@' at line 6

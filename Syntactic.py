@@ -2,20 +2,8 @@ import ply.yacc as yacc
 from Lexer import tokens
 from Lexer import data
 import Logs as loger
+import Lexer as lx
 from Lexer import lexer
-
-
-# Prueba el analizador léxico
-lexer.input(data)
-
-# Muestra los tokens generados
-print("Tokens generados:")
-while True:
-    tok = lexer.token()
-    if not tok:
-        break
-    print(tok)
-
 
 
 # Reglas de la gramática
@@ -42,7 +30,6 @@ def p_code(p):
 def p_asignacion(p):
     '''asignacion : NAME EQUALS valor
                   | VARIABLE_GLOBAL EQUALS valor
-                  | VARIABLE_CLASE EQUALS valor
                   | VARIABLE_INSTANCIA EQUALS valor
                   | VARIABLE_LOCAL EQUALS valor'''
 
@@ -145,8 +132,11 @@ def p_if_statement(p):
 def p_while_statement(p):
     '''while_statement : WHILE condition block END'''
 
-def p_comparison(p):
-    '''comparison : valor comparator valor'''
+#def p_comparison_integer(p):
+#    '''comparison_integer : valor comparator valor'''
+
+def p_comparison_integer(p):
+    '''comparison_integer : INTEGER comparator INTEGER'''
 
 def p_block(p):
     ''' block : statement
@@ -164,18 +154,16 @@ def p_return(p):
     '''return : RETURN argumentos'''
 
 def p_condition(p):
-    '''condition : comparison
+    '''condition : comparison_integer
                  | boolean
-                 | NOT_OP comparison
-                 | comparison operatorCond comparison'''
+                 | NOT_OP comparison_integer
+                 | comparison_integer operatorCond comparison_integer'''
 
 def p_operatorCond(p):
     '''operatorCond : AND_OP
                     | OR_OP'''
 
-def p_cond(p):
-    '''cond : valor comparator valor
-            | LPAREN comparison RPAREN'''
+
 
 def p_class_definition(p):
     '''class_definition : CLASS CLASS_NAME class_body END'''
@@ -328,9 +316,9 @@ calcular_promedio_general(estudiantes)\n
 '''
 
 code_3 = '''
-if(x>5):
+@@@cualquiercosa
 '''
 
-result = analysing(ruby_code_1)
-print(result)
-loger.create_syntactic_log(parser, "bryanestrada003", ruby_code_1, error_list)
+result = analysing(code_3)
+loger.create_log(lexer, "bryanestrada003", code_3, lx.error_list)
+loger.create_syntactic_log(parser, "bryanestrada003", code_3, error_list)

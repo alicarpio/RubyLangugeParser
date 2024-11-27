@@ -1,0 +1,9 @@
+LexToken(IF,'if',6,1)
+LexToken(INTEGER,2,6,4)
+LexToken(GT,'>',6,5)
+LexToken(INTEGER,5,6,6)
+LexToken(PUTS,'puts',7,12)
+LexToken(STRING,'"Nombre:"',7,17)
+LexToken(NAME,'eniduw',8,27)
+
+Errores:

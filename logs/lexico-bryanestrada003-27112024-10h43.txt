@@ -1,0 +1,4 @@
+LexToken(VARIABLE_INSTANCIA,'@cualquiercosa',1,3)
+
+Errores:
+Illegal character: @
