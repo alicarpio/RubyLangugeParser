@@ -1,10 +1,12 @@
 import ply.yacc as yacc
 from Lexer import tokens
 from Lexer import data
-import Logs as loger
 import Lexer as lx
 from Lexer import lexer
+import Logs as loger
 
+declared_variables = set()
+error_list = []
 
 # Reglas de la gramática
 def p_program(p):
@@ -36,12 +38,15 @@ def p_variable_assignment(p):
                            | VARIABLE_CONSTANTE EQUALS expression'''
 
 
-# Reglas de la gramática
 def p_asignacion(p):
     '''asignacion : NAME EQUALS valor
                   | VARIABLE_GLOBAL EQUALS valor
                   | VARIABLE_INSTANCIA EQUALS valor
                   | VARIABLE_LOCAL EQUALS valor'''
+
+    variable_name = p[1]  # Nombre de la variable
+    declared_variables.add(variable_name)  # Agregar la variable al conjunto
+
 
 def p_call_expresion(p):
     '''call_expression : NAME LPAREN arguments_opt RPAREN
@@ -86,7 +91,14 @@ def p_operand(p):
     '''operand : INTEGER
                | FLOAT
                | NAME'''
-    p[0] = p[1]
+
+    if isinstance(p[1], str):  # Verificar si es una variable (nombre)
+        variable_name = p[1]
+
+        # Validar que la variable haya sido declarada
+        if variable_name not in declared_variables:
+            error_list.append(f"Error: Uso de variable no declarada {variable_name}")
+
 
 def p_operatorArithm(p):
     '''operatorArithm : PLUS
@@ -242,7 +254,6 @@ def p_body(p):
     '''
 
 # Manejo de errores
-error_list = []
 def p_error(p):
     if p:
         error_message = f"[Sintáctico] Token inesperado '{p.value}' en línea {p.lineno}"
