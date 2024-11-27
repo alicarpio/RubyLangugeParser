@@ -1,0 +1,7 @@
+LexToken(NAME,'suma',1,1)
+LexToken(EQUALS,'=',1,6)
+LexToken(NAME,'azul',1,8)
+LexToken(PLUS,'+',1,13)
+LexToken(INTEGER,4,1,15)
+
+Errores:

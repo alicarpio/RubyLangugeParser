@@ -339,24 +339,7 @@ calcular_promedio_general(estudiantes)\n
 '''
 
 code_3 = '''
-<<<<<<< HEAD
-@@@cualquiercosa
-=======
-var = 7
-
-# using until loop
-# here do is optional
-until var == 11 do
-
-  # code to be executed
-  puts var * 10
-  var = var + 1
-  
-# here loop ends
-end
-
-clase.method()
->>>>>>> af58f83dcc9db1acb0c85b2da50c9e4596ac2a6d
+suma = azul + 4
 '''
 
 result = analysing(code_3)

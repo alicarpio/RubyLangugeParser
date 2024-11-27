@@ -1,0 +1,17 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+suma = azul + 4
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Error: Uso de variable no declarada azul
+Error: Uso de variable no declarada azul

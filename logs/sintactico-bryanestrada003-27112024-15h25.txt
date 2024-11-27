@@ -1,0 +1,34 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+azul = 3
+suma = azul + 4
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+azul = 3
+suma = azul + 4
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
