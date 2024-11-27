@@ -9,9 +9,6 @@ reserved = {
     'if': 'IF',
     'else': 'ELSE',
     'elsif': 'ELSIF',
-    'unless': 'UNLESS',
-    'case': 'CASE',
-    'when': 'WHEN',
     'while': 'WHILE',
     'until': 'UNTIL',
     'for': 'FOR',
@@ -25,6 +22,7 @@ reserved = {
     'chomp': 'CHOMP',
     'new': 'NEW',
     'each': 'EACH',
+    'in': 'IN',
     'return': 'RETURN'
 }
 
@@ -155,13 +153,7 @@ error_list = []
 
 def t_error(t):
     char = t.value[0]
-    if char == '$':
-        error_message = f"Illegal global variable usage with '{char}' at line {t.lineno}"
-    elif char == '@':
-        error_message = f"Illegal instance or class variable usage with '{char}' at line {t.lineno}"
-    else:
-        error_message = f"Illegal character '{char}' at line {t.lineno}"
-
+    error_message = f"[Léxico] Carácter ilegal '{char}' en línea {t.lineno}, columna {t.lexpos}"
     error_list.append(error_message)
     print(error_message)
     t.lexer.skip(1)
