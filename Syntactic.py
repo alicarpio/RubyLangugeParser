@@ -20,10 +20,20 @@ def p_code(p):
             | impresion
             | if_statement
             | while_statement
+            | for_statement
+            | until_statement
             | instantiation
             | solicitud_entrada
+            | call_expression
             | function_definition
             | class_definition'''
+
+def p_variable_assignment(p):
+    '''variable_assignment : NAME EQUALS expression
+                           | VARIABLE_GLOBAL EQUALS expression
+                           | VARIABLE_INSTANCIA EQUALS expression
+                           | VARIABLE_LOCAL EQUALS expression
+                           | VARIABLE_CONSTANTE EQUALS expression'''
 
 
 # Reglas de la gramática
@@ -33,19 +43,22 @@ def p_asignacion(p):
                   | VARIABLE_INSTANCIA EQUALS valor
                   | VARIABLE_LOCAL EQUALS valor'''
 
-def p_func_call(p):
-    '''func_call : NAME LPAREN argumentos_opt RPAREN'''
+def p_call_expresion(p):
+    '''call_expression : NAME LPAREN arguments_opt RPAREN
+                       | NAME DOT NAME LPAREN arguments_opt RPAREN
+                       | NAME DOT NAME'''
+
 
 def p_impresion(p):
-    '''impresion : PUTS argumentos_opt'''
+    '''impresion : PUTS arguments_opt'''
 
 def p_solicitud_entrada(p):
     '''solicitud_entrada : PUTS STRING
                          | NAME EQUALS GETS DOT CHOMP
     '''
 
-def p_argumentos_opt(p):
-    '''argumentos_opt : argumentos
+def p_arguments_opt(p):
+    '''arguments_opt : argumentos
                       | empty'''
 
 def p_argumentos(p):
@@ -63,8 +76,7 @@ def p_valor(p):
              | condition
              | expression
              | hash
-             | func_call
-             | method_call'''
+             | call_expression'''
 
 def p_expression(p):
     '''expression : expression operatorArithm operand
@@ -83,7 +95,7 @@ def p_operatorArithm(p):
                 | DIVIDE
                 | MODULE
                 '''
-    p[0] = p[1]
+
 
 def p_power_op(p):
     '''power_op : INTEGER POWER INTEGER'''
@@ -123,27 +135,32 @@ def p_operation(p):
 
 def p_if_statement(p):
     '''
-    if_statement : IF condition block END
-                 | IF condition block ELSE block END
-                 | IF condition block ELSIF condition block END
-                 | IF condition block ELSIF condition block ELSE block END'''
-    p[0] = p[1]
+    if_statement : IF condition statement_block END
+                 | IF condition statement_block ELSE statement_block END
+                 | IF condition statement_block ELSIF condition statement_block END
+                 | IF condition statement_block ELSIF condition statement_block ELSE statement_block END'''
 
 def p_while_statement(p):
-    '''while_statement : WHILE condition block END'''
+    '''while_statement : WHILE condition statement_block END'''
 
-#def p_comparison_integer(p):
-#    '''comparison_integer : valor comparator valor'''
+def p_for_statement(p):
+    '''for_statement : FOR NAME IN NAME DO statement_block END'''
+
+def p_until_statement(p):
+    '''until_statement : UNTIL condition DO statement_block END'''
+
 
 def p_comparison_integer(p):
     '''comparison_integer : INTEGER comparator INTEGER'''
 
-def p_block(p):
-    ''' block : statement
-              | statement block'''
+
+def p_statement_block(p):
+    '''statement_block : statement
+                       | statement statement_block'''
+
 
 def p_statement(p):
-    ''' statement : asignacion
+    ''' statement : variable_assignment
                   | impresion
                   | if_statement
                   | while_statement
@@ -163,13 +180,11 @@ def p_operatorCond(p):
     '''operatorCond : AND_OP
                     | OR_OP'''
 
-
-
 def p_class_definition(p):
     '''class_definition : CLASS CLASS_NAME class_body END'''
 
 def p_function_definition(p):
-    '''function_definition : DEF NAME LPAREN argumentos_opt RPAREN body END'''
+    '''function_definition : DEF NAME LPAREN arguments_opt RPAREN body END'''
 
 # Regla para el cuerpo de la clase
 def p_class_body(p):
@@ -188,16 +203,13 @@ def p_class_body_element_list(p):
 
 # Elementos permitidos dentro de una clase
 def p_class_body_element(p):
-    '''class_body_element : asignacion
+    '''class_body_element : variable_assignment
                           | function_definition
                           | function_def_no_params'''
 
 def p_function_def_no_params(p):
     '''function_def_no_params : DEF NAME body END'''
 
-def p_method_call(p):
-    '''method_call : NAME DOT NAME LPAREN argumentos_opt RPAREN
-                   | NAME DOT NAME'''
 
 def p_instantiation(p):
     '''
@@ -233,9 +245,9 @@ def p_body(p):
 error_list = []
 def p_error(p):
     if p:
-        error_message = f"Syntax error: unexpected token '{p.value}' at line {p.lineno}"
+        error_message = f"[Sintáctico] Token inesperado '{p.value}' en línea {p.lineno}"
     else:
-        error_message = "Syntax error: unexpected end of input."
+        error_message = "[Sintáctico] Fin inesperado de entrada."
     error_list.append(error_message)
     print(error_message)
 
@@ -316,7 +328,24 @@ calcular_promedio_general(estudiantes)\n
 '''
 
 code_3 = '''
+<<<<<<< HEAD
 @@@cualquiercosa
+=======
+var = 7
+
+# using until loop
+# here do is optional
+until var == 11 do
+
+  # code to be executed
+  puts var * 10
+  var = var + 1
+  
+# here loop ends
+end
+
+clase.method()
+>>>>>>> af58f83dcc9db1acb0c85b2da50c9e4596ac2a6d
 '''
 
 result = analysing(code_3)

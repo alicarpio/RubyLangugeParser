@@ -9,9 +9,6 @@ reserved = {
     'if': 'IF',
     'else': 'ELSE',
     'elsif': 'ELSIF',
-    'unless': 'UNLESS',
-    'case': 'CASE',
-    'when': 'WHEN',
     'while': 'WHILE',
     'until': 'UNTIL',
     'for': 'FOR',
@@ -25,6 +22,7 @@ reserved = {
     'chomp': 'CHOMP',
     'new': 'NEW',
     'each': 'EACH',
+    'in': 'IN',
     'return': 'RETURN'
 }
 
