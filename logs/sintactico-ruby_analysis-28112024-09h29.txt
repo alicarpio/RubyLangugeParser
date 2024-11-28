@@ -1,0 +1,16 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+persona = { nombre: "Juan", edad: 30, profesion: "Ingeniero" }
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: ':' in line 1
+Syntax error: ':' in line 1

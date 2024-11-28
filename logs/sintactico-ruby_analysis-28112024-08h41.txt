@@ -1,0 +1,34 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+a = 2
+b = a
+c = a +  8
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '+' in line 1
+Syntax error: '+' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+a = 2
+b = a
+c = 2 +  8
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

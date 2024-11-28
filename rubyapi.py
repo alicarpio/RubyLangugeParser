@@ -24,28 +24,22 @@ def analizar_codigo_ruby():
 
         input_code = data['codigo']
 
-        # Limpiar listas de errores antes del análisis
         Lexer.error_list.clear()
         Syntactic.error_list.clear()
 
-        # Realizar análisis léxico y sintáctico
         syntactic_result = Syntactic.analysing(input_code)
         lexer_errors = Lexer.error_list
 
-        # Manejar casos donde el resultado puede ser None
         syntactic_errors = syntactic_result if syntactic_result is not None else []
 
-        # Combinar errores de análisis léxico y sintáctico
         all_errors = lexer_errors + syntactic_errors
 
-        # Registrar logs
         try:
             loger.create_log(Lexer.lexer, "ruby_analysis", input_code, lexer_errors)
             loger.create_syntactic_log(Syntactic.parser, "ruby_analysis", input_code, syntactic_errors)
         except Exception as log_error:
             print(f"Error al crear logs: {log_error}")
 
-        # Responder según la presencia de errores
         if all_errors:
             return jsonify({
                 "status": "error",
@@ -58,7 +52,6 @@ def analizar_codigo_ruby():
             }), 200
 
     except Exception as e:
-        # Manejo de errores generales
         return jsonify({
             "status": "error",
             "errores": [f"Error interno del servidor: {str(e)}"]
@@ -66,6 +59,5 @@ def analizar_codigo_ruby():
 
 
 if __name__ == '__main__':
-    # Asegúrate de tener instaladas las dependencias: flask, flask-cors, ply
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)

@@ -1,0 +1,45 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+az = a + 2
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '+' in line 1
+Syntax error: '+' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+az = a
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Error: Uso de variable no declarada a
+Error: Uso de variable no declarada a
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+a = 2
+b = a
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

@@ -1,0 +1,8 @@
+LexToken(NAME,'a',1,0)
+LexToken(EQUALS,'=',1,2)
+LexToken(INTEGER,2,1,4)
+LexToken(NAME,'b',1,6)
+LexToken(EQUALS,'=',1,8)
+LexToken(NAME,'a',1,10)
+
+Errores:

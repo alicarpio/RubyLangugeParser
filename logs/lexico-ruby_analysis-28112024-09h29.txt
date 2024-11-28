@@ -1,0 +1,17 @@
+LexToken(NAME,'persona',1,0)
+LexToken(EQUALS,'=',1,8)
+LexToken(LBRACKET,'{',1,10)
+LexToken(NAME,'nombre',1,12)
+LexToken(COLON,':',1,18)
+LexToken(STRING,'"Juan"',1,20)
+LexToken(COMA,',',1,26)
+LexToken(NAME,'edad',1,28)
+LexToken(COLON,':',1,32)
+LexToken(INTEGER,30,1,34)
+LexToken(COMA,',',1,36)
+LexToken(NAME,'profesion',1,38)
+LexToken(COLON,':',1,47)
+LexToken(STRING,'"Ingeniero"',1,49)
+LexToken(RBRACKET,'}',1,61)
+
+Errores:

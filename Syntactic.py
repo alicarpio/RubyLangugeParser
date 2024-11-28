@@ -37,7 +37,7 @@ def p_variable_assignment(p):
     variable_name = p[1]
     declared_variables.add(variable_name)
 
-def p_call_expresion(p):
+def p_call_expression(p):
     '''call_expression : NAME LPAREN arguments_opt RPAREN
                        | NAME DOT NAME LPAREN arguments_opt RPAREN
                        | NAME DOT NAME'''
@@ -45,14 +45,29 @@ def p_call_expresion(p):
 def p_impresion(p):
     '''impresion : PUTS arguments_opt'''
 
+def p_arguments_opt(p):
+    '''arguments_opt : argumentos_imp
+                    | empty'''
+
+def p_argumentos_imp(p):
+    '''argumentos_imp : valor_puts
+                      | valor_puts COMA argumentos_imp'''
+
+def p_valor_puts(p):
+    '''valor_puts : operand
+                 | STRING
+                 | SYMBOL
+                 | boolean
+                 | lists
+                 | operation
+                 | condition
+                 | concatenar_strings
+                 | call_expression'''
+
 def p_solicitud_entrada(p):
     '''solicitud_entrada : PUTS STRING
                          | NAME EQUALS GETS DOT CHOMP
     '''
-
-def p_arguments_opt(p):
-    '''arguments_opt : argumentos
-                      | empty'''
 
 def p_argumentos(p):
     '''argumentos : valor
@@ -125,7 +140,6 @@ def p_pares_hash(p):
 def p_par_hash(p):
     '''par_hash : clave HASHROCKET valor
                 | clave COLON valor'''
-
 
 # Las claves pueden ser símbolos o strings
 def p_clave(p):
@@ -265,10 +279,11 @@ end
 '''
 
 code_2 = '''
+numeros.length
 # Definición de una función
 def calcular_promedio(numeros)
   suma = 0
-  promedio = suma / numeros.length
+  a = numeros.length
   return promedio
 end
 
@@ -280,7 +295,7 @@ promedio = calcular_promedio(numeros)
 puts "El promedio es: #{promedio}"
 
 # Declaración de un hash
-persona = { nombre: "Juan", edad: 30, profesion: "Ingeniero" }
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
 puts "Información de la persona:"
 
 until index < 0

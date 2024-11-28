@@ -1,0 +1,15 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+a = 5.5 + 5
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '+' in line 1
+Syntax error: '+' in line 1

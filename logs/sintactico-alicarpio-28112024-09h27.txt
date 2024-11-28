@@ -1,0 +1,88 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  numeros.length
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { nombre: "Juan", edad: 30, profesion: "Ingeniero" }
+puts "Información de la persona:"
+
+until index < 0
+  puts "Número invertido: #{numeros[index]}"
+  index = index - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '.' in line 1
+Syntax error: ':' in line 1
+Syntax error: 'index' in line 1
+Syntax error: '-' in line 1
+Syntax error: '.' in line 1
+Syntax error: ':' in line 1
+Syntax error: 'index' in line 1
+Syntax error: '-' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+numeros.length
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { nombre: "Juan", edad: 30, profesion: "Ingeniero" }
+puts "Información de la persona:"
+
+until index < 0
+  puts "Número invertido: #{numeros[index]}"
+  index = index - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Error: Uso de variable no declarada promedio
+Syntax error: ':' in line 1
+Syntax error: 'index' in line 1
+Syntax error: '-' in line 1
+Syntax error: ':' in line 1
+Syntax error: 'index' in line 1
+Syntax error: '-' in line 1

@@ -1,0 +1,611 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'puts' in line 1
+Syntax error: 'end' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0 do
+  puts "alina" + "carpio"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0 do
+  puts "alina" + "carpio"
+  puts "Número invertido: #{numeros}"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0 do
+  puts "alina" + "carpio"
+  puts "Número invertido: #{numeros}"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0 do
+  puts "alina" + "carpio"
+  puts "Número invertido: #{numeros}"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0 do
+  puts "alina" + "carpio"
+  puts "Número invertido: #{numeros}"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = 5 * suma
+  return promedio
+end
+
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
+
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
+
+# Declaración de un hash
+persona = { "nombre": "Juan", "edad": 30, "profesion": "Ingeniero" }
+puts "Información de la persona:"
+
+until 8 < 0 do
+  puts "alina" + "carpio"
+  puts "Número invertido: #{numeros}"
+  index = 9 - 1
+end
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

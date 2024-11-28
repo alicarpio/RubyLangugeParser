@@ -1,0 +1,7 @@
+LexToken(NAME,'a',1,0)
+LexToken(EQUALS,'=',1,2)
+LexToken(FLOAT,5.5,1,4)
+LexToken(PLUS,'+',1,8)
+LexToken(INTEGER,5,1,10)
+
+Errores:

@@ -3,13 +3,19 @@ x = 10
 y = 20
 result = 0
 
+CONSTANTE = "alina"
+
+@global = 80
+
+$variable = 9
+
 # Condicional
-if x < y
-  result = x + y
-elsif x == y
+if 5 < 2
+  result = 8 + 8
+elsif 8 == 9
   result = x * y
 else
-  result = x - y
+  result = 8 - 9
 end
 
 # Impresión del resultado
@@ -17,9 +23,9 @@ puts "Resultado: #{result}"
 
 # Bucle 'while'
 counter = 0
-while counter < 5
+while 7 < 5
   puts "Contador: #{counter}"
-  counter += 1
+  counter = 5 +  1
 end
 
 numeros = [1, 2, 3, 4, 5]
