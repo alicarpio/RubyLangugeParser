@@ -230,11 +230,12 @@ def p_body(p):
 error_list = []
 def p_error(p):
     if p:
-        error_message = f"Syntax error: '{p.value}' in line {p.lineno}"
+        error_message = f"Syntax error: '{p.value}', column {p.lexpos}, near '{p.lexer.lexdata[p.lexpos:p.lexpos + 10]}'"
     else:
         error_message = "Syntactic: Unexpected end of input"
     error_list.append(error_message)
     print(error_message)
+
 
 def analysing(input_string):
     error_list.clear()
