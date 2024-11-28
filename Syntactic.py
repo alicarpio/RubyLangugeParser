@@ -58,6 +58,14 @@ def p_argumentos(p):
     '''argumentos : valor
                   | valor COMA argumentos'''
 
+def p_arguments_opt_func(p):
+    '''arguments_opt_func : arg_func
+                         | empty'''
+
+def p_arg_func(p):
+    '''arg_func : NAME
+                | NAME COMA arg_func'''
+
 def p_valor(p):
     '''valor : operand
              | STRING
@@ -184,7 +192,7 @@ def p_operatorCond(p):
                     | OR_OP'''
 
 def p_function_definition(p):
-    '''function_definition : DEF NAME LPAREN arguments_opt RPAREN body END'''
+    '''function_definition : DEF NAME LPAREN arguments_opt_func RPAREN body END'''
 
 def p_comparator(p):
     '''comparator : EQ
@@ -223,77 +231,64 @@ def analysing(input_string):
 parser = yacc.yacc()
 
 # Algoritmo Michael Estrada
-ruby_code_1 = '''# Definición de un método de evaluación\n
-def evaluar_numero(n)\n
-  if n > 10\n
-    return "Mayor que 10"\n
-  elsif n == 10\n
-    return "Es igual a 10"\n
-  else\n
-    return "Menor que 10"\n
-  end\n
-end\n\n
 
-# Declaración de un hash\n
-persona = {\n
-  "nombre" => "Juan",\n
-  "edad" => 25,\n
-  :pais => "México",\n
-  :activo => true\n
-}\n\n
+code_1 = '''
+# Declaración de variables
+x = 10
+y = 20
+result = 0
 
-# Usamos el método y almacenamos el resultado\n
-resultado = evaluar_numero(12)  # Evaluando si el número es mayor que 10\n\n
+# Condicional
+if x < y
+  result = x + y
+elsif x == y
+  result = x * y
+else
+  result = x - y
+end
 
+# Impresión del resultado
+puts "Resultado: #{result}"
 
-# Llamada a método de comparación\n
-puts resultado  # Imprime "Mayor que 10"\n\n
+# Bucle 'while'
+counter = 0
+while counter < 5
+  puts "Contador: #{counter}"
+  counter += 1
+end
 
-# Uso de operador lógico\n
-edad_valida = true # Verificando que la persona sea mayor de edad y activa\n\n
+numeros = [1, 2, 3, 4, 5]
 
-puts "Edad válida y activo: #{edad_valida}"\n
+for numero in numeros do
+  puts "Número: #{numero}"
+end
 '''
 
+code_2 = '''
+# Definición de una función
+def calcular_promedio(numeros)
+  suma = 0
+  promedio = suma / numeros.length
+  return promedio
+end
 
-# Algoritmo Alina Carpio
-ruby_code_2 = '''# Clase Estudiante que contiene información básica de cada estudiante\n
-class Estudiante\n
-  # Constructor para inicializar los atributos de la clase\n
-  def initialize(nombre, edad, promedio, materias)\n
-    @nombre = nombre               # String\n
-    @edad = edad                   # Integer\n
-    @promedio = promedio           # Float\n
-    @materias = materias           # Array de strings\n
-  end\n
+# Declaración de un arreglo
+numeros = [10, 20, 30, 40, 50]
 
-  # Método para obtener información del estudiante\n
-  def mostrar_informacion\n
-    puts "Nombre: #{@nombre}"\n
-    puts "Edad: #{@edad}"\n
-    puts "Promedio: #{@promedio}"\n
-  end\n
-end\n
+# Uso de la función
+promedio = calcular_promedio(numeros)
+puts "El promedio es: #{promedio}"
 
-# Hash para almacenar estudiantes por su ID (como clave)\n
-estudiantes = {}\n
+# Declaración de un hash
+persona = { nombre: "Juan", edad: 30, profesion: "Ingeniero" }
+puts "Información de la persona:"
 
-# Método para calcular el promedio general de todos los estudiantes\n
-def calcular_promedio_general(estudiantes)\n
-  total = 0\n
-
-  promedio_general = total / estudiantes.size\n
-  puts "Promedio general de la clase: #{promedio_general}"\n
-end\n
-
-# Llamada al método para calcular el promedio general\n
-calcular_promedio_general(estudiantes)\n
+until index < 0
+  puts "Número invertido: #{numeros[index]}"
+  index = index - 1
+end
 '''
 
-code_3 = '''
-
-'''
-
-result = analysing(code_3)
-loger.create_log(lexer, "alicarpio", code_3, lx.error_list)
-loger.create_syntactic_log(parser, "alicarpio", code_3, error_list)
+result = analysing(code_2)
+loger.create_log(lexer, "alicarpio", code_2, lx.error_list)
+loger.create_syntactic_log(parser, "alicarpio", code_2, error_list)

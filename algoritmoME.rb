@@ -15,11 +15,8 @@ puts "El promedio es: #{promedio}"
 # Declaración de un hash
 persona = { nombre: "Juan", edad: 30, profesion: "Ingeniero" }
 puts "Información de la persona:"
-puts "Nombre: #{persona[:nombre]}"
-puts "Edad: #{persona[:edad]}"
-puts "Profesión: #{persona[:profesion]}"
 
 until index < 0
-  puts "Número invertido: #{numeros[index]}"
+  puts "Número invertido: #{numeros}"
   index = index - 1
 end
