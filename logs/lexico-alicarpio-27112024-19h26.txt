@@ -1,0 +1,4 @@
+LexToken(NAME,'var',1,1)
+
+Errores:
+Illegal character: | in line 1

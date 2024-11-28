@@ -1,0 +1,6 @@
+LexToken(NAME,'variable',1,1)
+LexToken(EQUALS,'=',1,10)
+LexToken(STRING,'"alina"',1,12)
+
+Errores:
+Illegal character: | in line 1

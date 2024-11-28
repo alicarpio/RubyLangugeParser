@@ -9,7 +9,7 @@ import Logs as loger
 declared_variables = set()
 error_list = []
 
-# Reglas de la gramática
+
 def p_program(p):
     'program : code_list'
 
@@ -17,43 +17,30 @@ def p_code_list(p):
     '''code_list : code
                  | code code_list'''
 
-
 def p_code(p):
-    '''code : asignacion
+    '''code : variable_assignment
             | impresion
             | if_statement
             | while_statement
             | for_statement
             | until_statement
-            | instantiation
             | solicitud_entrada
             | call_expression
             | function_definition'''
 
 def p_variable_assignment(p):
-    '''variable_assignment : NAME EQUALS expression
-                           | VARIABLE_GLOBAL EQUALS expression
-                           | VARIABLE_INSTANCIA EQUALS expression
-                           | VARIABLE_LOCAL EQUALS expression
-                           | VARIABLE_CONSTANTE EQUALS expression'''
-
-
-# Reglas de la gramática
-def p_asignacion(p):
-    '''asignacion : NAME EQUALS valor
-                  | VARIABLE_GLOBAL EQUALS valor
-                  | VARIABLE_INSTANCIA EQUALS valor
-                  | VARIABLE_LOCAL EQUALS valor'''
-
-    variable_name = p[1]  # Nombre de la variable
-    declared_variables.add(variable_name)  # Agregar la variable al conjunto
-
+    '''variable_assignment : NAME EQUALS valor
+                           | VARIABLE_GLOBAL EQUALS valor
+                           | VARIABLE_INSTANCIA EQUALS valor
+                           | VARIABLE_LOCAL EQUALS valor
+                           | VARIABLE_CONSTANTE EQUALS STRING'''
+    variable_name = p[1]
+    declared_variables.add(variable_name)
 
 def p_call_expresion(p):
     '''call_expression : NAME LPAREN arguments_opt RPAREN
                        | NAME DOT NAME LPAREN arguments_opt RPAREN
                        | NAME DOT NAME'''
-
 
 def p_impresion(p):
     '''impresion : PUTS arguments_opt'''
@@ -80,13 +67,10 @@ def p_valor(p):
              | lists
              | operation
              | condition
-             | expression
+             | concatenar_strings
              | hash
              | call_expression'''
 
-def p_expression(p):
-    '''expression : expression operatorArithm operand
-                  | operand'''
 
 def p_operand(p):
     '''operand : INTEGER
@@ -102,16 +86,21 @@ def p_operand(p):
 
 
 def p_operatorArithm(p):
-    '''operatorArithm : PLUS
-                | MINUS
-                | MULTIPLY
+    '''operatorArithm : MULTIPLY
                 | DIVIDE
-                | MODULE
-                '''
-
+                | MODULE'''
 
 def p_power_op(p):
     '''power_op : INTEGER POWER INTEGER'''
+
+def p_concatenar_strings(p):
+    '''concatenar_strings : STRING PLUS STRING'''
+
+def p_sum_of_integers(p):
+    '''sum_of_integers : INTEGER PLUS INTEGER'''
+
+def p_subtraction_of_integers(p):
+    '''subtraction_of_integers : INTEGER MINUS INTEGER'''
 
 def p_lists(p):
     '''lists : LBRACKET argumentos RBRACKET
@@ -143,6 +132,8 @@ def p_boolean(p):
 
 def p_operation(p):
     '''operation : operand operatorArithm operand
+                 | sum_of_integers
+                 | subtraction_of_integers
                  | operand operatorArithm operation'''
 
 
@@ -177,7 +168,6 @@ def p_statement(p):
                   | impresion
                   | if_statement
                   | while_statement
-                  | instantiation
                   | return'''
 
 def p_return(p):
@@ -207,13 +197,6 @@ def p_comparator(p):
 def p_empty(p):
     'empty :'
     p[0] = None
-
-def p_parameters(p):
-    '''
-    parameters : NAME
-               | NAME COMA parameters
-               | empty
-    '''
 
 def p_body(p):
     '''
@@ -308,9 +291,9 @@ calcular_promedio_general(estudiantes)\n
 '''
 
 code_3 = '''
-suma = azul + 4
+
 '''
 
 result = analysing(code_3)
-loger.create_log(lexer, "bryanestrada003", code_3, lx.error_list)
-loger.create_syntactic_log(parser, "bryanestrada003", code_3, error_list)
+loger.create_log(lexer, "alicarpio", code_3, lx.error_list)
+loger.create_syntactic_log(parser, "alicarpio", code_3, error_list)

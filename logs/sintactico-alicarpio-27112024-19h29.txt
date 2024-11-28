@@ -1,0 +1,17 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+CONSTANTE = 6
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'CONSTANTE' in line 1
+Syntax error: 'CONSTANTE' in line 1

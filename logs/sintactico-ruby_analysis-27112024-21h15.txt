@@ -1,0 +1,18 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+var = 5
+if 5 > 6
+ puts "hola
+end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Error: Uso de variable no declarada hola
+Error: Uso de variable no declarada hola

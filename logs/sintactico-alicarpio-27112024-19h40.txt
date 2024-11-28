@@ -1,0 +1,100 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+CONSTANTE = 6
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '6' in line 1
+Syntax error: '6' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+CONSTANTE = 5 + 5
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '5' in line 1
+Syntax error: '5' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+variable = 5 + 5.2
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '5.2' in line 1
+Syntax error: '5.2' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+variable = 5 - 5.2
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '5.2' in line 1
+Syntax error: '5.2' in line 1
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+variable = 5 / 5.2
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+variable = 5.2 / 5.2
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

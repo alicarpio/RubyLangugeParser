@@ -1,0 +1,33 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+var 
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntactic: Unexpected end of input
+Syntactic: Unexpected end of input
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+var = "alina" + "alina"
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

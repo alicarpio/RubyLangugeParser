@@ -13,15 +13,12 @@ reserved = {
     'until': 'UNTIL',
     'for': 'FOR',
     'do': 'DO',
-    'class': 'CLASS',
-    'def': 'DEF',
+    'defdef': 'DEF',
     'initialize': 'INITIALIZE',
     'end': 'END',
     'puts': 'PUTS',
     'gets': 'GETS',
     'chomp': 'CHOMP',
-    'new': 'NEW',
-    'each': 'EACH',
     'in': 'IN',
     'return': 'RETURN'
 }
@@ -29,7 +26,6 @@ reserved = {
 tokens = (
     'SYMBOL',
     'STRING',
-    'CLASS_NAME',
     'VARIABLE_GLOBAL',
     'VARIABLE_CONSTANTE',
     'VARIABLE_LOCAL',
@@ -43,7 +39,6 @@ tokens = (
     'RSQBRACKET',
     'HASHROCKET',
     'COLON',
-    'SEMICOLON',
     'GT',
     'LT',
     'GE',
@@ -65,8 +60,6 @@ tokens = (
     'NAME',
     'EQUALS',
     'DOT',
-    'PIPE',
-    'NEWLINE'
 ) + tuple(reserved.values())
 
 t_COMA = r'\,'
@@ -76,10 +69,8 @@ t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_LSQBRACKET = r'\['
 t_RSQBRACKET = r'\]'
-t_SEMICOLON = r';'
 t_HASHROCKET = r'=>'
 t_COLON = r'\:'
-t_PIPE = r'\|'
 t_GE = r'>='
 t_LE = r'<='
 t_EQ = r'=='
@@ -127,10 +118,6 @@ def t_VARIABLE_GLOBAL(t):
 
 def t_VARIABLE_INSTANCIA(t):
     r'\@{1}[a-zA-Z_][a-zA-Z0-9_]*'
-    return t
-
-def t_CLASS_NAME(t):
-    r'[A-Z][a-zA-Z0-9_]*'
     return t
 
 def t_VARIABLE_CONSTANTE(t):
@@ -206,4 +193,4 @@ end
 calcular_promedio_general(estudiantes)
 '''
 
-loger.create_log(lexer, "bryanestrada003", data, error_list)
+# loger.create_log(lexer, "bryanestrada003", data, error_list)

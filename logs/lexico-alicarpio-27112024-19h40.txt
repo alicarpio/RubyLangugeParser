@@ -1,0 +1,7 @@
+LexToken(NAME,'variable',1,1)
+LexToken(EQUALS,'=',1,10)
+LexToken(FLOAT,5.2,1,12)
+LexToken(DIVIDE,'/',1,16)
+LexToken(FLOAT,5.2,1,18)
+
+Errores:

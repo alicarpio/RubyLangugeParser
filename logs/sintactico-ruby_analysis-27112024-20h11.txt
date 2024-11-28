@@ -1,0 +1,17 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+def test
+  puts "Hola"
+end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'test' in line 1
+Syntax error: 'test' in line 1

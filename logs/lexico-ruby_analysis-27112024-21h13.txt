@@ -1,0 +1,3 @@
+LexToken(NAME,'hola',1,0)
+
+Errores:

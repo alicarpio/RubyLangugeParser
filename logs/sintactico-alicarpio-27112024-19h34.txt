@@ -1,0 +1,33 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+CONSTANTE = "ALINA"
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+CONSTANTE = 6
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '6' in line 1
+Syntax error: '6' in line 1

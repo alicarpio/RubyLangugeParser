@@ -1,0 +1,48 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+variable = "alina" + "carpio"
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+variable = "alina" 
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+variable = "alina" 
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected

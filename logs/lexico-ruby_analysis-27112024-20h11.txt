@@ -1,0 +1,7 @@
+LexToken(NAME,'def',1,0)
+LexToken(NAME,'test',1,4)
+LexToken(PUTS,'puts',1,11)
+LexToken(STRING,'"Hola"',1,16)
+LexToken(END,'end',1,23)
+
+Errores:

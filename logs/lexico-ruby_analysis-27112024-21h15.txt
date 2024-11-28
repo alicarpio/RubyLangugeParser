@@ -1,0 +1,13 @@
+LexToken(NAME,'var',1,0)
+LexToken(EQUALS,'=',1,4)
+LexToken(INTEGER,5,1,6)
+LexToken(IF,'if',1,8)
+LexToken(INTEGER,5,1,11)
+LexToken(GT,'>',1,13)
+LexToken(INTEGER,6,1,15)
+LexToken(PUTS,'puts',1,18)
+LexToken(NAME,'hola',1,24)
+LexToken(END,'end',1,29)
+
+Errores:
+Illegal character: " in line 1

@@ -1,0 +1,15 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+VARIABLE = 5
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: '5' in line 1
+Syntax error: '5' in line 1

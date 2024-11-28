@@ -11,6 +11,6 @@
 
 <style scoped>
 .custom-bg {
-  background-color: #FFE8CD;
+  background-color: #FBD3A2;
 }
 </style>

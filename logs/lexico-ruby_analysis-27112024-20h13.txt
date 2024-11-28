@@ -1,0 +1,5 @@
+LexToken(NAME,'variable',1,0)
+LexToken(EQUALS,'=',1,9)
+LexToken(INTEGER,5,1,11)
+
+Errores:

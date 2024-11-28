@@ -1,0 +1,32 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+var = 5
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+No syntax errors detected
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+var = 5
+if var > 5
+ puts "hola"
+end
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'var' in line 1
+Syntax error: 'var' in line 1

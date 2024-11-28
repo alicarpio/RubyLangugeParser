@@ -1,0 +1,5 @@
+LexToken(VARIABLE_CONSTANTE,'CONSTANTE',1,1)
+LexToken(EQUALS,'=',1,11)
+LexToken(STRING,'"ALINA"',1,13)
+
+Errores:

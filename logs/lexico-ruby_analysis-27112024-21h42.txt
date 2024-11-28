@@ -1,0 +1,6 @@
+LexToken(NAME,'var',1,0)
+LexToken(EQUALS,'=',1,4)
+LexToken(INTEGER,5,1,6)
+
+Errores:
+Illegal character: ; in line 1

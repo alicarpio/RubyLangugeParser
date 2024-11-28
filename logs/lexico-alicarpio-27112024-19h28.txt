@@ -1,0 +1,9 @@
+LexToken(NAME,'var',1,1)
+LexToken(EQUALS,'=',1,5)
+LexToken(STRING,'"alina"',1,7)
+LexToken(PLUS,'+',1,15)
+LexToken(STRING,'"alina"',1,17)
+LexToken(VARIABLE_INSTANCIA,'@arroba',1,28)
+
+Errores:
+Illegal character: @ in line 1
