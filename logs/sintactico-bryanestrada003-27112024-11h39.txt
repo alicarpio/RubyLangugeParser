@@ -1,0 +1,17 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+@@@cualquiercosa
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntactic: Unexpected end of input
+Syntactic: Unexpected end of input

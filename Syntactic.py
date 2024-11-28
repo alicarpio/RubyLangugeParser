@@ -1,6 +1,7 @@
 import ply.yacc as yacc
 from Lexer import tokens
 from Lexer import data
+import Logs as loger
 import Lexer as lx
 from Lexer import lexer
 import Logs as loger
@@ -27,8 +28,7 @@ def p_code(p):
             | instantiation
             | solicitud_entrada
             | call_expression
-            | function_definition
-            | class_definition'''
+            | function_definition'''
 
 def p_variable_assignment(p):
     '''variable_assignment : NAME EQUALS expression
@@ -38,6 +38,7 @@ def p_variable_assignment(p):
                            | VARIABLE_CONSTANTE EQUALS expression'''
 
 
+# Reglas de la gramática
 def p_asignacion(p):
     '''asignacion : NAME EQUALS valor
                   | VARIABLE_GLOBAL EQUALS valor
@@ -192,41 +193,8 @@ def p_operatorCond(p):
     '''operatorCond : AND_OP
                     | OR_OP'''
 
-def p_class_definition(p):
-    '''class_definition : CLASS CLASS_NAME class_body END'''
-
 def p_function_definition(p):
     '''function_definition : DEF NAME LPAREN arguments_opt RPAREN body END'''
-
-# Regla para el cuerpo de la clase
-def p_class_body(p):
-    '''class_body : empty
-                  | constructor_definition
-                  | class_body_element_list'''
-
-def p_constructor_definition(p):
-    '''constructor_definition : DEF INITIALIZE LPAREN parameters RPAREN body END'''
-
-
-# Lista de elementos dentro de la clase
-def p_class_body_element_list(p):
-    '''class_body_element_list : class_body_element
-                               | class_body_element class_body_element_list'''
-
-# Elementos permitidos dentro de una clase
-def p_class_body_element(p):
-    '''class_body_element : variable_assignment
-                          | function_definition
-                          | function_def_no_params'''
-
-def p_function_def_no_params(p):
-    '''function_def_no_params : DEF NAME body END'''
-
-
-def p_instantiation(p):
-    '''
-    instantiation : CLASS_NAME NEW LPAREN argumentos RPAREN
-    '''
 
 def p_comparator(p):
     '''comparator : EQ
@@ -254,11 +222,12 @@ def p_body(p):
     '''
 
 # Manejo de errores
+error_list = []
 def p_error(p):
     if p:
-        error_message = f"[Sintáctico] Token inesperado '{p.value}' en línea {p.lineno}"
+        error_message = f"Syntax error: '{p.value}' in line {p.lineno}"
     else:
-        error_message = "[Sintáctico] Fin inesperado de entrada."
+        error_message = "Syntactic: Unexpected end of input"
     error_list.append(error_message)
     print(error_message)
 

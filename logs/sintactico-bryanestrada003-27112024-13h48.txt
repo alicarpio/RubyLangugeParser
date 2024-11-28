@@ -1,0 +1,26 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+@@@cualquiercosa
+
+def funcion() 
+
+    puts "hola"
+
+end
+
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+Syntax error: 'def' in line 1
+Syntax error: 'end' in line 1
+Syntax error: 'def' in line 1
+Syntax error: 'end' in line 1

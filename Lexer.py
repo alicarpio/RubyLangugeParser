@@ -145,10 +145,11 @@ def t_NAME(t):
 
 error_list = []
 t_ignore = ' \t\n'
+
 def t_error(t):
     error_list.clear()
-    print(f"Illegal character: {t.value[0]}")
-    error_list.append(f"Illegal character: {t.value[0]}")
+    print(f"Illegal character: {t.value[0]} in line {t.lineno}")
+    error_list.append(f"Illegal character: {t.value[0]} in line {t.lineno}")
     t.lexer.skip(1)
 
 

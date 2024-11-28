@@ -1,0 +1,11 @@
+LexToken(VARIABLE_INSTANCIA,'@cualquiercosa',1,3)
+LexToken(DEF,'def',1,19)
+LexToken(NAME,'funcion',1,23)
+LexToken(LPAREN,'(',1,30)
+LexToken(RPAREN,')',1,31)
+LexToken(PUTS,'puts',1,38)
+LexToken(STRING,'"hola"',1,43)
+LexToken(END,'end',1,50)
+
+Errores:
+Illegal character: @ in line 1

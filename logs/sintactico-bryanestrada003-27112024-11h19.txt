@@ -1,0 +1,17 @@
+
+
+==============================
+Log Entry 
+==============================
+
+Input Code:
+
+@@@cualquiercosa
+
+
+Parsing Result:
+Parse completed without explicit result
+
+Syntax Errors:
+[Sintáctico] Fin inesperado de entrada.
+[Sintáctico] Fin inesperado de entrada.
